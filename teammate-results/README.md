@@ -46,8 +46,24 @@ All seven result cells executed, with zero errors. Fourteen consistency checks
 passed: query-level means, validation selection, selected-K test rows, AP
 score differences, query-family means, and the two-stage averaging of topic
 probabilities. These checks verify the exported tables; model training was not
-independently reproduced. The final cell fingerprints all 76 reporting input
+independently reproduced. The provenance cell fingerprints all 76 reporting input
 artifacts with SHA-256 (the count is computed from the supplied result folders).
 
 The download ZIP contains the executed `Result.ipynb` and this guide. Your
 original project remains the source of the saved result files for rerunning it.
+
+## Closing comparison and step-by-step reasoning
+
+The final four cells explain what changes in each original experiment file,
+why that change is tried, and what the saved evidence supports. Commented code
+builds a within-experiment improvement table and compares every reported PLSA
+strategy against both reference families. For the ensemble experiment it uses
+the strongest reported TF-IDF/LSI variant for each metric, avoiding a comparison
+only against a weaker reference variant.
+
+The discussion distinguishes changes to the task, K, scoring, validation,
+rank aggregation, and probability diagnostics. It explicitly reports that
+experiment 06 provides the MAP advantage over both families in the saved runs;
+experiment 05 gives a precision advantage without a MAP advantage. Experiment
+07 does not evaluate TF-IDF/LSI retrieval. Improvements are not presented as a
+single continuous curve across incompatible experimental settings.
