@@ -1,21 +1,12 @@
-# Final IR project: Probabilistic Latent Semantic Analysis
+# Modeling Beyond Keywords:Probabilistic Latent Semantic Analysis
 
-This is the **final, self-contained code and results submission** for the IR
-project. It compares PLSA with TF-IDF/VSM and Latent Semantic Indexing (LSI)
+This is the repository contains our IR
+project  implementing Probabilistic Latent Semantic Analysis (PLSA) and studying its use in document retrieval. It compares PLSA with TF-IDF/VSM and Latent Semantic Indexing (LSI)
 on 20 Newsgroups. Seven experiments examine corpus/relevance choices, topic
 count, retrieval scoring, validation, query wording, ensembles and synthetic
 topic-mixture responses.
 
-**Repository:** https://github.com/Animesh2609/Tendering  
-**Final project directory:** `IR_Project_final/`  
-**Evaluator report:** [`Result.ipynb`](Result.ipynb)
-
-No earlier chat attachments or separate ZIP are required. The preprocessing
-and experiment code is the code from the supplied `IR_Project_final.zip`;
-[`source_provenance.json`](source_provenance.json) records its code hashes.
-The original source notebooks' execution outputs have been cleared for clean
-reruns. Their supplied CSV/JSON/PNG/NPZ outputs are committed in `results/`,
-and the consolidated report has executed outputs embedded.
+**Repository:** https://github.com/Animesh2609/Probablisitic-Latent-Semantic-Analysis
 
 ## 1. Recommended evaluator approach
 
