@@ -1,0 +1,25 @@
+query_category,query_text,method,Precision@10,Recall@10,AP@10,NDCG@10,relevant_test_documents
+comp.graphics,computer graphics rendering image pixels,TF-IDF/VSM,0.9,0.03765690376569038,0.8354365079365079,0.9148568823583791,239
+comp.graphics,computer graphics rendering image pixels,LSI,0.7,0.029288702928870293,0.5880952380952381,0.7573821447149967,239
+comp.graphics,computer graphics rendering image pixels,PLSA cosine,0.9,0.03765690376569038,0.7571031746031747,0.8611375561264456,239
+comp.graphics,computer graphics rendering image pixels,PLSA query likelihood,1.0,0.04184100418410042,1.0,1.0,239
+misc.forsale,for sale price shipping offer,TF-IDF/VSM,0.9,0.0375,0.8354365079365079,0.9148568823583791,240
+misc.forsale,for sale price shipping offer,LSI,0.9,0.0375,0.8788888888888889,0.9305687780632229,240
+misc.forsale,for sale price shipping offer,PLSA cosine,0.9,0.0375,0.8354365079365079,0.9148568823583791,240
+misc.forsale,for sale price shipping offer,PLSA query likelihood,1.0,0.041666666666666664,1.0,1.0,240
+rec.sport.baseball,baseball players team season game,TF-IDF/VSM,1.0,0.0423728813559322,1.0,1.0,236
+rec.sport.baseball,baseball players team season game,LSI,1.0,0.0423728813559322,1.0,1.0,236
+rec.sport.baseball,baseball players team season game,PLSA cosine,1.0,0.0423728813559322,1.0,1.0,236
+rec.sport.baseball,baseball players team season game,PLSA query likelihood,1.0,0.0423728813559322,1.0,1.0,236
+sci.med,medical doctor disease treatment health,TF-IDF/VSM,1.0,0.04132231404958678,1.0,1.0,242
+sci.med,medical doctor disease treatment health,LSI,1.0,0.04132231404958678,1.0,1.0,242
+sci.med,medical doctor disease treatment health,PLSA cosine,0.9,0.0371900826446281,0.7071031746031746,0.77990823370192,242
+sci.med,medical doctor disease treatment health,PLSA query likelihood,0.9,0.0371900826446281,0.8354365079365079,0.9148568823583791,242
+sci.space,space NASA spacecraft orbit planet,TF-IDF/VSM,1.0,0.0423728813559322,1.0,1.0,236
+sci.space,space NASA spacecraft orbit planet,LSI,1.0,0.0423728813559322,1.0,1.0,236
+sci.space,space NASA spacecraft orbit planet,PLSA cosine,0.8,0.03389830508474576,0.6377777777777778,0.7877736340270853,236
+sci.space,space NASA spacecraft orbit planet,PLSA query likelihood,0.8,0.03389830508474576,0.671111111111111,0.8165901947515999,236
+talk.politics.guns,gun control firearms second amendment,TF-IDF/VSM,1.0,0.04504504504504504,1.0,1.0,222
+talk.politics.guns,gun control firearms second amendment,LSI,1.0,0.04504504504504504,1.0,1.0,222
+talk.politics.guns,gun control firearms second amendment,PLSA cosine,0.5,0.02252252252252252,0.19384920634920635,0.38271603883851824,222
+talk.politics.guns,gun control firearms second amendment,PLSA query likelihood,0.5,0.02252252252252252,0.22063492063492066,0.4204996466049308,222

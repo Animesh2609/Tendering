@@ -1,0 +1,3 @@
+operation,K,runtime_seconds,memory_before_MB,memory_after_MB,peak_process_memory_MB,peak_increase_from_start_MB
+Fold in test documents for validation-selected PLSA cosine model,20,1.63,375.72,375.86,375.86,0.14
+Fold in test documents for validation-selected PLSA query-likelihood model,20,1.611,375.86,376.07,376.08,0.22

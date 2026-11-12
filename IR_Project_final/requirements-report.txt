@@ -1,0 +1,7 @@
+# View/regenerate Result.ipynb using the committed result artifacts; no training.
+numpy==2.3.5
+pandas==2.2.3
+nbformat==5.11.1
+nbclient==0.11.0
+ipykernel==7.4.0
+jupyterlab>=4,<5

@@ -1,0 +1,23 @@
+model_family,member,source_category,associated_topic,mean_probability_in_source_category,nonempty_source_training_documents
+PLSA baseline (best full-data restart),best_restart,rec.sport.baseball,1,0.7287093518002901,698
+PLSA baseline (best full-data restart),best_restart,talk.politics.misc,2,0.41441548151067903,561
+PLSA full-data restart ensemble (5 members),restart_1,rec.sport.baseball,1,0.6703829073634595,698
+PLSA full-data restart ensemble (5 members),restart_1,talk.politics.misc,3,0.3306299613201351,561
+PLSA full-data restart ensemble (5 members),restart_2,rec.sport.baseball,4,0.736387421872891,698
+PLSA full-data restart ensemble (5 members),restart_2,talk.politics.misc,2,0.4634439855222808,561
+PLSA full-data restart ensemble (5 members),restart_3,rec.sport.baseball,1,0.7287093518002901,698
+PLSA full-data restart ensemble (5 members),restart_3,talk.politics.misc,2,0.41441548151067903,561
+PLSA full-data restart ensemble (5 members),restart_4,rec.sport.baseball,1,0.5528055565108153,698
+PLSA full-data restart ensemble (5 members),restart_4,talk.politics.misc,2,0.4201976569146054,561
+PLSA full-data restart ensemble (5 members),restart_5,rec.sport.baseball,0,0.5917913427160004,698
+PLSA full-data restart ensemble (5 members),restart_5,talk.politics.misc,2,0.3979921675315784,561
+PLSA bootstrap ensemble (5 members),bootstrap_1,rec.sport.baseball,2,0.6675377576661472,652
+PLSA bootstrap ensemble (5 members),bootstrap_1,talk.politics.misc,1,0.4774384728246468,544
+PLSA bootstrap ensemble (5 members),bootstrap_2,rec.sport.baseball,1,0.6252672438006335,676
+PLSA bootstrap ensemble (5 members),bootstrap_2,talk.politics.misc,0,0.332809215387981,562
+PLSA bootstrap ensemble (5 members),bootstrap_3,rec.sport.baseball,2,0.6479771953056538,683
+PLSA bootstrap ensemble (5 members),bootstrap_3,talk.politics.misc,3,0.38973267592821187,594
+PLSA bootstrap ensemble (5 members),bootstrap_4,rec.sport.baseball,0,0.6901286142485463,699
+PLSA bootstrap ensemble (5 members),bootstrap_4,talk.politics.misc,0,0.3543577419956776,592
+PLSA bootstrap ensemble (5 members),bootstrap_5,rec.sport.baseball,3,0.7482105888531836,697
+PLSA bootstrap ensemble (5 members),bootstrap_5,talk.politics.misc,4,0.3956242770513867,585

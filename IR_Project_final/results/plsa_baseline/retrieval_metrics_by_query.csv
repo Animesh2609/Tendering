@@ -1,0 +1,61 @@
+query,target_category,method,Precision@k,Recall@k,AP@k,NDCG@k,relevant_test_documents
+atheism atheist religion belief,alt.atheism,TF-IDF/VSM,0.6,0.03,0.3896428571428571,0.6064391805443411,200
+atheism atheist religion belief,alt.atheism,LSI,0.4,0.02,0.17063492063492064,0.34445239307234,200
+atheism atheist religion belief,alt.atheism,PLSA,0.3,0.015,0.21000000000000002,0.400023248309252,200
+computer graphics rendering image pixels,comp.graphics,TF-IDF/VSM,1.0,0.0411522633744856,1.0,1.0,243
+computer graphics rendering image pixels,comp.graphics,LSI,0.7,0.02880658436213992,0.5658333333333333,0.7467045958894682,243
+computer graphics rendering image pixels,comp.graphics,PLSA,0.1,0.00411522633744856,0.03333333333333333,0.1100458831490401,243
+windows operating system microsoft files,comp.os.ms-windows.misc,TF-IDF/VSM,0.3,0.012195121951219513,0.18285714285714286,0.37859880603906126,246
+windows operating system microsoft files,comp.os.ms-windows.misc,LSI,0.5,0.02032520325203252,0.3026984126984127,0.5232512984721257,246
+windows operating system microsoft files,comp.os.ms-windows.misc,PLSA,0.1,0.0040650406504065045,0.0125,0.06943122193677728,246
+IBM PC hardware disk memory computer,comp.sys.ibm.pc.hardware,TF-IDF/VSM,0.3,0.012244897959183673,0.08555555555555557,0.23992089480238088,245
+IBM PC hardware disk memory computer,comp.sys.ibm.pc.hardware,LSI,0.2,0.00816326530612245,0.04857142857142857,0.15850703974098107,245
+IBM PC hardware disk memory computer,comp.sys.ibm.pc.hardware,PLSA,0.1,0.004081632653061225,0.025,0.09478836436955079,245
+Apple Macintosh Mac hardware computer,comp.sys.mac.hardware,TF-IDF/VSM,0.6,0.024896265560165973,0.3422222222222222,0.5333576782543338,241
+Apple Macintosh Mac hardware computer,comp.sys.mac.hardware,LSI,0.8,0.03319502074688797,0.7532142857142857,0.8553475075669357,241
+Apple Macintosh Mac hardware computer,comp.sys.mac.hardware,PLSA,0.1,0.004149377593360996,0.05,0.13886244387355456,241
+X Window System display server windows,comp.windows.x,TF-IDF/VSM,0.9,0.03643724696356275,0.7571031746031747,0.8611375561264456,247
+X Window System display server windows,comp.windows.x,LSI,0.9,0.03643724696356275,0.8354365079365079,0.9148568823583791,247
+X Window System display server windows,comp.windows.x,PLSA,0.2,0.008097165991902834,0.13999999999999999,0.3052348839397012,247
+for sale price shipping offer,misc.forsale,TF-IDF/VSM,0.8,0.03278688524590164,0.78,0.8643145546088339,244
+for sale price shipping offer,misc.forsale,LSI,0.8,0.03278688524590164,0.7254365079365079,0.8415908474314977,244
+for sale price shipping offer,misc.forsale,PLSA,0.2,0.00819672131147541,0.03888888888888888,0.14465249243306438,244
+car automobile engine dealer,rec.autos,TF-IDF/VSM,0.8,0.03225806451612903,0.7577777777777778,0.8572048559638626,248
+car automobile engine dealer,rec.autos,LSI,0.8,0.03225806451612903,0.8,0.8701249883466594,248
+car automobile engine dealer,rec.autos,PLSA,0.1,0.004032258064516129,0.05,0.13886244387355456,248
+motorcycle bike riding helmet,rec.motorcycles,TF-IDF/VSM,1.0,0.040160642570281124,1.0,1.0,249
+motorcycle bike riding helmet,rec.motorcycles,LSI,1.0,0.040160642570281124,1.0,1.0,249
+motorcycle bike riding helmet,rec.motorcycles,PLSA,0.2,0.008032128514056224,0.041666666666666664,0.14782949091545264,249
+baseball players team season game,rec.sport.baseball,TF-IDF/VSM,0.7,0.028112449799196786,0.611547619047619,0.7600791051976192,249
+baseball players team season game,rec.sport.baseball,LSI,0.2,0.008032128514056224,0.08333333333333333,0.2172607128522299,249
+baseball players team season game,rec.sport.baseball,PLSA,0.2,0.008032128514056224,0.15,0.314880130667631,249
+hockey team NHL puck season,rec.sport.hockey,TF-IDF/VSM,1.0,0.04,1.0,1.0,250
+hockey team NHL puck season,rec.sport.hockey,LSI,0.7,0.028,0.594047619047619,0.7542686714597937,250
+hockey team NHL puck season,rec.sport.hockey,PLSA,0.4,0.016,0.16063492063492063,0.3348071463444102,250
+cryptography encryption key security,sci.crypt,TF-IDF/VSM,1.0,0.04032258064516129,1.0,1.0,248
+cryptography encryption key security,sci.crypt,LSI,1.0,0.04032258064516129,1.0,1.0,248
+cryptography encryption key security,sci.crypt,PLSA,0.0,0.0,0.0,0.0,248
+electronics circuit voltage resistor,sci.electronics,TF-IDF/VSM,0.9,0.036585365853658534,0.89,0.9337457765456111,246
+electronics circuit voltage resistor,sci.electronics,LSI,1.0,0.04065040650406504,1.0,1.0,246
+electronics circuit voltage resistor,sci.electronics,PLSA,0.1,0.0040650406504065045,0.014285714285714285,0.07336392209936006,246
+medical doctor disease treatment health,sci.med,TF-IDF/VSM,1.0,0.04048582995951417,1.0,1.0,247
+medical doctor disease treatment health,sci.med,LSI,1.0,0.04048582995951417,1.0,1.0,247
+medical doctor disease treatment health,sci.med,PLSA,0.1,0.004048582995951417,0.01111111111111111,0.06625422345438904,247
+space NASA spacecraft orbit planet,sci.space,TF-IDF/VSM,1.0,0.04048582995951417,1.0,1.0,247
+space NASA spacecraft orbit planet,sci.space,LSI,1.0,0.04048582995951417,1.0,1.0,247
+space NASA spacecraft orbit planet,sci.space,PLSA,0.1,0.004048582995951417,0.014285714285714285,0.07336392209936006,247
+Christian church Bible Jesus faith,soc.religion.christian,TF-IDF/VSM,0.5,0.020080321285140562,0.2893650793650793,0.4736695902179648,249
+Christian church Bible Jesus faith,soc.religion.christian,LSI,0.5,0.020080321285140562,0.21527777777777776,0.416566946442348,249
+Christian church Bible Jesus faith,soc.religion.christian,PLSA,0.4,0.01606425702811245,0.19,0.37878333867593544,249
+gun control firearms second amendment,talk.politics.guns,TF-IDF/VSM,0.8,0.03524229074889868,0.671111111111111,0.8165901947515999,227
+gun control firearms second amendment,talk.politics.guns,LSI,0.9,0.039647577092511016,0.790436507936508,0.88995411685096,227
+gun control firearms second amendment,talk.politics.guns,PLSA,0.0,0.0,0.0,0.0,227
+Middle East Israel Arab Palestinian,talk.politics.mideast,TF-IDF/VSM,1.0,0.0425531914893617,1.0,1.0,235
+Middle East Israel Arab Palestinian,talk.politics.mideast,LSI,1.0,0.0425531914893617,1.0,1.0,235
+Middle East Israel Arab Palestinian,talk.politics.mideast,PLSA,0.4,0.01702127659574468,0.32666666666666666,0.5224955967919311,235
+government election political policy,talk.politics.misc,TF-IDF/VSM,0.3,0.015463917525773196,0.275,0.45374257454118555,194
+government election political policy,talk.politics.misc,LSI,0.2,0.010309278350515464,0.05833333333333333,0.17318663334822615,194
+government election political policy,talk.politics.misc,PLSA,0.0,0.0,0.0,0.0,194
+religion religious belief faith,talk.religion.misc,TF-IDF/VSM,0.1,0.006369426751592357,0.05,0.13886244387355456,157
+religion religious belief faith,talk.religion.misc,LSI,0.2,0.012738853503184714,0.12857142857142856,0.29345568839744024,157
+religion religious belief faith,talk.religion.misc,PLSA,0.0,0.0,0.0,0.0,157

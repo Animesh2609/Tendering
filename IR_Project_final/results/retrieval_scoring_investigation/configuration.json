@@ -1,0 +1,34 @@
+{
+  "experiment": "PLSA retrieval-scoring investigation",
+  "selected_categories": [
+    "comp.graphics",
+    "misc.forsale",
+    "rec.sport.baseball",
+    "sci.med",
+    "sci.space",
+    "talk.politics.guns"
+  ],
+  "seed": 42,
+  "test_size": 0.25,
+  "n_topics": 6,
+  "n_restarts": 5,
+  "max_iter": 100,
+  "tolerance": 0.0001,
+  "max_features": 3000,
+  "min_df": 3,
+  "max_df": 0.9,
+  "retrieval_k": 10,
+  "plsa_scoring_methods": [
+    "cosine similarity in topic space",
+    "unsmoothed query log-likelihood with numerical floor"
+  ],
+  "query_set": {
+    "comp.graphics": "computer graphics rendering image pixels",
+    "misc.forsale": "for sale price shipping offer",
+    "rec.sport.baseball": "baseball players team season game",
+    "sci.med": "medical doctor disease treatment health",
+    "sci.space": "space NASA spacecraft orbit planet",
+    "talk.politics.guns": "gun control firearms second amendment"
+  },
+  "documents": 5829
+}

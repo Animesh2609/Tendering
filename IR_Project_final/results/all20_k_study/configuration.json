@@ -1,0 +1,73 @@
+{
+  "experiment": "All-20 PLSA topic-count study",
+  "seed": 42,
+  "split_fractions": {
+    "train": 0.6,
+    "validation": 0.2,
+    "test": 0.2
+  },
+  "k_grid": [
+    2,
+    5,
+    8,
+    10,
+    20
+  ],
+  "restarts_per_k": 3,
+  "max_iter": 80,
+  "tolerance": 0.0001,
+  "max_features": 3000,
+  "min_df": 3,
+  "max_df": 0.9,
+  "retrieval_k": 10,
+  "selection_metric": "validation MAP@10, independently for each PLSA scoring method",
+  "validation_selected_k": {
+    "PLSA cosine": 20,
+    "PLSA query likelihood": 20
+  },
+  "categories": [
+    "alt.atheism",
+    "comp.graphics",
+    "comp.os.ms-windows.misc",
+    "comp.sys.ibm.pc.hardware",
+    "comp.sys.mac.hardware",
+    "comp.windows.x",
+    "misc.forsale",
+    "rec.autos",
+    "rec.motorcycles",
+    "rec.sport.baseball",
+    "rec.sport.hockey",
+    "sci.crypt",
+    "sci.electronics",
+    "sci.med",
+    "sci.space",
+    "soc.religion.christian",
+    "talk.politics.guns",
+    "talk.politics.mideast",
+    "talk.politics.misc",
+    "talk.religion.misc"
+  ],
+  "query_set": {
+    "alt.atheism": "atheism atheist religion belief",
+    "comp.graphics": "computer graphics rendering image pixels",
+    "comp.os.ms-windows.misc": "windows operating system microsoft files",
+    "comp.sys.ibm.pc.hardware": "IBM PC hardware disk memory computer",
+    "comp.sys.mac.hardware": "Apple Macintosh Mac hardware computer",
+    "comp.windows.x": "X Window System display server windows",
+    "misc.forsale": "for sale price shipping offer",
+    "rec.autos": "car automobile engine dealer",
+    "rec.motorcycles": "motorcycle bike riding helmet",
+    "rec.sport.baseball": "baseball players team season game",
+    "rec.sport.hockey": "hockey team NHL puck season",
+    "sci.crypt": "cryptography encryption key security",
+    "sci.electronics": "electronics circuit voltage resistor",
+    "sci.med": "medical doctor disease treatment health",
+    "sci.space": "space NASA spacecraft orbit planet",
+    "soc.religion.christian": "Christian church Bible Jesus faith",
+    "talk.politics.guns": "gun control firearms second amendment",
+    "talk.politics.mideast": "Middle East Israel Arab Palestinian",
+    "talk.politics.misc": "government election political policy",
+    "talk.religion.misc": "religion religious belief faith"
+  },
+  "documents": 18846
+}

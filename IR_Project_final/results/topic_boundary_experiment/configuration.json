@@ -1,0 +1,33 @@
+{
+  "experiment": "PLSA topic-mixture and boundary experiment",
+  "seed": 42,
+  "test_size": 0.25,
+  "n_topics": 5,
+  "full_data_restarts": 5,
+  "bootstrap_estimators": 5,
+  "bootstrap_seed": 542,
+  "bootstrap_sample_size": 14134,
+  "bootstrap_with_replacement": true,
+  "mixture_seed": 119,
+  "source_categories": [
+    "rec.sport.baseball",
+    "talk.politics.misc"
+  ],
+  "source_a_token_ratios": [
+    0.0,
+    0.1,
+    0.3,
+    0.5,
+    0.7,
+    0.9,
+    1.0
+  ],
+  "replicates_per_ratio": 30,
+  "tokens_per_mixture": 300,
+  "fold_in_iterations": 100,
+  "probability_aggregation": "average source-associated topic probabilities after within-model category-based topic alignment",
+  "topic_association_rule": "largest mean training-document topic probability within each non-empty source category and model member",
+  "documents": 18846,
+  "training_documents": 14134,
+  "held_out_documents_unused_for_this_probe": 4712
+}

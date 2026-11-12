@@ -1,0 +1,5 @@
+K,selected_iterations,best_training_log_likelihood,runtime_seconds,memory_before_MB,memory_after_MB,peak_process_memory_MB,peak_increase_from_start_MB
+3,53,-1535921.780919014,4.014,166.54,178.0,199.05,32.52
+6,49,-1487732.1322794596,6.455,178.2,180.11,220.51,42.3
+10,54,-1454055.361107701,11.104,180.11,183.91,247.62,67.51
+20,76,-1414907.5242234475,25.074,183.92,188.43,313.5,129.58

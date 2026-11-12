@@ -1,0 +1,19 @@
+query_supergroup,query_text,method,Precision@10,Recall@10,AP@10,NDCG@10,relevant_test_documents
+Computing,computer graphics software hardware operating systems windows,TF-IDF/VSM,0.9,0.009473684210526316,0.8521031746031748,0.9216017310213247,950
+Computing,computer graphics software hardware operating systems windows,LSI,0.7,0.007368421052631579,0.5,0.6402900881481708,950
+Computing,computer graphics software hardware operating systems windows,PLSA,0.8,0.008421052631578947,0.7532142857142857,0.8553475075669357,950
+Digital technology and engineering,electronics circuits encryption cryptography hardware,TF-IDF/VSM,0.9,0.023376623376623377,0.8354365079365079,0.9148568823583791,385
+Digital technology and engineering,electronics circuits encryption cryptography hardware,LSI,1.0,0.025974025974025976,1.0,1.0,385
+Digital technology and engineering,electronics circuits encryption cryptography hardware,PLSA,0.0,0.0,0.0,0.0,385
+Health and space science,medicine health disease doctor space NASA planet,TF-IDF/VSM,0.9,0.023622047244094488,0.8521031746031748,0.9216017310213247,381
+Health and space science,medicine health disease doctor space NASA planet,LSI,1.0,0.026246719160104987,1.0,1.0,381
+Health and space science,medicine health disease doctor space NASA planet,PLSA,0.4,0.010498687664041995,0.27111111111111114,0.48153499054313037,381
+Recreation and consumer exchange,cars motorcycles baseball hockey sports sale price,TF-IDF/VSM,1.0,0.01053740779768177,1.0,1.0,949
+Recreation and consumer exchange,cars motorcycles baseball hockey sports sale price,LSI,0.6,0.006322444678609062,0.48809523809523814,0.6749359875559983,949
+Recreation and consumer exchange,cars motorcycles baseball hockey sports sale price,PLSA,0.7,0.007376185458377239,0.4663095238095238,0.6726934039987302,949
+Religion and worldview,religion atheist christian belief faith god,TF-IDF/VSM,0.9,0.01910828025477707,0.7571031746031747,0.8611375561264456,471
+Religion and worldview,religion atheist christian belief faith god,LSI,0.8,0.016985138004246284,0.5142063492063491,0.6410457898283654,471
+Religion and worldview,religion atheist christian belief faith god,PLSA,0.4,0.008492569002123142,0.1552777777777778,0.3308744461818275,471
+Politics and international affairs,politics government guns international middle east policy,TF-IDF/VSM,0.7,0.01364522417153996,0.6164285714285714,0.7702043899253147,513
+Politics and international affairs,politics government guns international middle east policy,LSI,0.9,0.017543859649122806,0.790436507936508,0.88995411685096,513
+Politics and international affairs,politics government guns international middle east policy,PLSA,0.3,0.005847953216374269,0.06888888888888889,0.2082732806320161,513

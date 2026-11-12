@@ -1,0 +1,7 @@
+query_category,top10_overlap_count,top10_overlap_fraction,spearman_rank_correlation
+comp.graphics,3,0.3,0.9065357509208183
+misc.forsale,5,0.5,0.9320633283260213
+rec.sport.baseball,2,0.2,0.8748210025468108
+sci.med,10,1.0,0.865891845346586
+sci.space,9,0.9,0.8615309209267086
+talk.politics.guns,7,0.7,0.9161259079077569

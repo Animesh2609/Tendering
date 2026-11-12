@@ -1,0 +1,7 @@
+supergroup,source_categories,mean_within_group_cosine,mean_to_other_groups_cosine,closest_external_category
+Computing,5,0.608525298835622,0.3547601173796505,sci.electronics
+Digital technology and engineering,2,0.52529850681309,0.4310583759293334,comp.graphics
+Health and space science,2,0.48550831553363705,0.42274762574795033,talk.politics.misc
+Recreation and consumer exchange,5,0.4015581908104898,0.35470212561855685,sci.electronics
+Religion and worldview,3,0.8184054262231258,0.39065905114144894,talk.politics.misc
+Politics and international affairs,3,0.6212629229391099,0.40134534430534974,talk.religion.misc

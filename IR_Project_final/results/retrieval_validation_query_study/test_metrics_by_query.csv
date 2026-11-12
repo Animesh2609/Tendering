@@ -1,0 +1,73 @@
+split,K,background_weight,query_category,query_type,query_text,method,Precision@10,Recall@10,AP@10,NDCG@10
+test,,,comp.graphics,direct,computer graphics rendering image pixels,TF-IDF/VSM,0.8,0.04145077720207254,0.6258730158730158,0.7827392871477703
+test,,,comp.graphics,direct,computer graphics rendering image pixels,LSI,0.6,0.031088082901554404,0.4491666666666666,0.6555476069276601
+test,20.0,,comp.graphics,direct,computer graphics rendering image pixels,PLSA cosine,0.9,0.046632124352331605,0.866388888888889,0.92663607790064
+test,20.0,0.0,comp.graphics,direct,computer graphics rendering image pixels,PLSA query likelihood,0.8,0.04145077720207254,0.6125396825396825,0.7759944384848245
+test,,,comp.graphics,paraphrase,raster visualization color drawing display,TF-IDF/VSM,0.7,0.03626943005181347,0.5577777777777777,0.7241528458281337
+test,,,comp.graphics,paraphrase,raster visualization color drawing display,LSI,0.8,0.04145077720207254,0.700436507936508,0.8263333286520084
+test,20.0,,comp.graphics,paraphrase,raster visualization color drawing display,PLSA cosine,0.9,0.046632124352331605,0.7071031746031746,0.77990823370192
+test,20.0,0.0,comp.graphics,paraphrase,raster visualization color drawing display,PLSA query likelihood,0.9,0.046632124352331605,0.7071031746031746,0.77990823370192
+test,,,comp.graphics,related_terms,jpeg gif image resolution file format,TF-IDF/VSM,1.0,0.05181347150259067,1.0,1.0
+test,,,comp.graphics,related_terms,jpeg gif image resolution file format,LSI,0.9,0.046632124352331605,0.9,0.9363792118010483
+test,20.0,,comp.graphics,related_terms,jpeg gif image resolution file format,PLSA cosine,0.9,0.046632124352331605,0.7571031746031747,0.8611375561264456
+test,20.0,0.0,comp.graphics,related_terms,jpeg gif image resolution file format,PLSA query likelihood,0.9,0.046632124352331605,0.7571031746031747,0.8611375561264456
+test,,,misc.forsale,direct,for sale price shipping offer,TF-IDF/VSM,0.9,0.04639175257731959,0.8788888888888889,0.9305687780632229
+test,,,misc.forsale,direct,for sale price shipping offer,LSI,1.0,0.05154639175257732,1.0,1.0
+test,20.0,,misc.forsale,direct,for sale price shipping offer,PLSA cosine,0.9,0.04639175257731959,0.790436507936508,0.88995411685096
+test,20.0,0.0,misc.forsale,direct,for sale price shipping offer,PLSA query likelihood,0.9,0.04639175257731959,0.790436507936508,0.88995411685096
+test,,,misc.forsale,paraphrase,selling item cost postage interested,TF-IDF/VSM,0.9,0.04639175257731959,0.9,0.9363792118010483
+test,,,misc.forsale,paraphrase,selling item cost postage interested,LSI,1.0,0.05154639175257732,1.0,1.0
+test,20.0,,misc.forsale,paraphrase,selling item cost postage interested,PLSA cosine,0.9,0.04639175257731959,0.790436507936508,0.88995411685096
+test,20.0,0.0,misc.forsale,paraphrase,selling item cost postage interested,PLSA query likelihood,0.9,0.04639175257731959,0.790436507936508,0.88995411685096
+test,,,misc.forsale,related_terms,available purchase asking price contact,TF-IDF/VSM,0.7,0.03608247422680412,0.6732142857142858,0.791726719367984
+test,,,misc.forsale,related_terms,available purchase asking price contact,LSI,0.9,0.04639175257731959,0.8521031746031748,0.9216017310213247
+test,20.0,,misc.forsale,related_terms,available purchase asking price contact,PLSA cosine,0.9,0.04639175257731959,0.790436507936508,0.88995411685096
+test,20.0,0.0,misc.forsale,related_terms,available purchase asking price contact,PLSA query likelihood,0.9,0.04639175257731959,0.790436507936508,0.88995411685096
+test,,,rec.sport.baseball,direct,baseball players team season game,TF-IDF/VSM,1.0,0.05291005291005291,1.0,1.0
+test,,,rec.sport.baseball,direct,baseball players team season game,LSI,1.0,0.05291005291005291,1.0,1.0
+test,20.0,,rec.sport.baseball,direct,baseball players team season game,PLSA cosine,1.0,0.05291005291005291,1.0,1.0
+test,20.0,0.0,rec.sport.baseball,direct,baseball players team season game,PLSA query likelihood,1.0,0.05291005291005291,1.0,1.0
+test,,,rec.sport.baseball,paraphrase,pitcher batter inning home run,TF-IDF/VSM,1.0,0.05291005291005291,1.0,1.0
+test,,,rec.sport.baseball,paraphrase,pitcher batter inning home run,LSI,0.9,0.047619047619047616,0.8521031746031748,0.9216017310213247
+test,20.0,,rec.sport.baseball,paraphrase,pitcher batter inning home run,PLSA cosine,1.0,0.05291005291005291,1.0,1.0
+test,20.0,0.0,rec.sport.baseball,paraphrase,pitcher batter inning home run,PLSA query likelihood,1.0,0.05291005291005291,1.0,1.0
+test,,,rec.sport.baseball,related_terms,major league baseball statistics runs,TF-IDF/VSM,1.0,0.05291005291005291,1.0,1.0
+test,,,rec.sport.baseball,related_terms,major league baseball statistics runs,LSI,1.0,0.05291005291005291,1.0,1.0
+test,20.0,,rec.sport.baseball,related_terms,major league baseball statistics runs,PLSA cosine,1.0,0.05291005291005291,1.0,1.0
+test,20.0,0.0,rec.sport.baseball,related_terms,major league baseball statistics runs,PLSA query likelihood,1.0,0.05291005291005291,1.0,1.0
+test,,,sci.med,direct,medical doctor disease treatment health,TF-IDF/VSM,1.0,0.052083333333333336,1.0,1.0
+test,,,sci.med,direct,medical doctor disease treatment health,LSI,1.0,0.052083333333333336,1.0,1.0
+test,20.0,,sci.med,direct,medical doctor disease treatment health,PLSA cosine,1.0,0.052083333333333336,1.0,1.0
+test,20.0,0.0,sci.med,direct,medical doctor disease treatment health,PLSA query likelihood,1.0,0.052083333333333336,1.0,1.0
+test,,,sci.med,paraphrase,patient symptom diagnosis medication clinical,TF-IDF/VSM,1.0,0.052083333333333336,1.0,1.0
+test,,,sci.med,paraphrase,patient symptom diagnosis medication clinical,LSI,1.0,0.052083333333333336,1.0,1.0
+test,20.0,,sci.med,paraphrase,patient symptom diagnosis medication clinical,PLSA cosine,1.0,0.052083333333333336,1.0,1.0
+test,20.0,0.0,sci.med,paraphrase,patient symptom diagnosis medication clinical,PLSA query likelihood,1.0,0.052083333333333336,1.0,1.0
+test,,,sci.med,related_terms,hospital therapy drug research study,TF-IDF/VSM,1.0,0.052083333333333336,1.0,1.0
+test,,,sci.med,related_terms,hospital therapy drug research study,LSI,1.0,0.052083333333333336,1.0,1.0
+test,20.0,,sci.med,related_terms,hospital therapy drug research study,PLSA cosine,0.9,0.046875,0.8354365079365079,0.9148568823583791
+test,20.0,0.0,sci.med,related_terms,hospital therapy drug research study,PLSA query likelihood,1.0,0.052083333333333336,1.0,1.0
+test,,,sci.space,direct,space NASA spacecraft orbit planet,TF-IDF/VSM,1.0,0.05263157894736842,1.0,1.0
+test,,,sci.space,direct,space NASA spacecraft orbit planet,LSI,1.0,0.05263157894736842,1.0,1.0
+test,20.0,,sci.space,direct,space NASA spacecraft orbit planet,PLSA cosine,1.0,0.05263157894736842,1.0,1.0
+test,20.0,0.0,sci.space,direct,space NASA spacecraft orbit planet,PLSA query likelihood,1.0,0.05263157894736842,1.0,1.0
+test,,,sci.space,paraphrase,shuttle mission satellite launch moon,TF-IDF/VSM,1.0,0.05263157894736842,1.0,1.0
+test,,,sci.space,paraphrase,shuttle mission satellite launch moon,LSI,1.0,0.05263157894736842,1.0,1.0
+test,20.0,,sci.space,paraphrase,shuttle mission satellite launch moon,PLSA cosine,1.0,0.05263157894736842,1.0,1.0
+test,20.0,0.0,sci.space,paraphrase,shuttle mission satellite launch moon,PLSA query likelihood,1.0,0.05263157894736842,1.0,1.0
+test,,,sci.space,related_terms,astronomy universe planetary exploration,TF-IDF/VSM,0.7,0.03684210526315789,0.6777777777777778,0.793584067764911
+test,,,sci.space,related_terms,astronomy universe planetary exploration,LSI,1.0,0.05263157894736842,1.0,1.0
+test,20.0,,sci.space,related_terms,astronomy universe planetary exploration,PLSA cosine,1.0,0.05263157894736842,1.0,1.0
+test,20.0,0.0,sci.space,related_terms,astronomy universe planetary exploration,PLSA query likelihood,1.0,0.05263157894736842,1.0,1.0
+test,,,talk.politics.guns,direct,gun control firearms second amendment,TF-IDF/VSM,1.0,0.056818181818181816,1.0,1.0
+test,,,talk.politics.guns,direct,gun control firearms second amendment,LSI,1.0,0.056818181818181816,1.0,1.0
+test,20.0,,talk.politics.guns,direct,gun control firearms second amendment,PLSA cosine,1.0,0.056818181818181816,1.0,1.0
+test,20.0,0.0,talk.politics.guns,direct,gun control firearms second amendment,PLSA query likelihood,1.0,0.056818181818181816,1.0,1.0
+test,,,talk.politics.guns,paraphrase,weapon legislation rights handgun rifle,TF-IDF/VSM,1.0,0.056818181818181816,1.0,1.0
+test,,,talk.politics.guns,paraphrase,weapon legislation rights handgun rifle,LSI,0.8,0.045454545454545456,0.6708730158730158,0.8200685179888284
+test,20.0,,talk.politics.guns,paraphrase,weapon legislation rights handgun rifle,PLSA cosine,1.0,0.056818181818181816,1.0,1.0
+test,20.0,0.0,talk.politics.guns,paraphrase,weapon legislation rights handgun rifle,PLSA query likelihood,1.0,0.056818181818181816,1.0,1.0
+test,,,talk.politics.guns,related_terms,firearm policy congress law,TF-IDF/VSM,1.0,0.056818181818181816,1.0,1.0
+test,,,talk.politics.guns,related_terms,firearm policy congress law,LSI,1.0,0.056818181818181816,1.0,1.0
+test,20.0,,talk.politics.guns,related_terms,firearm policy congress law,PLSA cosine,0.9,0.05113636363636364,0.7571031746031747,0.8611375561264456
+test,20.0,0.0,talk.politics.guns,related_terms,firearm policy congress law,PLSA query likelihood,0.8,0.045454545454545456,0.6258730158730158,0.7827392871477703

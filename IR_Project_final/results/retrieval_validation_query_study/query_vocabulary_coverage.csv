@@ -1,0 +1,19 @@
+query_category,query_type,query_text,processed_query,unique_query_terms,terms_in_training_vocabulary,terms_oov,vocabulary_coverage
+comp.graphics,direct,computer graphics rendering image pixels,computer graphic render image pixel,5,5,0,1.0
+comp.graphics,paraphrase,raster visualization color drawing display,raster visualization color drawing display,5,5,0,1.0
+comp.graphics,related_terms,jpeg gif image resolution file format,jpeg gif image resolution file format,6,6,0,1.0
+misc.forsale,direct,for sale price shipping offer,sale price shipping offer,4,4,0,1.0
+misc.forsale,paraphrase,selling item cost postage interested,sell item cost postage interested,5,5,0,1.0
+misc.forsale,related_terms,available purchase asking price contact,available purchase ask price contact,5,5,0,1.0
+rec.sport.baseball,direct,baseball players team season game,baseball player team season game,5,5,0,1.0
+rec.sport.baseball,paraphrase,pitcher batter inning home run,pitcher batter inne home run,5,4,1,0.8
+rec.sport.baseball,related_terms,major league baseball statistics runs,major league baseball statistic run,5,5,0,1.0
+sci.med,direct,medical doctor disease treatment health,medical doctor disease treatment health,5,5,0,1.0
+sci.med,paraphrase,patient symptom diagnosis medication clinical,patient symptom diagnosis medication clinical,5,5,0,1.0
+sci.med,related_terms,hospital therapy drug research study,hospital therapy drug research study,5,5,0,1.0
+sci.space,direct,space NASA spacecraft orbit planet,space nasa spacecraft orbit planet,5,5,0,1.0
+sci.space,paraphrase,shuttle mission satellite launch moon,shuttle mission satellite launch moon,5,5,0,1.0
+sci.space,related_terms,astronomy universe planetary exploration,astronomy universe planetary exploration,4,4,0,1.0
+talk.politics.guns,direct,gun control firearms second amendment,gun control firearm amendment,4,4,0,1.0
+talk.politics.guns,paraphrase,weapon legislation rights handgun rifle,weapon legislation right handgun rifle,5,5,0,1.0
+talk.politics.guns,related_terms,firearm policy congress law,firearm policy congress law,4,4,0,1.0

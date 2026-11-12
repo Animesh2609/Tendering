@@ -1,0 +1,6 @@
+restart,seed,iterations,training_log_likelihood,selected
+1,42,44,-6273009.364344131,True
+2,43,40,-6277750.969995909,False
+3,44,46,-6275103.752041089,False
+4,45,51,-6277416.225500393,False
+5,46,42,-6275063.638456421,False

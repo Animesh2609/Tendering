@@ -1,0 +1,52 @@
+{
+  "experiment": "Six broad subject groups",
+  "seed": 42,
+  "test_size": 0.2,
+  "n_topics": 6,
+  "n_restarts": 5,
+  "max_iter": 100,
+  "tolerance": 0.0001,
+  "max_features": 3000,
+  "min_df": 3,
+  "max_df": 0.9,
+  "retrieval_k": 10,
+  "documents": 18846,
+  "supergroups": {
+    "Computing": [
+      "comp.graphics",
+      "comp.os.ms-windows.misc",
+      "comp.sys.ibm.pc.hardware",
+      "comp.sys.mac.hardware",
+      "comp.windows.x"
+    ],
+    "Digital technology and engineering": [
+      "sci.crypt",
+      "sci.electronics"
+    ],
+    "Health and space science": [
+      "sci.med",
+      "sci.space"
+    ],
+    "Recreation and consumer exchange": [
+      "misc.forsale",
+      "rec.autos",
+      "rec.motorcycles",
+      "rec.sport.baseball",
+      "rec.sport.hockey"
+    ],
+    "Religion and worldview": [
+      "alt.atheism",
+      "soc.religion.christian",
+      "talk.religion.misc"
+    ],
+    "Politics and international affairs": [
+      "talk.politics.guns",
+      "talk.politics.mideast",
+      "talk.politics.misc"
+    ]
+  },
+  "topic_mixture_categories": [
+    "rec.sport.baseball",
+    "talk.politics.guns"
+  ]
+}

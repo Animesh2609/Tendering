@@ -1,0 +1,201 @@
+split,K,query_category,query_text,method,Precision@10,Recall@10,AP@10,NDCG@10,relevant_documents
+validation,2,alt.atheism,atheism atheist religion belief,PLSA cosine,0.1,0.006369426751592357,0.0125,0.06943122193677728,157
+validation,2,alt.atheism,atheism atheist religion belief,PLSA query likelihood,0.0,0.0,0.0,0.0,157
+validation,2,comp.graphics,computer graphics rendering image pixels,PLSA cosine,0.2,0.010526315789473684,0.11666666666666665,0.24890832702259466,190
+validation,2,comp.graphics,computer graphics rendering image pixels,PLSA query likelihood,0.4,0.021052631578947368,0.25,0.46270962158308365,190
+validation,2,comp.os.ms-windows.misc,windows operating system microsoft files,PLSA cosine,0.2,0.010416666666666666,0.034722222222222224,0.1356854453911663,192
+validation,2,comp.os.ms-windows.misc,windows operating system microsoft files,PLSA query likelihood,0.3,0.015625,0.13999999999999999,0.3024038304938509,192
+validation,2,comp.sys.ibm.pc.hardware,IBM PC hardware disk memory computer,PLSA cosine,0.1,0.005154639175257732,0.01,0.06362078819895173,194
+validation,2,comp.sys.ibm.pc.hardware,IBM PC hardware disk memory computer,PLSA query likelihood,0.1,0.005154639175257732,0.01111111111111111,0.06625422345438904,194
+validation,2,comp.sys.mac.hardware,Apple Macintosh Mac hardware computer,PLSA cosine,0.0,0.0,0.0,0.0,186
+validation,2,comp.sys.mac.hardware,Apple Macintosh Mac hardware computer,PLSA query likelihood,0.0,0.0,0.0,0.0,186
+validation,2,comp.windows.x,X Window System display server windows,PLSA cosine,0.1,0.00510204081632653,0.014285714285714285,0.07336392209936006,196
+validation,2,comp.windows.x,X Window System display server windows,PLSA query likelihood,0.0,0.0,0.0,0.0,196
+validation,2,misc.forsale,for sale price shipping offer,PLSA cosine,0.1,0.005235602094240838,0.1,0.2200917662980802,191
+validation,2,misc.forsale,for sale price shipping offer,PLSA query likelihood,0.1,0.005235602094240838,0.01,0.06362078819895173,191
+validation,2,rec.autos,car automobile engine dealer,PLSA cosine,0.0,0.0,0.0,0.0,183
+validation,2,rec.autos,car automobile engine dealer,PLSA query likelihood,0.0,0.0,0.0,0.0,183
+validation,2,rec.motorcycles,motorcycle bike riding helmet,PLSA cosine,0.0,0.0,0.0,0.0,191
+validation,2,rec.motorcycles,motorcycle bike riding helmet,PLSA query likelihood,0.0,0.0,0.0,0.0,191
+validation,2,rec.sport.baseball,baseball players team season game,PLSA cosine,0.2,0.010869565217391304,0.08333333333333333,0.2172607128522299,184
+validation,2,rec.sport.baseball,baseball players team season game,PLSA query likelihood,0.0,0.0,0.0,0.0,184
+validation,2,rec.sport.hockey,hockey team NHL puck season,PLSA cosine,0.0,0.0,0.0,0.0,196
+validation,2,rec.sport.hockey,hockey team NHL puck season,PLSA query likelihood,0.3,0.015306122448979591,0.10785714285714285,0.25329540411053186,196
+validation,2,sci.crypt,cryptography encryption key security,PLSA cosine,0.1,0.005208333333333333,0.025,0.09478836436955079,192
+validation,2,sci.crypt,cryptography encryption key security,PLSA query likelihood,0.0,0.0,0.0,0.0,192
+validation,2,sci.electronics,electronics circuit voltage resistor,PLSA cosine,0.0,0.0,0.0,0.0,190
+validation,2,sci.electronics,electronics circuit voltage resistor,PLSA query likelihood,0.0,0.0,0.0,0.0,190
+validation,2,sci.med,medical doctor disease treatment health,PLSA cosine,0.1,0.0051813471502590676,0.05,0.13886244387355456,193
+validation,2,sci.med,medical doctor disease treatment health,PLSA query likelihood,0.0,0.0,0.0,0.0,193
+validation,2,sci.space,space NASA spacecraft orbit planet,PLSA cosine,0.1,0.005208333333333333,0.016666666666666666,0.07839826897867534,192
+validation,2,sci.space,space NASA spacecraft orbit planet,PLSA query likelihood,0.1,0.005208333333333333,0.05,0.13886244387355456,192
+validation,2,soc.religion.christian,Christian church Bible Jesus faith,PLSA cosine,0.3,0.015228426395939087,0.0665079365079365,0.20323893375270083,197
+validation,2,soc.religion.christian,Christian church Bible Jesus faith,PLSA query likelihood,0.2,0.01015228426395939,0.05833333333333333,0.17947710508581738,197
+validation,2,talk.politics.guns,gun control firearms second amendment,PLSA cosine,0.1,0.005681818181818182,0.05,0.13886244387355456,176
+validation,2,talk.politics.guns,gun control firearms second amendment,PLSA query likelihood,0.1,0.005681818181818182,0.05,0.13886244387355456,176
+validation,2,talk.politics.mideast,Middle East Israel Arab Palestinian,PLSA cosine,0.0,0.0,0.0,0.0,184
+validation,2,talk.politics.mideast,Middle East Israel Arab Palestinian,PLSA query likelihood,0.2,0.010869565217391304,0.12857142857142856,0.29345568839744024,184
+validation,2,talk.politics.misc,government election political policy,PLSA cosine,0.3,0.02027027027027027,0.1433333333333333,0.2899773651602119,148
+validation,2,talk.politics.misc,government election political policy,PLSA query likelihood,0.0,0.0,0.0,0.0,148
+validation,2,talk.religion.misc,religion religious belief faith,PLSA cosine,0.0,0.0,0.0,0.0,122
+validation,2,talk.religion.misc,religion religious belief faith,PLSA query likelihood,0.2,0.01639344262295082,0.12222222222222223,0.2863459897524693,122
+validation,5,alt.atheism,atheism atheist religion belief,PLSA cosine,0.2,0.012738853503184714,0.12857142857142856,0.29345568839744024,157
+validation,5,alt.atheism,atheism atheist religion belief,PLSA query likelihood,0.1,0.006369426751592357,0.1,0.2200917662980802,157
+validation,5,comp.graphics,computer graphics rendering image pixels,PLSA cosine,0.0,0.0,0.0,0.0,190
+validation,5,comp.graphics,computer graphics rendering image pixels,PLSA query likelihood,0.5,0.02631578947368421,0.2838095238095238,0.4710361549625274,190
+validation,5,comp.os.ms-windows.misc,windows operating system microsoft files,PLSA cosine,0.2,0.010416666666666666,0.04523809523809523,0.1517621910780354,192
+validation,5,comp.os.ms-windows.misc,windows operating system microsoft files,PLSA query likelihood,0.1,0.005208333333333333,0.0125,0.06943122193677728,192
+validation,5,comp.sys.ibm.pc.hardware,IBM PC hardware disk memory computer,PLSA cosine,0.2,0.010309278350515464,0.042222222222222223,0.15139734109601005,194
+validation,5,comp.sys.ibm.pc.hardware,IBM PC hardware disk memory computer,PLSA query likelihood,0.1,0.005154639175257732,0.025,0.09478836436955079,194
+validation,5,comp.sys.mac.hardware,Apple Macintosh Mac hardware computer,PLSA cosine,0.2,0.010752688172043012,0.16666666666666666,0.3301376494471203,186
+validation,5,comp.sys.mac.hardware,Apple Macintosh Mac hardware computer,PLSA query likelihood,0.2,0.010752688172043012,0.03888888888888888,0.14465249243306438,186
+validation,5,comp.windows.x,X Window System display server windows,PLSA cosine,0.3,0.015306122448979591,0.08,0.22784037450527977,196
+validation,5,comp.windows.x,X Window System display server windows,PLSA query likelihood,0.0,0.0,0.0,0.0,196
+validation,5,misc.forsale,for sale price shipping offer,PLSA cosine,0.1,0.005235602094240838,0.05,0.13886244387355456,191
+validation,5,misc.forsale,for sale price shipping offer,PLSA query likelihood,0.1,0.005235602094240838,0.1,0.2200917662980802,191
+validation,5,rec.autos,car automobile engine dealer,PLSA cosine,0.5,0.0273224043715847,0.19384920634920635,0.38271603883851824,183
+validation,5,rec.autos,car automobile engine dealer,PLSA query likelihood,0.2,0.01092896174863388,0.06190476190476191,0.18340980524840014,183
+validation,5,rec.motorcycles,motorcycle bike riding helmet,PLSA cosine,0.3,0.015706806282722512,0.11499999999999999,0.2583297509898471,191
+validation,5,rec.motorcycles,motorcycle bike riding helmet,PLSA query likelihood,0.6,0.031413612565445025,0.3655555555555555,0.5925846332364245,191
+validation,5,rec.sport.baseball,baseball players team season game,PLSA cosine,0.1,0.005434782608695652,0.01111111111111111,0.06625422345438904,184
+validation,5,rec.sport.baseball,baseball players team season game,PLSA query likelihood,0.1,0.005434782608695652,0.01,0.06362078819895173,184
+validation,5,rec.sport.hockey,hockey team NHL puck season,PLSA cosine,0.4,0.02040816326530612,0.16619047619047617,0.3418189578169027,196
+validation,5,rec.sport.hockey,hockey team NHL puck season,PLSA query likelihood,0.9,0.04591836734693878,0.9,0.9363792118010483,196
+validation,5,sci.crypt,cryptography encryption key security,PLSA cosine,0.2,0.010416666666666666,0.06999999999999999,0.2024832320725063,192
+validation,5,sci.crypt,cryptography encryption key security,PLSA query likelihood,0.2,0.010416666666666666,0.12,0.2837125544970319,192
+validation,5,sci.electronics,electronics circuit voltage resistor,PLSA cosine,0.0,0.0,0.0,0.0,190
+validation,5,sci.electronics,electronics circuit voltage resistor,PLSA query likelihood,0.0,0.0,0.0,0.0,190
+validation,5,sci.med,medical doctor disease treatment health,PLSA cosine,0.1,0.0051813471502590676,0.01111111111111111,0.06625422345438904,193
+validation,5,sci.med,medical doctor disease treatment health,PLSA query likelihood,0.1,0.0051813471502590676,0.01111111111111111,0.06625422345438904,193
+validation,5,sci.space,space NASA spacecraft orbit planet,PLSA cosine,0.0,0.0,0.0,0.0,192
+validation,5,sci.space,space NASA spacecraft orbit planet,PLSA query likelihood,0.0,0.0,0.0,0.0,192
+validation,5,soc.religion.christian,Christian church Bible Jesus faith,PLSA cosine,0.5,0.025380710659898477,0.26,0.45184593602045536,197
+validation,5,soc.religion.christian,Christian church Bible Jesus faith,PLSA query likelihood,0.5,0.025380710659898477,0.24047619047619045,0.42021722679557805,197
+validation,5,talk.politics.guns,gun control firearms second amendment,PLSA cosine,0.0,0.0,0.0,0.0,176
+validation,5,talk.politics.guns,gun control firearms second amendment,PLSA query likelihood,0.0,0.0,0.0,0.0,176
+validation,5,talk.politics.mideast,Middle East Israel Arab Palestinian,PLSA cosine,0.1,0.005434782608695652,0.016666666666666666,0.07839826897867534,184
+validation,5,talk.politics.mideast,Middle East Israel Arab Palestinian,PLSA query likelihood,0.3,0.016304347826086956,0.10833333333333332,0.2745478892647209,184
+validation,5,talk.politics.misc,government election political policy,PLSA cosine,0.0,0.0,0.0,0.0,148
+validation,5,talk.politics.misc,government election political policy,PLSA query likelihood,0.0,0.0,0.0,0.0,148
+validation,5,talk.religion.misc,religion religious belief faith,PLSA cosine,0.0,0.0,0.0,0.0,122
+validation,5,talk.religion.misc,religion religious belief faith,PLSA query likelihood,0.1,0.00819672131147541,0.02,0.08514311764162101,122
+validation,8,alt.atheism,atheism atheist religion belief,PLSA cosine,0.1,0.006369426751592357,0.025,0.09478836436955079,157
+validation,8,alt.atheism,atheism atheist religion belief,PLSA query likelihood,0.3,0.01910828025477707,0.14999999999999997,0.3151625504769837,157
+validation,8,comp.graphics,computer graphics rendering image pixels,PLSA cosine,0.4,0.021052631578947368,0.14666666666666667,0.3250640124440019,190
+validation,8,comp.graphics,computer graphics rendering image pixels,PLSA query likelihood,0.5,0.02631578947368421,0.27964285714285714,0.4615890699208637,190
+validation,8,comp.os.ms-windows.misc,windows operating system microsoft files,PLSA cosine,0.1,0.005208333333333333,0.014285714285714285,0.07336392209936006,192
+validation,8,comp.os.ms-windows.misc,windows operating system microsoft files,PLSA query likelihood,0.1,0.005208333333333333,0.01,0.06362078819895173,192
+validation,8,comp.sys.ibm.pc.hardware,IBM PC hardware disk memory computer,PLSA cosine,0.0,0.0,0.0,0.0,194
+validation,8,comp.sys.ibm.pc.hardware,IBM PC hardware disk memory computer,PLSA query likelihood,0.2,0.010309278350515464,0.03888888888888888,0.14465249243306438,194
+validation,8,comp.sys.mac.hardware,Apple Macintosh Mac hardware computer,PLSA cosine,0.1,0.005376344086021506,0.025,0.09478836436955079,186
+validation,8,comp.sys.mac.hardware,Apple Macintosh Mac hardware computer,PLSA query likelihood,0.1,0.005376344086021506,0.1,0.2200917662980802,186
+validation,8,comp.windows.x,X Window System display server windows,PLSA cosine,0.2,0.01020408163265306,0.13333333333333333,0.29849003527675555,196
+validation,8,comp.windows.x,X Window System display server windows,PLSA query likelihood,0.1,0.00510204081632653,0.03333333333333333,0.1100458831490401,196
+validation,8,misc.forsale,for sale price shipping offer,PLSA cosine,0.2,0.010471204188481676,0.075,0.20829366581033185,191
+validation,8,misc.forsale,for sale price shipping offer,PLSA query likelihood,0.0,0.0,0.0,0.0,191
+validation,8,rec.autos,car automobile engine dealer,PLSA cosine,0.1,0.00546448087431694,0.1,0.2200917662980802,183
+validation,8,rec.autos,car automobile engine dealer,PLSA query likelihood,0.2,0.01092896174863388,0.125,0.2895229882348575,183
+validation,8,rec.motorcycles,motorcycle bike riding helmet,PLSA cosine,0.5,0.02617801047120419,0.25555555555555554,0.447734522612947,191
+validation,8,rec.motorcycles,motorcycle bike riding helmet,PLSA query likelihood,0.4,0.020942408376963352,0.2583333333333333,0.4220949603708208,191
+validation,8,rec.sport.baseball,baseball players team season game,PLSA cosine,0.1,0.005434782608695652,0.03333333333333333,0.1100458831490401,184
+validation,8,rec.sport.baseball,baseball players team season game,PLSA query likelihood,0.0,0.0,0.0,0.0,184
+validation,8,rec.sport.hockey,hockey team NHL puck season,PLSA cosine,0.7,0.03571428571428571,0.5833333333333333,0.7503359712972109,196
+validation,8,rec.sport.hockey,hockey team NHL puck season,PLSA query likelihood,1.0,0.05102040816326531,1.0,1.0,196
+validation,8,sci.crypt,cryptography encryption key security,PLSA cosine,0.1,0.005208333333333333,0.01,0.06362078819895173,192
+validation,8,sci.crypt,cryptography encryption key security,PLSA query likelihood,0.1,0.005208333333333333,0.1,0.2200917662980802,192
+validation,8,sci.electronics,electronics circuit voltage resistor,PLSA cosine,0.4,0.021052631578947368,0.29166666666666663,0.49435723575344837,190
+validation,8,sci.electronics,electronics circuit voltage resistor,PLSA query likelihood,0.4,0.021052631578947368,0.2488095238095238,0.4170606134915055,190
+validation,8,sci.med,medical doctor disease treatment health,PLSA cosine,0.5,0.025906735751295335,0.2106349206349206,0.39842793454336195,193
+validation,8,sci.med,medical doctor disease treatment health,PLSA query likelihood,0.5,0.025906735751295335,0.33730158730158727,0.5621931439243355,193
+validation,8,sci.space,space NASA spacecraft orbit planet,PLSA cosine,0.1,0.005208333333333333,0.05,0.13886244387355456,192
+validation,8,sci.space,space NASA spacecraft orbit planet,PLSA query likelihood,0.2,0.010416666666666666,0.045,0.15840915256850252,192
+validation,8,soc.religion.christian,Christian church Bible Jesus faith,PLSA cosine,0.3,0.015228426395939087,0.09166666666666665,0.2457313285402064,197
+validation,8,soc.religion.christian,Christian church Bible Jesus faith,PLSA query likelihood,0.3,0.015228426395939087,0.12333333333333334,0.27358726976933645,197
+validation,8,talk.politics.guns,gun control firearms second amendment,PLSA cosine,0.4,0.022727272727272728,0.14694444444444443,0.3156169274023381,176
+validation,8,talk.politics.guns,gun control firearms second amendment,PLSA query likelihood,0.3,0.017045454545454544,0.2375,0.428385432108412,176
+validation,8,talk.politics.mideast,Middle East Israel Arab Palestinian,PLSA cosine,0.2,0.010869565217391304,0.05357142857142857,0.16815228646891087,184
+validation,8,talk.politics.mideast,Middle East Israel Arab Palestinian,PLSA query likelihood,0.2,0.010869565217391304,0.2,0.35895421017163476,184
+validation,8,talk.politics.misc,government election political policy,PLSA cosine,0.1,0.006756756756756757,0.1,0.2200917662980802,148
+validation,8,talk.politics.misc,government election political policy,PLSA query likelihood,0.3,0.02027027027027027,0.06472222222222221,0.19930623359011804,148
+validation,8,talk.religion.misc,religion religious belief faith,PLSA cosine,0.3,0.02459016393442623,0.10857142857142857,0.27584715417186634,122
+validation,8,talk.religion.misc,religion religious belief faith,PLSA query likelihood,0.3,0.02459016393442623,0.18285714285714286,0.37859880603906126,122
+validation,10,alt.atheism,atheism atheist religion belief,PLSA cosine,0.1,0.006369426751592357,0.014285714285714285,0.07336392209936006,157
+validation,10,alt.atheism,atheism atheist religion belief,PLSA query likelihood,0.2,0.012738853503184714,0.0325,0.133052010135729,157
+validation,10,comp.graphics,computer graphics rendering image pixels,PLSA cosine,0.1,0.005263157894736842,0.016666666666666666,0.07839826897867534,190
+validation,10,comp.graphics,computer graphics rendering image pixels,PLSA query likelihood,0.4,0.021052631578947368,0.26666666666666666,0.4779671403625729,190
+validation,10,comp.os.ms-windows.misc,windows operating system microsoft files,PLSA cosine,0.3,0.015625,0.09523809523809523,0.2496640287027892,192
+validation,10,comp.os.ms-windows.misc,windows operating system microsoft files,PLSA query likelihood,0.3,0.015625,0.09083333333333334,0.2329726085570736,192
+validation,10,comp.sys.ibm.pc.hardware,IBM PC hardware disk memory computer,PLSA cosine,0.2,0.010309278350515464,0.06666666666666667,0.18844415212771543,194
+validation,10,comp.sys.ibm.pc.hardware,IBM PC hardware disk memory computer,PLSA query likelihood,0.4,0.020618556701030927,0.24333333333333332,0.412449713642891,194
+validation,10,comp.sys.mac.hardware,Apple Macintosh Mac hardware computer,PLSA cosine,0.1,0.005376344086021506,0.014285714285714285,0.07336392209936006,186
+validation,10,comp.sys.mac.hardware,Apple Macintosh Mac hardware computer,PLSA query likelihood,0.2,0.010752688172043012,0.15,0.314880130667631,186
+validation,10,comp.windows.x,X Window System display server windows,PLSA cosine,0.5,0.025510204081632654,0.37722222222222224,0.5763233549126812,196
+validation,10,comp.windows.x,X Window System display server windows,PLSA query likelihood,0.4,0.02040816326530612,0.20444444444444443,0.3850481493391154,196
+validation,10,misc.forsale,for sale price shipping offer,PLSA cosine,0.3,0.015706806282722512,0.08357142857142856,0.23177307466786257,191
+validation,10,misc.forsale,for sale price shipping offer,PLSA query likelihood,0.3,0.015706806282722512,0.07261904761904761,0.2090493674905264,191
+validation,10,rec.autos,car automobile engine dealer,PLSA cosine,0.5,0.0273224043715847,0.29714285714285715,0.5206178632166883,183
+validation,10,rec.autos,car automobile engine dealer,PLSA query likelihood,0.2,0.01092896174863388,0.05333333333333333,0.17366667134799182,183
+validation,10,rec.motorcycles,motorcycle bike riding helmet,PLSA cosine,0.3,0.015706806282722512,0.13333333333333333,0.29990503169749444,191
+validation,10,rec.motorcycles,motorcycle bike riding helmet,PLSA query likelihood,0.5,0.02617801047120419,0.24555555555555558,0.4380892758850172,191
+validation,10,rec.sport.baseball,baseball players team season game,PLSA cosine,0.0,0.0,0.0,0.0,184
+validation,10,rec.sport.baseball,baseball players team season game,PLSA query likelihood,0.0,0.0,0.0,0.0,184
+validation,10,rec.sport.hockey,hockey team NHL puck season,PLSA cosine,0.8,0.04081632653061224,0.6377777777777778,0.7877736340270853,196
+validation,10,rec.sport.hockey,hockey team NHL puck season,PLSA query likelihood,1.0,0.05102040816326531,1.0,1.0,196
+validation,10,sci.crypt,cryptography encryption key security,PLSA cosine,0.6,0.03125,0.29841269841269846,0.49667571720465364,192
+validation,10,sci.crypt,cryptography encryption key security,PLSA query likelihood,0.6,0.03125,0.35555555555555557,0.5829393865084945,192
+validation,10,sci.electronics,electronics circuit voltage resistor,PLSA cosine,0.4,0.021052631578947368,0.3194444444444445,0.5199967979955746,190
+validation,10,sci.electronics,electronics circuit voltage resistor,PLSA query likelihood,0.2,0.010526315789473684,0.15,0.314880130667631,190
+validation,10,sci.med,medical doctor disease treatment health,PLSA cosine,0.2,0.010362694300518135,0.03428571428571429,0.13698471029831177,193
+validation,10,sci.med,medical doctor disease treatment health,PLSA query likelihood,0.2,0.010362694300518135,0.03428571428571429,0.13698471029831177,193
+validation,10,sci.space,space NASA spacecraft orbit planet,PLSA cosine,0.2,0.010416666666666666,0.0325,0.133052010135729,192
+validation,10,sci.space,space NASA spacecraft orbit planet,PLSA query likelihood,0.2,0.010416666666666666,0.0325,0.133052010135729,192
+validation,10,soc.religion.christian,Christian church Bible Jesus faith,PLSA cosine,0.5,0.025380710659898477,0.34444444444444444,0.5672274908036509,197
+validation,10,soc.religion.christian,Christian church Bible Jesus faith,PLSA query likelihood,0.5,0.025380710659898477,0.256031746031746,0.429595510713961,197
+validation,10,talk.politics.guns,gun control firearms second amendment,PLSA cosine,0.4,0.022727272727272728,0.17214285714285715,0.3316936730892072,176
+validation,10,talk.politics.guns,gun control firearms second amendment,PLSA query likelihood,0.4,0.022727272727272728,0.17214285714285715,0.3316936730892072,176
+validation,10,talk.politics.mideast,Middle East Israel Arab Palestinian,PLSA cosine,1.0,0.05434782608695652,1.0,1.0,184
+validation,10,talk.politics.mideast,Middle East Israel Arab Palestinian,PLSA query likelihood,1.0,0.05434782608695652,1.0,1.0,184
+validation,10,talk.politics.misc,government election political policy,PLSA cosine,0.1,0.006756756756756757,0.0125,0.06943122193677728,148
+validation,10,talk.politics.misc,government election political policy,PLSA query likelihood,0.2,0.013513513513513514,0.0365079365079365,0.1396181455537491,148
+validation,10,talk.religion.misc,religion religious belief faith,PLSA cosine,0.1,0.00819672131147541,0.025,0.09478836436955079,122
+validation,10,talk.religion.misc,religion religious belief faith,PLSA query likelihood,0.3,0.02459016393442623,0.25,0.4373524791503101,122
+validation,20,alt.atheism,atheism atheist religion belief,PLSA cosine,0.1,0.006369426751592357,0.02,0.08514311764162101,157
+validation,20,alt.atheism,atheism atheist religion belief,PLSA query likelihood,0.1,0.006369426751592357,0.025,0.09478836436955079,157
+validation,20,comp.graphics,computer graphics rendering image pixels,PLSA cosine,0.5,0.02631578947368421,0.2761904761904762,0.5049059675118447,190
+validation,20,comp.graphics,computer graphics rendering image pixels,PLSA query likelihood,0.4,0.021052631578947368,0.17619047619047618,0.3600558568883673,190
+validation,20,comp.os.ms-windows.misc,windows operating system microsoft files,PLSA cosine,0.3,0.015625,0.09619047619047619,0.2369053087196564,192
+validation,20,comp.os.ms-windows.misc,windows operating system microsoft files,PLSA query likelihood,0.0,0.0,0.0,0.0,192
+validation,20,comp.sys.ibm.pc.hardware,IBM PC hardware disk memory computer,PLSA cosine,0.4,0.020618556701030927,0.15666666666666665,0.3471357245055707,194
+validation,20,comp.sys.ibm.pc.hardware,IBM PC hardware disk memory computer,PLSA query likelihood,0.3,0.015463917525773196,0.15416666666666665,0.31833954895937194,194
+validation,20,comp.sys.mac.hardware,Apple Macintosh Mac hardware computer,PLSA cosine,0.2,0.010752688172043012,0.04857142857142857,0.15850703974098107,186
+validation,20,comp.sys.mac.hardware,Apple Macintosh Mac hardware computer,PLSA query likelihood,0.1,0.005376344086021506,0.016666666666666666,0.07839826897867534,186
+validation,20,comp.windows.x,X Window System display server windows,PLSA cosine,0.5,0.025510204081632654,0.2094444444444444,0.38820476264318793,196
+validation,20,comp.windows.x,X Window System display server windows,PLSA query likelihood,0.4,0.02040816326530612,0.17214285714285715,0.3316936730892072,196
+validation,20,misc.forsale,for sale price shipping offer,PLSA cosine,0.6,0.031413612565445025,0.36297619047619045,0.543100812154742,191
+validation,20,misc.forsale,for sale price shipping offer,PLSA query likelihood,0.8,0.041884816753926704,0.5142063492063491,0.6410457898283654,191
+validation,20,rec.autos,car automobile engine dealer,PLSA cosine,0.1,0.00546448087431694,0.05,0.13886244387355456,183
+validation,20,rec.autos,car automobile engine dealer,PLSA query likelihood,0.1,0.00546448087431694,0.1,0.2200917662980802,183
+validation,20,rec.motorcycles,motorcycle bike riding helmet,PLSA cosine,0.3,0.015706806282722512,0.16190476190476188,0.3597099118518293,191
+validation,20,rec.motorcycles,motorcycle bike riding helmet,PLSA query likelihood,0.3,0.015706806282722512,0.11083333333333334,0.2646202227274384,191
+validation,20,rec.sport.baseball,baseball players team season game,PLSA cosine,0.1,0.005434782608695652,0.1,0.2200917662980802,184
+validation,20,rec.sport.baseball,baseball players team season game,PLSA query likelihood,0.1,0.005434782608695652,0.014285714285714285,0.07336392209936006,184
+validation,20,rec.sport.hockey,hockey team NHL puck season,PLSA cosine,0.8,0.04081632653061224,0.5984920634920634,0.7104770117651427,196
+validation,20,rec.sport.hockey,hockey team NHL puck season,PLSA query likelihood,0.8,0.04081632653061224,0.7577777777777778,0.8572048559638626,196
+validation,20,sci.crypt,cryptography encryption key security,PLSA cosine,0.9,0.046875,0.7571031746031747,0.8611375561264456,192
+validation,20,sci.crypt,cryptography encryption key security,PLSA query likelihood,0.8,0.041666666666666664,0.6671031746031746,0.7975167679274939,192
+validation,20,sci.electronics,electronics circuit voltage resistor,PLSA cosine,0.1,0.005263157894736842,0.01,0.06362078819895173,190
+validation,20,sci.electronics,electronics circuit voltage resistor,PLSA query likelihood,0.1,0.005263157894736842,0.01111111111111111,0.06625422345438904,190
+validation,20,sci.med,medical doctor disease treatment health,PLSA cosine,0.7,0.03626943005181347,0.44630952380952377,0.6563033086078547,193
+validation,20,sci.med,medical doctor disease treatment health,PLSA query likelihood,0.7,0.03626943005181347,0.44630952380952377,0.6563033086078547,193
+validation,20,sci.space,space NASA spacecraft orbit planet,PLSA cosine,0.8,0.041666666666666664,0.5142063492063491,0.6410457898283654,192
+validation,20,sci.space,space NASA spacecraft orbit planet,PLSA query likelihood,0.8,0.041666666666666664,0.5142063492063491,0.6410457898283654,192
+validation,20,soc.religion.christian,Christian church Bible Jesus faith,PLSA cosine,0.8,0.04060913705583756,0.745436507936508,0.8512360941594275,197
+validation,20,soc.religion.christian,Christian church Bible Jesus faith,PLSA query likelihood,0.9,0.04568527918781726,0.815436507936508,0.9052116356304495,197
+validation,20,talk.politics.guns,gun control firearms second amendment,PLSA cosine,0.0,0.0,0.0,0.0,176
+validation,20,talk.politics.guns,gun control firearms second amendment,PLSA query likelihood,0.0,0.0,0.0,0.0,176
+validation,20,talk.politics.mideast,Middle East Israel Arab Palestinian,PLSA cosine,0.8,0.043478260869565216,0.5142063492063491,0.6410457898283654,184
+validation,20,talk.politics.mideast,Middle East Israel Arab Palestinian,PLSA query likelihood,0.6,0.03260869565217391,0.2876984126984127,0.461568684742548,184
+validation,20,talk.politics.misc,government election political policy,PLSA cosine,0.0,0.0,0.0,0.0,148
+validation,20,talk.politics.misc,government election political policy,PLSA query likelihood,0.1,0.006756756756756757,0.014285714285714285,0.07336392209936006,148
+validation,20,talk.religion.misc,religion religious belief faith,PLSA cosine,0.1,0.00819672131147541,0.01,0.06362078819895173,122
+validation,20,talk.religion.misc,religion religious belief faith,PLSA query likelihood,0.1,0.00819672131147541,0.0125,0.06943122193677728,122

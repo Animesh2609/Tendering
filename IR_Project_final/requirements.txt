@@ -1,0 +1,9 @@
+# Python 3.11 or 3.12. Scientific versions verified in the submission environment.
+-r requirements-report.txt
+scipy==1.17.0
+scikit-learn==1.8.0
+matplotlib==3.10.8
+spacy==3.8.18
+psutil==7.2.2
+# Same model major version as spaCy; the original run's full package lock is unknown.
+en-core-web-sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0/en_core_web_sm-3.8.0-py3-none-any.whl

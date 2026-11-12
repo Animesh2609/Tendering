@@ -1,0 +1,135 @@
+{
+  "experiment": "Retrieval validation and query study",
+  "selected_categories": [
+    "comp.graphics",
+    "misc.forsale",
+    "rec.sport.baseball",
+    "sci.med",
+    "sci.space",
+    "talk.politics.guns"
+  ],
+  "query_types": [
+    "direct",
+    "paraphrase",
+    "related_terms"
+  ],
+  "seed": 42,
+  "split_fractions": {
+    "train": 0.6,
+    "validation": 0.2,
+    "test": 0.2
+  },
+  "k_grid": [
+    3,
+    6,
+    10,
+    20
+  ],
+  "background_weight_grid": [
+    0.0,
+    0.01,
+    0.05
+  ],
+  "restarts_per_k": 3,
+  "max_iter": 100,
+  "tolerance": 0.0001,
+  "max_features": 3000,
+  "min_df": 3,
+  "max_df": 0.9,
+  "retrieval_k": 10,
+  "selection_metric": "validation macro MAP@10; tie-break by Precision@10, then lower K and lower background weight",
+  "validation_selected_plsa_cosine": {
+    "K": 20
+  },
+  "validation_selected_plsa_query_likelihood": {
+    "K": 20,
+    "background_weight": 0.0
+  },
+  "query_bank": {
+    "comp.graphics": [
+      [
+        "direct",
+        "computer graphics rendering image pixels"
+      ],
+      [
+        "paraphrase",
+        "raster visualization color drawing display"
+      ],
+      [
+        "related_terms",
+        "jpeg gif image resolution file format"
+      ]
+    ],
+    "misc.forsale": [
+      [
+        "direct",
+        "for sale price shipping offer"
+      ],
+      [
+        "paraphrase",
+        "selling item cost postage interested"
+      ],
+      [
+        "related_terms",
+        "available purchase asking price contact"
+      ]
+    ],
+    "rec.sport.baseball": [
+      [
+        "direct",
+        "baseball players team season game"
+      ],
+      [
+        "paraphrase",
+        "pitcher batter inning home run"
+      ],
+      [
+        "related_terms",
+        "major league baseball statistics runs"
+      ]
+    ],
+    "sci.med": [
+      [
+        "direct",
+        "medical doctor disease treatment health"
+      ],
+      [
+        "paraphrase",
+        "patient symptom diagnosis medication clinical"
+      ],
+      [
+        "related_terms",
+        "hospital therapy drug research study"
+      ]
+    ],
+    "sci.space": [
+      [
+        "direct",
+        "space NASA spacecraft orbit planet"
+      ],
+      [
+        "paraphrase",
+        "shuttle mission satellite launch moon"
+      ],
+      [
+        "related_terms",
+        "astronomy universe planetary exploration"
+      ]
+    ],
+    "talk.politics.guns": [
+      [
+        "direct",
+        "gun control firearms second amendment"
+      ],
+      [
+        "paraphrase",
+        "weapon legislation rights handgun rifle"
+      ],
+      [
+        "related_terms",
+        "firearm policy congress law"
+      ]
+    ]
+  },
+  "documents": 5829
+}

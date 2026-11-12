@@ -1,0 +1,40 @@
+{
+  "experiment": "PLSA baseline on all 20 Newsgroups categories",
+  "seed": 42,
+  "test_size": 0.25,
+  "n_topics": 5,
+  "n_restarts": 5,
+  "max_iter": 100,
+  "tolerance": 0.0001,
+  "count_max_features": 3000,
+  "count_min_df": 3,
+  "count_max_df": 0.9,
+  "retrieval_k": 10,
+  "dataset_documents": 18846,
+  "dataset_categories": [
+    "alt.atheism",
+    "comp.graphics",
+    "comp.os.ms-windows.misc",
+    "comp.sys.ibm.pc.hardware",
+    "comp.sys.mac.hardware",
+    "comp.windows.x",
+    "misc.forsale",
+    "rec.autos",
+    "rec.motorcycles",
+    "rec.sport.baseball",
+    "rec.sport.hockey",
+    "sci.crypt",
+    "sci.electronics",
+    "sci.med",
+    "sci.space",
+    "soc.religion.christian",
+    "talk.politics.guns",
+    "talk.politics.mideast",
+    "talk.politics.misc",
+    "talk.religion.misc"
+  ],
+  "synthetic_categories": [
+    "rec.sport.baseball",
+    "talk.politics.misc"
+  ]
+}
