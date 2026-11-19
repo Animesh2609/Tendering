@@ -157,6 +157,7 @@ public class AuditorService {
                 tenderId, AUDITABLE_BID_STATUSES
         );
         List<AuditorBidAuditResponse> bidResponses = new ArrayList<>();
+        IntegrityStatus databaseStatus = IntegrityStatus.NOT_CHECKED;
         for (Bid bid : bids) {
             BidDocument document = bidDocumentRepo.findByBid_Id(bid.getId()).orElse(null);
             IntegrityStatus dbStatus;
@@ -201,6 +202,16 @@ public class AuditorService {
             ));
         }
 
+        if (!bidResponses.isEmpty()) {
+            databaseStatus = bidResponses.stream().anyMatch(bid ->
+                    bid.databaseIntegrity() == IntegrityStatus.DISCREPANCY_FOUND)
+                    ? IntegrityStatus.DISCREPANCY_FOUND
+                    : bidResponses.stream().allMatch(bid ->
+                            bid.databaseIntegrity() == IntegrityStatus.VERIFIED)
+                            ? IntegrityStatus.VERIFIED
+                            : IntegrityStatus.NOT_CHECKED;
+        }
+
         List<IntegrityReportResponse> reports = integrityReportRepo
                 .findAllByTender_IdOrderByCreatedAtDesc(tenderId)
                 .stream().map(this::mapToIntegrityReportResponse).toList();
@@ -208,7 +219,7 @@ public class AuditorService {
                 .anyMatch(message -> message.startsWith("Could not verify blockchain record"));
         return new AuditorTenderAuditResponse(
                 tender.getId(), tender.getTitle(), tender.getAuthority().getFullName(),
-                tender.getDescription(), tender.getStatus(), IntegrityStatus.NOT_CHECKED,
+                tender.getDescription(), tender.getStatus(), databaseStatus,
                 tenderCheck.status(), bidResponses, reports,
                 verificationMessages.isEmpty() ? null : String.join(" ", verificationMessages),
                 unavailable

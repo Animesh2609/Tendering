@@ -67,6 +67,14 @@ public class AuditorController {
         return ResponseEntity.ok(auditorService.auditTender(tenderId, authentication));
     }
 
+    @PostMapping("/tenders/{tenderId}/integrity-check")
+    public ResponseEntity<AuditorTenderAuditResponse> checkTenderIntegrity(
+            @PathVariable UUID tenderId,
+            Authentication authentication
+    ) {
+        return ResponseEntity.ok(auditorService.auditTender(tenderId, authentication));
+    }
+
     @GetMapping("/bids/{bidId}/proposal")
     public ResponseEntity<byte[]> downloadProposal(
             @PathVariable UUID bidId,
