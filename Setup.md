@@ -13,7 +13,7 @@
    - cd fabric-samples/test-network
    - ./network.sh up
    - ./network.sh deployCC -c tenders -ccn basic \
-   - -ccp /mnt/c/Users/SrijanWork/Documents/Coding/TenderBlock/PureTender/chaincode/puretender \
-   - -ccl go
+     -ccp /mnt/c/Users/SrijanWork/Documents/Coding/TenderBlock/PureTender/chaincode/puretender \
+     -ccl go
 
 5. Create Crypto Folder under Resources, then copy and paste folder from HyperLedger running on Linux (content inside Test-Network) for certificates.
