@@ -15,3 +15,7 @@ See [the original README](README_original.md) for legacy CLI options and [the va
 [Run guide and API examples](CALIBRATION_API_GUIDE.md) · [Actual results](reports/calibration_all_users_report.md)
 
 All 272 held-out users were evaluated on the supplied LightGCN+CausalEPP checkpoint. Adding CP_H/CP_Im did not improve results because each candidate pool contained a single popularity tier. The API supports known users, supplied recent history and explicitly labeled cold-start fallback. It serves a frozen snapshot and does not learn automatically. Nine self-contained tests pass, plus a real-checkpoint HTTP smoke test.
+
+## Experimental calibration correction: accuracy goal not met
+
+[Revision and held-out evaluation report](reports/accuracy_first_calibration_report.md). The new opt-in `accuracy_first_calibration.py` diversifies candidates while preserving baseline top-K and selects weights using validation only. It improved test popularity JSD but did not increase accuracy; NDCG decreased slightly. It has not replaced the API default. The same previously inspected test split was reused, so these are not blind-holdout results.

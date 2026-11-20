@@ -1,0 +1,510 @@
+{
+  "checkpoint": "/workspace/work/Popularity-Debiasing-Causal-EPP/outputs/Ciao/causalepp_ciao.pt",
+  "checkpoint_sha256": "e2d297d72ea101dedf09d43b1ebc2e5d071e1673eff38760eb99dff11a840956",
+  "data_dir": "/workspace/work/Popularity-Debiasing-Causal-EPP/data/Ciao",
+  "k": 20,
+  "candidate_pool": 150,
+  "weights": {
+    "LowPop": 0.2,
+    "MedPop": 0.2,
+    "HighPop": 0.4
+  },
+  "grid": [
+    0,
+    0.005,
+    0.01,
+    0.02,
+    0.05,
+    0.1,
+    0.2,
+    0.4,
+    0.7,
+    1.0
+  ],
+  "thresholds": [
+    2.645896142997851,
+    3.6073352014051085
+  ],
+  "trials": {
+    "LowPop": {
+      "users": 206,
+      "selected_weight": 0.2,
+      "baseline": {
+        "Recall@K": 0.022316311470108357,
+        "Precision@K": 0.01116504854368932,
+        "NDCG@K": 0.018926646500936575,
+        "HitRate@K": 0.11165048543689321,
+        "PopularityJSD": 0.5835502320370826,
+        "AverageRecommendedPopularity": 417.7897961070237,
+        "PopLift": 35.680204930995195,
+        "CatalogCoverage@K": 0.0030397854269110414
+      },
+      "trials": [
+        {
+          "weight": 0.0,
+          "metrics": {
+            "Recall@K": 0.022316311470108357,
+            "Precision@K": 0.01116504854368932,
+            "NDCG@K": 0.018926646500936575,
+            "HitRate@K": 0.11165048543689321,
+            "PopularityJSD": 0.5835502320370826,
+            "AverageRecommendedPopularity": 417.7897961070237,
+            "PopLift": 35.680204930995195,
+            "CatalogCoverage@K": 0.0030397854269110414
+          },
+          "accepted_by_guard": true
+        },
+        {
+          "weight": 0.005,
+          "metrics": {
+            "Recall@K": 0.022316311470108357,
+            "Precision@K": 0.01116504854368932,
+            "NDCG@K": 0.018926646500936575,
+            "HitRate@K": 0.11165048543689321,
+            "PopularityJSD": 0.5835502320370826,
+            "AverageRecommendedPopularity": 417.7897961070237,
+            "PopLift": 35.680204930995195,
+            "CatalogCoverage@K": 0.0030397854269110414
+          },
+          "accepted_by_guard": true
+        },
+        {
+          "weight": 0.01,
+          "metrics": {
+            "Recall@K": 0.022316311470108357,
+            "Precision@K": 0.01116504854368932,
+            "NDCG@K": 0.018926646500936575,
+            "HitRate@K": 0.11165048543689321,
+            "PopularityJSD": 0.5835502320370826,
+            "AverageRecommendedPopularity": 417.7897961070237,
+            "PopLift": 35.680204930995195,
+            "CatalogCoverage@K": 0.0030397854269110414
+          },
+          "accepted_by_guard": true
+        },
+        {
+          "weight": 0.02,
+          "metrics": {
+            "Recall@K": 0.022316311470108357,
+            "Precision@K": 0.01116504854368932,
+            "NDCG@K": 0.018926646500936575,
+            "HitRate@K": 0.11165048543689321,
+            "PopularityJSD": 0.5835502320370826,
+            "AverageRecommendedPopularity": 417.7897961070237,
+            "PopLift": 35.680204930995195,
+            "CatalogCoverage@K": 0.0030397854269110414
+          },
+          "accepted_by_guard": true
+        },
+        {
+          "weight": 0.05,
+          "metrics": {
+            "Recall@K": 0.022316311470108357,
+            "Precision@K": 0.01116504854368932,
+            "NDCG@K": 0.018926646500936575,
+            "HitRate@K": 0.11165048543689321,
+            "PopularityJSD": 0.5835502320370826,
+            "AverageRecommendedPopularity": 417.7897961070237,
+            "PopLift": 35.680204930995195,
+            "CatalogCoverage@K": 0.0030397854269110414
+          },
+          "accepted_by_guard": true
+        },
+        {
+          "weight": 0.1,
+          "metrics": {
+            "Recall@K": 0.022316311470108357,
+            "Precision@K": 0.01116504854368932,
+            "NDCG@K": 0.018926646500936575,
+            "HitRate@K": 0.11165048543689321,
+            "PopularityJSD": 0.5835502320370826,
+            "AverageRecommendedPopularity": 417.7897961070237,
+            "PopLift": 35.680204930995195,
+            "CatalogCoverage@K": 0.0030397854269110414
+          },
+          "accepted_by_guard": true
+        },
+        {
+          "weight": 0.2,
+          "metrics": {
+            "Recall@K": 0.022316311470108357,
+            "Precision@K": 0.01116504854368932,
+            "NDCG@K": 0.018926646500936575,
+            "HitRate@K": 0.11165048543689321,
+            "PopularityJSD": 0.5760252303639647,
+            "AverageRecommendedPopularity": 417.18906795168385,
+            "PopLift": 35.61228812064707,
+            "CatalogCoverage@K": 0.0031291908806437194
+          },
+          "accepted_by_guard": true
+        },
+        {
+          "weight": 0.4,
+          "metrics": {
+            "Recall@K": 0.02061936684151062,
+            "Precision@K": 0.009708737864077669,
+            "NDCG@K": 0.01716649123033841,
+            "HitRate@K": 0.10679611650485436,
+            "PopularityJSD": 0.3060083544913393,
+            "AverageRecommendedPopularity": 377.141748669078,
+            "PopLift": 31.845674883620102,
+            "CatalogCoverage@K": 0.003576218149307108
+          },
+          "accepted_by_guard": false
+        },
+        {
+          "weight": 0.7,
+          "metrics": {
+            "Recall@K": 0.00967898929387845,
+            "Precision@K": 0.0048543689320388345,
+            "NDCG@K": 0.009331184819903205,
+            "HitRate@K": 0.07281553398058252,
+            "PopularityJSD": 0.03690012914271381,
+            "AverageRecommendedPopularity": 233.86164954796578,
+            "PopLift": 15.580881400405096,
+            "CatalogCoverage@K": 0.005543138131426017
+          },
+          "accepted_by_guard": false
+        },
+        {
+          "weight": 1.0,
+          "metrics": {
+            "Recall@K": 0.008062792653409966,
+            "Precision@K": 0.0038834951456310682,
+            "NDCG@K": 0.005690796906989278,
+            "HitRate@K": 0.05825242718446602,
+            "PopularityJSD": 0.0003854549324651864,
+            "AverageRecommendedPopularity": 151.77839765733884,
+            "PopLift": 9.605320334628189,
+            "CatalogCoverage@K": 0.0048278945015645955
+          },
+          "accepted_by_guard": false
+        }
+      ]
+    },
+    "MedPop": {
+      "users": 187,
+      "selected_weight": 0.2,
+      "baseline": {
+        "Recall@K": 0.032162598146685796,
+        "Precision@K": 0.013903743315508024,
+        "NDCG@K": 0.025229830680667586,
+        "HitRate@K": 0.10160427807486631,
+        "PopularityJSD": 0.32878404113538184,
+        "AverageRecommendedPopularity": 385.29865929914666,
+        "PopLift": 9.94554615029899,
+        "CatalogCoverage@K": 0.005364327223960662
+      },
+      "trials": [
+        {
+          "weight": 0.0,
+          "metrics": {
+            "Recall@K": 0.032162598146685796,
+            "Precision@K": 0.013903743315508024,
+            "NDCG@K": 0.025229830680667586,
+            "HitRate@K": 0.10160427807486631,
+            "PopularityJSD": 0.32878404113538184,
+            "AverageRecommendedPopularity": 385.29865929914666,
+            "PopLift": 9.94554615029899,
+            "CatalogCoverage@K": 0.005364327223960662
+          },
+          "accepted_by_guard": true
+        },
+        {
+          "weight": 0.005,
+          "metrics": {
+            "Recall@K": 0.032162598146685796,
+            "Precision@K": 0.013903743315508024,
+            "NDCG@K": 0.025229830680667586,
+            "HitRate@K": 0.10160427807486631,
+            "PopularityJSD": 0.32878404113538184,
+            "AverageRecommendedPopularity": 385.29865929914666,
+            "PopLift": 9.94554615029899,
+            "CatalogCoverage@K": 0.005364327223960662
+          },
+          "accepted_by_guard": true
+        },
+        {
+          "weight": 0.01,
+          "metrics": {
+            "Recall@K": 0.032162598146685796,
+            "Precision@K": 0.013903743315508024,
+            "NDCG@K": 0.025229830680667586,
+            "HitRate@K": 0.10160427807486631,
+            "PopularityJSD": 0.32878404113538184,
+            "AverageRecommendedPopularity": 385.29865929914666,
+            "PopLift": 9.94554615029899,
+            "CatalogCoverage@K": 0.005364327223960662
+          },
+          "accepted_by_guard": true
+        },
+        {
+          "weight": 0.02,
+          "metrics": {
+            "Recall@K": 0.032162598146685796,
+            "Precision@K": 0.013903743315508024,
+            "NDCG@K": 0.025229830680667586,
+            "HitRate@K": 0.10160427807486631,
+            "PopularityJSD": 0.32878404113538184,
+            "AverageRecommendedPopularity": 385.29865929914666,
+            "PopLift": 9.94554615029899,
+            "CatalogCoverage@K": 0.005364327223960662
+          },
+          "accepted_by_guard": true
+        },
+        {
+          "weight": 0.05,
+          "metrics": {
+            "Recall@K": 0.032162598146685796,
+            "Precision@K": 0.013903743315508024,
+            "NDCG@K": 0.025229830680667586,
+            "HitRate@K": 0.10160427807486631,
+            "PopularityJSD": 0.32878404113538184,
+            "AverageRecommendedPopularity": 385.29865929914666,
+            "PopLift": 9.94554615029899,
+            "CatalogCoverage@K": 0.005364327223960662
+          },
+          "accepted_by_guard": true
+        },
+        {
+          "weight": 0.1,
+          "metrics": {
+            "Recall@K": 0.032162598146685796,
+            "Precision@K": 0.013903743315508024,
+            "NDCG@K": 0.025229830680667586,
+            "HitRate@K": 0.10160427807486631,
+            "PopularityJSD": 0.32878404113538184,
+            "AverageRecommendedPopularity": 385.29865929914666,
+            "PopLift": 9.94554615029899,
+            "CatalogCoverage@K": 0.005364327223960662
+          },
+          "accepted_by_guard": true
+        },
+        {
+          "weight": 0.2,
+          "metrics": {
+            "Recall@K": 0.032162598146685796,
+            "Precision@K": 0.013903743315508024,
+            "NDCG@K": 0.025229830680667586,
+            "HitRate@K": 0.10160427807486631,
+            "PopularityJSD": 0.3280733033187778,
+            "AverageRecommendedPopularity": 385.2384988713392,
+            "PopLift": 9.943685518437956,
+            "CatalogCoverage@K": 0.005453732677693339
+          },
+          "accepted_by_guard": true
+        },
+        {
+          "weight": 0.4,
+          "metrics": {
+            "Recall@K": 0.029262957709546986,
+            "Precision@K": 0.012834224598930483,
+            "NDCG@K": 0.02358748576573169,
+            "HitRate@K": 0.0962566844919786,
+            "PopularityJSD": 0.1760286613201656,
+            "AverageRecommendedPopularity": 364.27780445119276,
+            "PopLift": 9.377680024417025,
+            "CatalogCoverage@K": 0.005543138131426017
+          },
+          "accepted_by_guard": false
+        },
+        {
+          "weight": 0.7,
+          "metrics": {
+            "Recall@K": 0.026642561773643027,
+            "Precision@K": 0.010962566844919787,
+            "NDCG@K": 0.019415572579667716,
+            "HitRate@K": 0.0855614973262032,
+            "PopularityJSD": 0.030610072725255878,
+            "AverageRecommendedPopularity": 305.0409092214656,
+            "PopLift": 7.725908364038408,
+            "CatalogCoverage@K": 0.006347787215020116
+          },
+          "accepted_by_guard": false
+        },
+        {
+          "weight": 1.0,
+          "metrics": {
+            "Recall@K": 0.02115325414529797,
+            "Precision@K": 0.009358288770053475,
+            "NDCG@K": 0.015535180222741512,
+            "HitRate@K": 0.0748663101604278,
+            "PopularityJSD": 0.00046928351051845794,
+            "AverageRecommendedPopularity": 241.20267213219628,
+            "PopLift": 5.927866983079586,
+            "CatalogCoverage@K": 0.006437192668752794
+          },
+          "accepted_by_guard": false
+        }
+      ]
+    },
+    "HighPop": {
+      "users": 20,
+      "selected_weight": 0.4,
+      "baseline": {
+        "Recall@K": 0.025,
+        "Precision@K": 0.005,
+        "NDCG@K": 0.01677534170888247,
+        "HitRate@K": 0.1,
+        "PopularityJSD": 0.1646891504926536,
+        "AverageRecommendedPopularity": 337.14249954223635,
+        "PopLift": 1.6880397912171858,
+        "CatalogCoverage@K": 0.004380867232901207
+      },
+      "trials": [
+        {
+          "weight": 0.0,
+          "metrics": {
+            "Recall@K": 0.025,
+            "Precision@K": 0.005,
+            "NDCG@K": 0.01677534170888247,
+            "HitRate@K": 0.1,
+            "PopularityJSD": 0.1646891504926536,
+            "AverageRecommendedPopularity": 337.14249954223635,
+            "PopLift": 1.6880397912171858,
+            "CatalogCoverage@K": 0.004380867232901207
+          },
+          "accepted_by_guard": true
+        },
+        {
+          "weight": 0.005,
+          "metrics": {
+            "Recall@K": 0.025,
+            "Precision@K": 0.005,
+            "NDCG@K": 0.01677534170888247,
+            "HitRate@K": 0.1,
+            "PopularityJSD": 0.1646891504926536,
+            "AverageRecommendedPopularity": 337.14249954223635,
+            "PopLift": 1.6880397912171858,
+            "CatalogCoverage@K": 0.004380867232901207
+          },
+          "accepted_by_guard": true
+        },
+        {
+          "weight": 0.01,
+          "metrics": {
+            "Recall@K": 0.025,
+            "Precision@K": 0.005,
+            "NDCG@K": 0.01677534170888247,
+            "HitRate@K": 0.1,
+            "PopularityJSD": 0.1646891504926536,
+            "AverageRecommendedPopularity": 337.14249954223635,
+            "PopLift": 1.6880397912171858,
+            "CatalogCoverage@K": 0.004380867232901207
+          },
+          "accepted_by_guard": true
+        },
+        {
+          "weight": 0.02,
+          "metrics": {
+            "Recall@K": 0.025,
+            "Precision@K": 0.005,
+            "NDCG@K": 0.01677534170888247,
+            "HitRate@K": 0.1,
+            "PopularityJSD": 0.1646891504926536,
+            "AverageRecommendedPopularity": 337.14249954223635,
+            "PopLift": 1.6880397912171858,
+            "CatalogCoverage@K": 0.004380867232901207
+          },
+          "accepted_by_guard": true
+        },
+        {
+          "weight": 0.05,
+          "metrics": {
+            "Recall@K": 0.025,
+            "Precision@K": 0.005,
+            "NDCG@K": 0.01677534170888247,
+            "HitRate@K": 0.1,
+            "PopularityJSD": 0.1646891504926536,
+            "AverageRecommendedPopularity": 337.14249954223635,
+            "PopLift": 1.6880397912171858,
+            "CatalogCoverage@K": 0.004380867232901207
+          },
+          "accepted_by_guard": true
+        },
+        {
+          "weight": 0.1,
+          "metrics": {
+            "Recall@K": 0.025,
+            "Precision@K": 0.005,
+            "NDCG@K": 0.01677534170888247,
+            "HitRate@K": 0.1,
+            "PopularityJSD": 0.1646891504926536,
+            "AverageRecommendedPopularity": 337.14249954223635,
+            "PopLift": 1.6880397912171858,
+            "CatalogCoverage@K": 0.004380867232901207
+          },
+          "accepted_by_guard": true
+        },
+        {
+          "weight": 0.2,
+          "metrics": {
+            "Recall@K": 0.025,
+            "Precision@K": 0.005,
+            "NDCG@K": 0.01677534170888247,
+            "HitRate@K": 0.1,
+            "PopularityJSD": 0.1646891504926536,
+            "AverageRecommendedPopularity": 337.14249954223635,
+            "PopLift": 1.6880397912171858,
+            "CatalogCoverage@K": 0.004380867232901207
+          },
+          "accepted_by_guard": true
+        },
+        {
+          "weight": 0.4,
+          "metrics": {
+            "Recall@K": 0.025,
+            "Precision@K": 0.005,
+            "NDCG@K": 0.01677534170888247,
+            "HitRate@K": 0.1,
+            "PopularityJSD": 0.09040127487262671,
+            "AverageRecommendedPopularity": 327.99500198364257,
+            "PopLift": 1.607441636231949,
+            "CatalogCoverage@K": 0.004559678140366562
+          },
+          "accepted_by_guard": true
+        },
+        {
+          "weight": 0.7,
+          "metrics": {
+            "Recall@K": 0.025,
+            "Precision@K": 0.005,
+            "NDCG@K": 0.016504989805042277,
+            "HitRate@K": 0.1,
+            "PopularityJSD": 0.01719353475576321,
+            "AverageRecommendedPopularity": 303.72249908447264,
+            "PopLift": 1.4053855367368864,
+            "CatalogCoverage@K": 0.00464908359409924
+          },
+          "accepted_by_guard": false
+        },
+        {
+          "weight": 1.0,
+          "metrics": {
+            "Recall@K": 0.025,
+            "Precision@K": 0.005,
+            "NDCG@K": 0.015952408579693923,
+            "HitRate@K": 0.1,
+            "PopularityJSD": 0.0008045769997491994,
+            "AverageRecommendedPopularity": 276.4150032043457,
+            "PopLift": 1.1725469021770656,
+            "CatalogCoverage@K": 0.0048278945015645955
+          },
+          "accepted_by_guard": false
+        }
+      ]
+    }
+  },
+  "validation_users": 413,
+  "validation_single_tier_pools": 0,
+  "protocol": "Temporal held-out interactions of known users; test labels not read during fit.",
+  "variant": "Accuracy-first validation guard with baseline-preserving tier-diverse candidates; not original CP_H.",
+  "training_validation_hashes": {
+    "train_data.csv": "072013ec92d20b2f7e182d423e393a79aa17cca864bfee516da9cc77df45afa2",
+    "val_data.csv": "eff03597874ca3a2102ed2133811bb9768e88fba9da5b26302bd34641fadab58",
+    "item_local_popularity.npy": "08986b23f2688acb42b0223e4e0eef1d73afd5a39c881ff67094c7abb40d3d9f",
+    "user_epp.npy": "470f3d771a73d78f055dbeb94a81522f762098ef7e67740125d0c48c5ff79b50",
+    "time_bin_edges.npy": "39f9075cac86fdcb346eccb56bd5552beba99ccaeeecd2f6458b1c7867499858"
+  },
+  "runtime_seconds": 10.529804200996296
+}

@@ -1,0 +1,182 @@
+{
+  "policy_sha256": "b68824d1382c9c2125dc4468dc476a211165194caaac479d699bb03019153e3c",
+  "test_file_sha256": "4fcbecb6186816bfc44c6faef84265b437abd59d4a039c2d7290bb3c7921c6d3",
+  "baseline": {
+    "users": 272,
+    "metrics": {
+      "Recall@K": 0.04679754937892492,
+      "Precision@K": 0.0066176470588235285,
+      "NDCG@K": 0.02488294083105002,
+      "HitRate@K": 0.11397058823529412,
+      "PopularityJSD": 0.4426511918134017,
+      "AverageRecommendedPopularity": 391.2729719947366,
+      "PopLift": 18.898234493677236,
+      "CatalogCoverage@K": 0.005453732677693339
+    }
+  },
+  "accuracy_first_calibration": {
+    "users": 272,
+    "metrics": {
+      "Recall@K": 0.04679754937892492,
+      "Precision@K": 0.0066176470588235285,
+      "NDCG@K": 0.024821488064100224,
+      "HitRate@K": 0.11397058823529412,
+      "PopularityJSD": 0.43698588710866726,
+      "AverageRecommendedPopularity": 390.60036188013413,
+      "PopLift": 18.889763186930423,
+      "CatalogCoverage@K": 0.005632543585158694
+    }
+  },
+  "groups": {
+    "LowPop": {
+      "baseline": {
+        "users": 146,
+        "metrics": {
+          "Recall@K": 0.008833926727762342,
+          "Precision@K": 0.003424657534246575,
+          "NDCG@K": 0.008822514005016461,
+          "HitRate@K": 0.0684931506849315,
+          "PopularityJSD": 0.5535330296854591,
+          "AverageRecommendedPopularity": 414.29314286741493,
+          "PopLift": 29.338609952487605,
+          "CatalogCoverage@K": 0.0030397854269110414
+        }
+      },
+      "calibrated": {
+        "users": 146,
+        "metrics": {
+          "Recall@K": 0.008833926727762342,
+          "Precision@K": 0.003424657534246575,
+          "NDCG@K": 0.008822514005016461,
+          "HitRate@K": 0.0684931506849315,
+          "PopularityJSD": 0.5525398611956291,
+          "AverageRecommendedPopularity": 414.21608807289437,
+          "PopLift": 29.331030792607816,
+          "CatalogCoverage@K": 0.0031291908806437194
+        }
+      }
+    },
+    "MedPop": {
+      "baseline": {
+        "users": 108,
+        "metrics": {
+          "Recall@K": 0.07042450736556428,
+          "Precision@K": 0.009722222222222222,
+          "NDCG@K": 0.039409640821283676,
+          "HitRate@K": 0.14814814814814814,
+          "PopularityJSD": 0.3383159828647702,
+          "AverageRecommendedPopularity": 371.6249957614475,
+          "PopLift": 7.734850678201762,
+          "CatalogCoverage@K": 0.005364327223960662
+        }
+      },
+      "calibrated": {
+        "users": 108,
+        "metrics": {
+          "Recall@K": 0.07042450736556428,
+          "Precision@K": 0.009722222222222222,
+          "NDCG@K": 0.039409640821283676,
+          "HitRate@K": 0.14814814814814814,
+          "PopularityJSD": 0.3383159828647702,
+          "AverageRecommendedPopularity": 371.6249957614475,
+          "PopLift": 7.734850678201762,
+          "CatalogCoverage@K": 0.005364327223960662
+        }
+      }
+    },
+    "HighPop": {
+      "baseline": {
+        "users": 18,
+        "metrics": {
+          "Recall@K": 0.21296296296296294,
+          "Precision@K": 0.013888888888888888,
+          "NDCG@K": 0.06799064736747581,
+          "HitRate@K": 0.2777777777777778,
+          "PopularityJSD": 0.16928753832072363,
+          "AverageRecommendedPopularity": 322.44166564941406,
+          "PopLift": 1.195491998401529,
+          "CatalogCoverage@K": 0.004470272686633884
+        }
+      },
+      "calibrated": {
+        "users": 18,
+        "metrics": {
+          "Recall@K": 0.21296296296296294,
+          "Precision@K": 0.013888888888888888,
+          "NDCG@K": 0.06706202777801226,
+          "HitRate@K": 0.2777777777777778,
+          "PopularityJSD": 0.09173418942224794,
+          "AverageRecommendedPopularity": 312.9027794731988,
+          "PopLift": 1.1289565488079627,
+          "CatalogCoverage@K": 0.004559678140366562
+        }
+      }
+    }
+  },
+  "paired_differences": {
+    "Recall@K": {
+      "absolute_delta": 0.0,
+      "relative_change_percent": 0.0,
+      "paired_bootstrap_95_percent_interval": [
+        0.0,
+        0.0
+      ],
+      "users_with_increase": 0,
+      "users_with_decrease": 0
+    },
+    "Precision@K": {
+      "absolute_delta": 0.0,
+      "relative_change_percent": 0.0,
+      "paired_bootstrap_95_percent_interval": [
+        0.0,
+        0.0
+      ],
+      "users_with_increase": 0,
+      "users_with_decrease": 0
+    },
+    "NDCG@K": {
+      "absolute_delta": -6.145276694979375e-05,
+      "relative_change_percent": -0.24696746002430026,
+      "paired_bootstrap_95_percent_interval": [
+        -0.0001668951270837541,
+        0.0
+      ],
+      "users_with_increase": 0,
+      "users_with_decrease": 2
+    },
+    "HitRate@K": {
+      "absolute_delta": 0.0,
+      "relative_change_percent": 0.0,
+      "paired_bootstrap_95_percent_interval": [
+        0.0,
+        0.0
+      ],
+      "users_with_increase": 0,
+      "users_with_decrease": 0
+    },
+    "PopularityJSD": {
+      "absolute_delta": -0.0056653047047343025,
+      "relative_change_percent": -1.2798575513883392,
+      "paired_bootstrap_95_percent_interval": [
+        -0.008658497045836913,
+        -0.003217919527559091
+      ],
+      "users_with_increase": 0,
+      "users_with_decrease": 17
+    },
+    "PopLift": {
+      "absolute_delta": -0.008471306746814448,
+      "relative_change_percent": -0.04482591614390585,
+      "paired_bootstrap_95_percent_interval": [
+        -0.019630172461304527,
+        -0.0025822800950318593
+      ],
+      "users_with_increase": 0,
+      "users_with_decrease": 17
+    }
+  },
+  "single_tier_pools": 0,
+  "changed_lists": 17,
+  "seconds": 6.515441511000972,
+  "caveat": "Previously inspected test split; reused evaluation, not a blind new holdout. No test-driven retuning."
+}
