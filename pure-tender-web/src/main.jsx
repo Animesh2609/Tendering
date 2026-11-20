@@ -8,14 +8,15 @@ import './index.css';
 import './modules/evaluator/style.css';
 import './modules/operations/style.css';
 import ErrorBoundary from './components/ErrorBoundary';
+import { ToastProvider } from './context/ToastContext';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
       <ThemeProvider>
-        <AuthProvider>
+        <ToastProvider><AuthProvider>
           <ErrorBoundary><App /></ErrorBoundary>
-        </AuthProvider>
+        </AuthProvider></ToastProvider>
       </ThemeProvider>
     </BrowserRouter>
   </React.StrictMode>

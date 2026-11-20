@@ -1,5 +1,6 @@
 import { API_BASE_URL } from '../data/constants';
 import { parseApiJson } from './parseApiJson.js';
+import { showToast } from '../context/ToastContext';
 
 export class ApiError extends Error {
   constructor(message, status = 0) { super(message); this.name = 'ApiError'; this.status = status; }
@@ -20,7 +21,9 @@ export async function http(path, { method = 'GET', body, token, signal, binary =
     });
   } catch (error) {
     if (error?.name === 'AbortError') throw error;
-    throw new ApiError('Cannot connect to Spring Boot. Check the backend server and Vite proxy.');
+    const message = 'Cannot connect to Spring Boot. Check the backend server and Vite proxy.';
+    showToast(message, 'error');
+    throw new ApiError(message);
   }
   if (response.ok && (binary || responseType === 'blob')) return response.blob();
   const raw = await response.text();
@@ -34,12 +37,23 @@ export async function http(path, { method = 'GET', body, token, signal, binary =
       ? (data.message || data.error || data.detail)
       : null;
     if ([502, 503, 504].includes(response.status)) {
-      throw new ApiError(
-        `Backend/API gateway unavailable (HTTP ${response.status}). The Vite frontend is running, but the request could not be completed by Spring Boot. Check that the Java application is listening on the configured backend port (usually 8080); inspect its terminal for database or Fabric startup errors.`,
-        response.status,
-      );
+      const unavailable = `Backend/API gateway unavailable (HTTP ${response.status}). Check Spring Boot and its database or Fabric startup logs.`;
+      showToast(unavailable, 'error');
+      throw new ApiError(unavailable, response.status);
     }
-    throw new ApiError(message || `Request failed (${response.status}).`, response.status);
+    const errorMessage = message || `Request failed (${response.status}).`;
+    showToast(errorMessage, 'error');
+    throw new ApiError(errorMessage, response.status);
+  }
+  if (method !== 'GET' && method !== 'HEAD') {
+    const successMessage = method === 'DELETE'
+      ? 'Removed successfully.'
+      : /\/auth\/login/.test(path) ? 'Signed in successfully.'
+        : /\/auth\/register/.test(path) ? 'Account created successfully.'
+          : /\/tenders\/?(?:\?|$)/.test(path) && method === 'POST' ? 'Tender submitted successfully.'
+            : /\/bids\/?(?:\?|$)/.test(path) && method === 'POST' ? 'Bid submitted successfully.'
+              : 'Changes saved successfully.';
+    showToast(successMessage, 'success');
   }
   return data;
 }

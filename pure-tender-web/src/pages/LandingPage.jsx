@@ -20,23 +20,23 @@ export default function LandingPage() {
     <>
       <PublicHeader />
       <main id="home">
-        <section className="tb-landing-hero border-b border-[#dfdfd6] dark:border-slate-800">
+        <section className="tb-landing-hero border-b border-[#e6e5f2] dark:border-slate-800">
           <div className="tb-container grid items-center gap-12 py-16 lg:grid-cols-[1fr_.92fr] lg:gap-16 lg:py-24">
             <div>
-              <p className="mb-6 text-xs font-bold uppercase tracking-[.22em] text-[#466278] dark:text-slate-300">
-                TenderBlock / Procurement portal
+              <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#e3e0ff] bg-white/75 px-4 py-2 text-xs font-extrabold uppercase tracking-[.12em] text-[#5b4bda] shadow-sm dark:border-slate-700 dark:bg-slate-900 dark:text-violet-300">
+                <span className="h-2 w-2 rounded-full bg-[#5b4bda]"/> TenderBlock procurement marketplace
               </p>
-              <h1 className="max-w-[660px] font-serif text-[clamp(2.7rem,5vw,4.5rem)] leading-[1.07] tracking-[-.045em] text-[#172d3b] dark:text-slate-100">
-                A clearer way to manage tenders.
+              <h1 className="max-w-[660px] text-[clamp(2.7rem,5vw,4.7rem)] leading-[1.04] tracking-[-.055em] text-[#20243f] dark:text-slate-100">
+                Find the right opportunity. <span className="text-[#5b4bda]">Make your next move.</span>
               </h1>
-              <p className="mt-6 max-w-[500px] text-[16px] leading-8 text-[#4e5b62] dark:text-slate-300">
-                Publish a requirement, receive proposals and follow each decision. TenderBlock brings the steps of a tender into one workspace.
+              <p className="mt-6 max-w-[520px] text-[16px] leading-8 text-[#65677d] dark:text-slate-300">
+                Discover published tenders, submit proposals and follow every decision in one clear, trusted workspace.
               </p>
               <div className="mt-8 flex flex-wrap items-center gap-4">
-                <Link to="/register" className="tb-btn-primary">Create an account <ArrowRight size={16} /></Link>
-                <a href="#process" className="text-sm font-semibold text-[#244b63] underline decoration-[#a3b1b8] underline-offset-4 hover:text-[#0b3451] dark:text-slate-200">See how it works</a>
+                <Link to="/register" className="tb-btn-primary">Get started <ArrowRight size={16} /></Link>
+                <a href="#process" className="text-sm font-bold text-[#5748cf] underline decoration-[#bcb6f2] underline-offset-4 hover:text-[#4334b8] dark:text-slate-200">See how it works</a>
               </div>
-              <p className="mt-8 border-l-2 border-[#bf8c53] pl-4 text-xs leading-6 text-[#596773] dark:text-slate-400">
+              <p className="mt-8 border-l-2 border-[#8a7ef0] pl-4 text-xs leading-6 text-[#686a7e] dark:text-slate-400">
                 Public accounts are for Bidders and Listers. Admin, Evaluator and Auditor accounts use a separate staff sign-in.
               </p>
             </div>

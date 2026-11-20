@@ -24,6 +24,7 @@ import {
   demoGetTenders,
   demoGetTender,
   demoMyTenders,
+  demoTenderAward,
   demoCreateTender,
   demoUpdateTender,
   demoRequestApproval,
@@ -33,6 +34,7 @@ import {
   demoMyBids,
 } from "./demoStore";
 
+//#region Authentication APIs
 // Team mode uses the Spring Boot API pinned in docs/BACKEND_SNAPSHOT.json.
 // Run npm run dev:live for API mode; the demo store remains a separate simulation.
 function parseSession(raw) {
@@ -122,6 +124,10 @@ export const authApi = {
     return result;
   },
 };
+
+//#endregion
+
+//#region Company profile API
 export const companyProfileApi = {
   async mine(token) {
     if (DEMO_MODE) return null;
@@ -151,6 +157,9 @@ export const companyProfileApi = {
   },
 };
 
+//#endregion
+
+//#region Staff authentication API
 export const staffAuthApi = {
   async login(form) {
     const raw = DEMO_MODE
@@ -165,6 +174,10 @@ export const staffAuthApi = {
     return result;
   },
 };
+
+//#endregion
+
+//#region Pagination helpers
 // Page<T> response from Spring Data. Search in the visible table is local to
 // the fetched page because the backend does not expose a tender keyword filter.
 async function teamPage(
@@ -202,6 +215,9 @@ const pageFromArray = (list, page, size) => ({
   totalElements: list.length,
 });
 
+//#endregion
+
+//#region Tender API
 export const tenderApi = {
   async listPage(token, page = 0, size = 10) {
     if (!DEMO_MODE && BACKEND_CONTRACT === "team")
@@ -242,6 +258,11 @@ export const tenderApi = {
       : normalizeTender(
           await http(`/tenders/${encodeURIComponent(id)}`, { token }),
         );
+  },
+  async award(user, id, token) {
+    return DEMO_MODE
+      ? demoTenderAward(user, id)
+      : http(`/tenders/${encodeURIComponent(id)}/award`, { token });
   },
   async mine(user, token) {
     return DEMO_MODE
@@ -300,6 +321,10 @@ export const tenderApi = {
     });
   },
 };
+
+//#endregion
+
+//#region Bid API and proposal upload
 function buildBidBody(form, partial = false) {
   const body = new FormData();
   body.append("amount", String(form.amount));
@@ -381,6 +406,10 @@ export const bidApi = {
     return Array.isArray(result) ? result : (result?.content ?? []);
   },
 };
+
+//#endregion
+
+//#region Authorized proposal downloads
 // Authorized PDF download: NEVER put a JWT token in the URL/query string.
 export async function downloadBidPdf(bidId, kind, token) {
   if (DEMO_MODE) throw new Error("Demo mode does not store downloadable PDFs.");
@@ -423,3 +452,4 @@ export async function downloadBidPdf(bidId, kind, token) {
   link.remove();
   setTimeout(() => URL.revokeObjectURL(url), 3000);
 }
+//#endregion
