@@ -2,14 +2,14 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --color-ink: #243947;
-  --color-brand: #285970;
-  --color-brand-dark: #1d455c;
-  --color-cloud: #f4f5f2;
+  --color-ink: #20243f;
+  --color-brand: #5b4bda;
+  --color-brand-dark: #4334b8;
+  --color-cloud: #f5f6fc;
   --font-sans: "Inter", "Segoe UI", Arial, sans-serif;
 }
 
-:root { font-family: var(--font-sans); color: #243947; background: #f4f5f2; }
+:root { font-family: var(--font-sans); color: #20243f; background: #f5f6fc; }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body { margin: 0; min-width: 320px; }
@@ -33,15 +33,15 @@ a { text-decoration: none; }
 :focus-visible { outline: 3px solid #8bbcff; outline-offset: 2px; }
 
 /* A few shared classes keep page JSX readable while Tailwind handles layout. */
-.tb-container { @apply mx-auto w-full max-w-[1180px] px-5 sm:px-8; }
-.tb-card { @apply rounded-lg border border-slate-200 bg-white shadow-[0_2px_12px_rgba(22,43,52,0.035)]; }
-.tb-input { @apply mt-1.5 w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2.5 text-sm text-slate-800 placeholder:text-slate-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-100; }
+.tb-container { @apply mx-auto w-full max-w-[1220px] px-5 sm:px-8; }
+.tb-card { @apply rounded-2xl border border-[#e9eaf3] bg-white shadow-[0_8px_30px_rgba(37,38,77,0.055)]; }
+.tb-input { @apply mt-1.5 w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2.5 text-sm text-slate-800 placeholder:text-slate-400 focus:border-[#5b4bda] focus:outline-none focus:ring-2 focus:ring-[#edeaff]; }
 .tb-label { @apply block text-sm font-semibold text-slate-700; }
-.tb-btn-primary { @apply inline-flex items-center justify-center gap-2 rounded-md bg-[#285970] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#1d455c] disabled:cursor-not-allowed disabled:opacity-50; }
-.tb-btn-outline { @apply inline-flex items-center justify-center gap-2 rounded-md border border-slate-300 bg-white px-5 py-2.5 text-sm font-semibold text-slate-800 transition hover:bg-slate-50 disabled:opacity-50; }
-.tb-link { @apply font-medium text-blue-700 hover:text-blue-900 hover:underline; }
+.tb-btn-primary { @apply inline-flex items-center justify-center gap-2 rounded-full bg-[#5b4bda] px-6 py-3 text-sm font-bold text-white shadow-[0_8px_18px_rgba(91,75,218,0.19)] transition hover:bg-[#4334b8] disabled:cursor-not-allowed disabled:opacity-50; }
+.tb-btn-outline { @apply inline-flex items-center justify-center gap-2 rounded-full border border-[#dedff0] bg-white px-5 py-2.5 text-sm font-semibold text-[#30324e] transition hover:border-[#b8b1f0] hover:bg-[#f7f6ff] disabled:opacity-50; }
+.tb-link { @apply font-semibold text-[#5848d2] hover:text-[#4334b8] hover:underline; }
 .tb-error { @apply mt-1 text-xs font-medium text-red-700; }
-.tb-section-title { @apply text-2xl font-semibold tracking-tight text-[#243947] sm:text-[30px]; }
+.tb-section-title { @apply text-2xl font-extrabold tracking-tight text-[#20243f] sm:text-[30px]; }
 .tb-muted { @apply text-sm leading-relaxed text-slate-600; }
 .tb-table { @apply w-full border-collapse text-left text-sm; }
 .tb-table th { @apply bg-slate-50 px-4 py-3 text-xs font-bold uppercase tracking-wider text-slate-500; }
@@ -50,7 +50,32 @@ a { text-decoration: none; }
 @media (prefers-reduced-motion: reduce) { *,*::before,*::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; } }
 
 /* Landing page: warm neutral backdrop, restrained accents, and readable editorial typography. */
-.tb-landing-hero { background: #f5f5ef; }
-html.dark .tb-landing-hero { background: #111e29; }
-.tb-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: #54717a; }
-html.dark .tb-eyebrow { color: #adc0c8; }
+.tb-landing-hero { background: radial-gradient(ellipse at 80% 16%, rgba(183,171,255,.24), transparent 34%), linear-gradient(120deg,#f8f8ff 0%,#f2f3ff 54%,#f9f8ff 100%); }
+html.dark .tb-landing-hero { background: radial-gradient(ellipse at 80% 16%, rgba(91,75,218,.22), transparent 34%), #111827; }
+.tb-eyebrow { font-size: 11px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: #6456cf; }
+html.dark .tb-eyebrow { color: #b7afff; }
+
+/* Shared notifications */
+.toast-viewport { position: fixed; z-index: 100; top: 20px; right: 20px; display: grid; width: min(410px, calc(100vw - 32px)); gap: 10px; pointer-events: none; }
+.app-toast { display: grid; grid-template-columns: 22px 1fr 24px; align-items: center; gap: 11px; padding: 14px 14px; border: 1px solid #e5e5f0; border-radius: 16px; background: #fff; color: #30324e; box-shadow: 0 16px 45px rgba(34,35,72,.18); font-size: 13px; line-height: 1.5; animation: toast-in .2s ease-out; pointer-events: auto; }
+.app-toast-success>svg:first-child { color: #2b9a71; }
+.app-toast-error>svg:first-child { color: #d94f65; }
+.app-toast-info>svg:first-child { color: #5b4bda; }
+.app-toast button { display: grid; place-items: center; padding: 3px; border: 0; border-radius: 8px; background: transparent; color: #77798e; }
+.app-toast button:hover { background: #f0f0f7; color: #30324e; }
+@keyframes toast-in { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: translateY(0); } }
+@media (max-width: 640px) { .toast-viewport { top: 10px; right: 10px; width: calc(100vw - 20px); } }
+
+/* Theme shared legacy and module layouts consistently with the marketplace palette. */
+.tb-landing-hero h1 { color: #20243f !important; font-family: var(--font-sans); font-weight: 850; letter-spacing: -.055em; }
+.tb-landing-hero .tb-btn-primary { padding-inline: 26px; }
+.tb-landing-hero a:not(.tb-btn-primary) { color: #5748cf; }
+.tb-landing-hero + section { border-color: #e9eaf3; }
+html.dark .tb-card { background: #172033; border-color: #303750; }
+html.dark .app-toast { background: #172033; border-color: #303750; color: #edf0ff; }
+html.dark .tb-landing-hero h1 { color: #f1f2ff !important; }
+.evaluator-portal .portal-header .brand-mark, .operations-portal .portal-header .brand-mark,
+.operations-portal .workspace-header .brand-mark { background: #5b4bda !important; border-radius: 11px !important; }
+.evaluator-portal .tb-btn-primary, .operations-portal .tb-btn-primary { background: #5b4bda !important; border-radius: 999px !important; }
+.evaluator-portal .tb-btn-primary:hover, .operations-portal .tb-btn-primary:hover { background: #4334b8 !important; }
+.evaluator-portal .auth-card, .operations-portal .auth-card { border-radius: 20px !important; box-shadow: 0 12px 40px rgba(37,38,77,.08) !important; }

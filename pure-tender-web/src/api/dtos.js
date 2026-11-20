@@ -75,6 +75,7 @@ export function normalizeTender(raw) {
     department: raw?.department ?? raw?.authorityName ?? raw?.organizationName ?? raw?.createdBy ?? 'Tender issuer',
     budget: raw?.budget ?? raw?.estimatedValue,
     submissionDeadline: raw?.submissionDeadline ?? raw?.deadline,
+    rejectionReason: raw?.rejectionReason ?? raw?.rejection_reason ?? null,
     status: String(raw?.status ?? 'DRAFT').toUpperCase(),
   };
 }

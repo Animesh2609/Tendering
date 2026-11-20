@@ -4,11 +4,11 @@ import { ArrowDown, Check, FileText, LockKeyhole } from 'lucide-react';
 export default function HeroIllustration() {
   return (
     <div className="relative mx-auto w-full max-w-[490px]" aria-label="Illustrative tender workflow">
-      <div className="absolute -left-4 -top-4 h-full w-full rounded-lg border border-[#d9d8cc] dark:border-slate-700" />
-      <div className="relative overflow-hidden rounded-lg border border-[#d4d9da] bg-white shadow-[0_20px_55px_rgba(34,53,58,.10)] dark:border-slate-700 dark:bg-slate-900">
+      <div className="absolute -left-4 -top-4 h-full w-full rounded-[28px] border border-[#d9d6ff] dark:border-slate-700" />
+      <div className="relative overflow-hidden rounded-[26px] border border-[#e5e5f3] bg-white shadow-[0_24px_65px_rgba(57,48,144,.14)] dark:border-slate-700 dark:bg-slate-900">
         <div className="flex items-center justify-between border-b border-slate-200 px-5 py-4 dark:border-slate-700">
-          <div className="flex items-center gap-2 text-xs font-bold tracking-wide text-[#36536a] dark:text-slate-200"><FileText size={16} /> Tender record</div>
-          <span className="rounded-sm border border-[#dec9a8] bg-[#faf4e9] px-2 py-1 text-[10px] font-semibold text-[#785a32] dark:border-amber-900 dark:bg-slate-800 dark:text-amber-200">EXAMPLE</span>
+          <div className="flex items-center gap-2 text-xs font-bold tracking-wide text-[#49436e] dark:text-slate-200"><FileText size={16} /> Tender record</div>
+          <span className="rounded-full border border-[#e3e0ff] bg-[#f5f3ff] px-2.5 py-1 text-[10px] font-bold text-[#5b4bda] dark:border-violet-900 dark:bg-slate-800 dark:text-violet-200">EXAMPLE</span>
         </div>
         <div className="px-6 py-6">
           <p className="text-[11px] uppercase tracking-[.15em] text-slate-500 dark:text-slate-400">Tender / TB-001</p>

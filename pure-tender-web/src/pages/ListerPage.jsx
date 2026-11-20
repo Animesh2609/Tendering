@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { ClipboardList, Clock3, FileText } from "lucide-react";
+import { ClipboardList, Clock3, FileText, Trophy, X } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
 import { tenderApi } from "../api/services";
 import { BACKEND_CONTRACT, DEMO_MODE } from "../data/constants";
@@ -188,6 +188,29 @@ export function MyTendersPage() {
   const [message, setMessage] = useState("");
   const [cancelId, setCancelId] = useState(null);
   const [reason, setReason] = useState("");
+  const [awardDetails, setAwardDetails] = useState(null);
+  const [awardLoadingId, setAwardLoadingId] = useState("");
+  const [rejectionDetails, setRejectionDetails] = useState(null);
+
+  async function viewAward(tender) {
+    setAwardLoadingId(tender.id);
+    setAwardDetails(null);
+    setRejectionDetails(null);
+    setMessage("");
+    try {
+      const details = await tenderApi.award(user, tender.id, token);
+      if (!details?.winningContractorName) {
+        throw new Error("The award response did not include the winning contractor.");
+      }
+      setAwardDetails(details);
+    } catch (err) {
+      setMessage(err.status === 404 && ["Not Found", "Request failed (404)."].includes(err.message)
+        ? "The running backend returned 404 for the award lookup. Rebuild and restart Spring Boot in IntelliJ; if it still fails, check that the tender has a selected winning bid."
+        : err.message || "Could not load award details.");
+    } finally {
+      setAwardLoadingId("");
+    }
+  }
 
   async function requestApproval(id) {
     setWorkingId(id);
@@ -244,6 +267,48 @@ export function MyTendersPage() {
         title="My tenders"
         subtitle="Edit eligible requests and follow their status."
       />
+      {awardDetails && (
+        <section className="tb-card mb-4 max-w-3xl p-5" aria-live="polite">
+          <section
+            aria-labelledby="award-details-title"
+            className="w-full"
+          >
+            <div className="flex items-start justify-between gap-4">
+              <div>
+                <p className="flex items-center gap-2 text-sm font-semibold text-emerald-700 dark:text-emerald-300">
+                  <Trophy size={17} /> Tender awarded
+                </p>
+                <h2 id="award-details-title" className="mt-2 text-lg font-semibold text-ink dark:text-slate-100">
+                  {awardDetails.tenderTitle}
+                </h2>
+              </div>
+              <button className="tb-btn-outline !p-2" onClick={() => setAwardDetails(null)} aria-label="Close award details">
+                <X size={17} />
+              </button>
+            </div>
+            <dl className="mt-5 grid gap-4 text-sm sm:grid-cols-2">
+              <div><dt className="text-slate-500 dark:text-slate-400">Awarded to</dt><dd className="mt-1 font-semibold text-ink dark:text-slate-100">{awardDetails.winningContractorName}</dd></div>
+              <div><dt className="text-slate-500 dark:text-slate-400">Winning bid amount</dt><dd className="mt-1 font-semibold text-ink dark:text-slate-100">{awardDetails.winningBidAmount == null ? "—" : new Intl.NumberFormat("en-IN", { style: "currency", currency: "INR", maximumFractionDigits: 2 }).format(Number(awardDetails.winningBidAmount))}</dd></div>
+              <div><dt className="text-slate-500 dark:text-slate-400">Award date</dt><dd className="mt-1 font-medium text-ink dark:text-slate-100">{formatDate(awardDetails.awardedAt)}</dd></div>
+              <div><dt className="text-slate-500 dark:text-slate-400">Winning bid reference</dt><dd className="mt-1 break-all font-mono text-xs text-ink dark:text-slate-100">{awardDetails.winningBidId}</dd></div>
+            </dl>
+          </section>
+        </section>
+      )}
+      {rejectionDetails && (
+        <section className="tb-card mb-4 max-w-3xl border-l-4 border-rose-500 p-5" aria-live="polite">
+          <div className="flex items-start justify-between gap-4">
+            <div>
+              <p className="text-sm font-semibold text-rose-700 dark:text-rose-300">Tender rejection reason</p>
+              <h2 className="mt-2 font-semibold text-ink dark:text-slate-100">{rejectionDetails.title}</h2>
+            </div>
+            <button className="tb-btn-outline !p-2" onClick={() => setRejectionDetails(null)} aria-label="Close rejection reason"><X size={17} /></button>
+          </div>
+          <p className="mt-3 whitespace-pre-wrap text-sm leading-6 text-slate-700 dark:text-slate-300">
+            {rejectionDetails.rejectionReason || "The backend response did not include a rejection reason. Rebuild and restart Spring Boot in IntelliJ, then refresh this page."}
+          </p>
+        </section>
+      )}
       {message && (
         <p
           role="status"
@@ -326,7 +391,28 @@ export function MyTendersPage() {
                     <StatusBadge status={tender.status} />
                   </td>
                   <td>
-                    {cancellable ? (
+                    {tender.status === "AWARDED" ? (
+                      <button
+                        type="button"
+                        className="tb-btn-outline inline-flex items-center gap-2"
+                        disabled={Boolean(workingId) || awardLoadingId === tender.id}
+                        onClick={() => viewAward(tender)}
+                      >
+                        <Trophy size={15} /> {awardLoadingId === tender.id ? "Loading…" : "View award"}
+                      </button>
+                    ) : tender.status === "REJECTED" ? (
+                      <button
+                        type="button"
+                        className="tb-btn-outline"
+                        onClick={() => {
+                          setAwardDetails(null);
+                          setRejectionDetails(tender);
+                          setMessage("");
+                        }}
+                      >
+                        View rejection reason
+                      </button>
+                    ) : cancellable ? (
                       <button
                         type="button"
                         className="tb-btn-outline"
