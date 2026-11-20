@@ -77,6 +77,14 @@ export async function demoLogin(dto) {
 export function demoGetTenders() {return snapshot().tenders.filter(t=>t.status==='PUBLISHED').map(cleanTender);}
 export function demoGetTender(id) {return snapshot().tenders.find(t=>String(t.id)===String(id))||null;}
 export function demoMyTenders(user) {requireRole(user,'LISTER');return snapshot().tenders.filter(t=>t.createdById===user.id).map(cleanTender);}
+export function demoTenderAward(user,id) {
+  requireRole(user,'LISTER');
+  const db=snapshot(),tender=mustTender(db,id);
+  if(tender.createdById!==user.id)throw new Error('Only the tender authority can view its award.');
+  if(tender.status!=='AWARDED'||!tender.winningBidId)throw new Error('No award has been recorded for this tender.');
+  const bid=mustBid(db,tender.winningBidId);
+  return {tenderId:tender.id,tenderTitle:tender.title,winningBidId:bid.id,winningContractorName:bid.bidderName||bid.contractorName||'Awarded bidder',winningBidAmount:bid.amount??bid.quotedAmount,awardedAt:tender.awardedAt||null};
+}
 export function demoCreateTender(user,dto) {
   requireRole(user,'LISTER');const db=load();requireVerified(user,db);
   const t={...dto,id:unique('TND'),status:'DRAFT',createdById:user.id,createdBy:user.organizationName||user.fullName,

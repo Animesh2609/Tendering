@@ -11,10 +11,12 @@ export default defineConfig(({ mode }) => {
       port: 5173,
       proxy: {
         "/api/v1": {
-          target: env.VITE_BACKEND_TARGET || "http://localhost:8080",
+          target:
+            env.VITE_BACKEND_TARGET || "https://proj.telepathystudios.icu/",
           changeOrigin: true,
         },
       },
     },
+    base: "/TenderBlock/",
   };
 });

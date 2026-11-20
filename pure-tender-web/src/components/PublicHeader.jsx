@@ -14,11 +14,11 @@ export default function PublicHeader() {
     ['Process', '/#process'], ['Team', '/#contact'],
   ];
   return (
-    <header className="sticky top-0 z-40 border-b border-slate-200 bg-white/95 backdrop-blur-sm dark:border-slate-700 dark:bg-slate-900/95">
-      <div className="tb-container flex h-[72px] items-center justify-between gap-3">
+    <header className="sticky top-0 z-40 border-b border-[#ececf4] bg-white/95 backdrop-blur-sm dark:border-slate-700 dark:bg-slate-900/95">
+      <div className="tb-container flex h-[80px] items-center justify-between gap-3">
         <Brand />
         <nav className="hidden items-center gap-5 lg:flex" aria-label="Main navigation">
-          {nav.map(([name, url]) => <a key={name} href={url} className="text-sm font-medium text-slate-600 transition hover:text-[#285970] dark:text-slate-300 dark:hover:text-blue-300">{name}</a>)}
+          {nav.map(([name, url]) => <a key={name} href={url} className="text-sm font-semibold text-slate-600 transition hover:text-[#5b4bda] dark:text-slate-300 dark:hover:text-violet-300">{name}</a>)}
         </nav>
         <div className="ml-auto flex items-center gap-2 sm:ml-0">
           <ThemeToggle />

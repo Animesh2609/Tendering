@@ -29,7 +29,7 @@ export default function WorkspaceLayout() {
     { label:'Profile', path:'/profile', icon:UserRound },
   ];
   function handleLogout() { logout(); navigate('/login', { replace:true }); }
-  return <div className="min-h-screen bg-[#f4f5f2] dark:bg-slate-950">
+  return <div className="min-h-screen bg-[#f5f6fc] dark:bg-slate-950">
     <div className="fixed inset-x-0 top-0 z-40 flex h-[72px] items-center justify-between border-b border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-4 sm:px-6 lg:px-8">
       <div className="flex items-center gap-3"><button type="button" onClick={()=>setExpanded(!expanded)} className="rounded-lg p-2 text-slate-600 dark:text-slate-300 lg:hidden" aria-label="Toggle sidebar">{expanded?<X size={20}/>:<Menu size={20}/>}</button><Brand to={prefix}/></div>
       <div className="flex items-center gap-3"><ThemeToggle/><span className="hidden rounded-full bg-[#eef4f4] dark:bg-slate-800 px-3 py-1 text-xs font-bold text-[#285970] dark:text-slate-200 sm:inline-flex">{bidder?'Bidder workspace':'Lister workspace'}</span><span className="grid h-9 w-9 place-items-center rounded-full bg-[#285970] text-xs font-bold text-white">{initials(user.fullName)}</span><div className="hidden min-w-0 sm:block"><p className="max-w-[195px] truncate text-xs font-semibold text-ink dark:text-slate-100">{user.organizationName || user.fullName}</p><p className="text-xs text-slate-500 dark:text-slate-400">{user.role}</p></div></div>
