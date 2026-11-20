@@ -1,0 +1,4 @@
+# CPU PyTorch installation is documented in TEAMMATE_WORKFLOW.md.
+numpy>=1.24
+pandas>=2.0
+torch>=2.0

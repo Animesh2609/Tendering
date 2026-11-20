@@ -1,3 +1,11 @@
+# Start here: Karan's requested tasks
+
+[**Three-method runner, POI-paper audit and Douban preprocessing guide**](TEAMMATE_WORKFLOW.md)
+
+Use `teammate_workflow.py` for Moving Average, Holt and original calibration. Use `prepare_douban.py` to convert an explicitly mapped timestamped interaction table to the current model schema. LLM and accuracy-first experiments below are separate, opt-in extensions. No better-accuracy claim is made.
+
+---
+
 # CausalEPP with LightGCN and frozen-LLM baselines
 
 Start with [the complete run guide](LLM_BASELINE_GUIDE.md).

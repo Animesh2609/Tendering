@@ -7,3 +7,7 @@ __pycache__/
 *.pt
 *.safetensors
 .DS_Store
+
+# Keep dataset artifacts private; retain Python preprocessing source.
+/data/*
+!/data/*.py
