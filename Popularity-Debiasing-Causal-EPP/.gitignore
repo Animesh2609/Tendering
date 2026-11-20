@@ -1,0 +1,9 @@
+/.venv/
+/work/
+/outputs/
+/data/Ciao/
+__pycache__/
+*.pyc
+*.pt
+*.safetensors
+.DS_Store

@@ -1,0 +1,33 @@
+{
+  "source_commit": "1b5e028d98d1b736661004c0df06458028dfba9a",
+  "files": {
+    "LLM_BASELINE_GUIDE.md": "9ed39637a1bd15f7c7840cc3ecdc117f47b4b32cd42709399c5d2be36d85cb39",
+    "README.md": "8c49e46fc1cde3ff224464f2fe9e5623c77f7b155ad01e5fe0b81344e160a3d4",
+    "train.py": "fdf3d52fc9cd747fbb4305fb67538960cc130a0874e648a029b4ebffdea6aa7f",
+    "README_original.md": "a00a85ab22aa94f1f32d74bb1543751689eac16868698d614c2a7926e003524e",
+    "compare_backbones.py": "2997467ee51f7d88e9ee45ed43f7d3e7a8ea8ede9e780d38978a22c046f9dda9",
+    "llm_embedding_baseline.py": "a1a977acc59a3b55b1d1fc0a9996d07bcfa2bb1c1479ad1071855e8fe2567996",
+    "models.py": "3c67c6865441da00da09d808152ef0b8670d46cf33d09edd27f33485aacbcac7",
+    ".gitignore": "d356613fed9ac5908db8ddba4704c549e131bfd611de9641c9d549ce1bbc57b3",
+    "main.py": "276112dd71b2993cd47261b24fd6a614a8e6bbb13d019ef4281413c460f48682",
+    "benchmark_environment.freeze.txt": "b1de3d4bd208d39ec572069a752513e79d20bc212f0fc9e520eb39b8568d7f8a",
+    "calibration.py": "9f1832a0f9e71e362c67cf34a61f50526b058662e17b9621f61c6947cdd64970",
+    "evaluate.py": "bd66981a8b51ed3ef99d3e9a418115011e06ffc96c8692e612fce9dd3c1d39cf",
+    "requirements-llm-baseline.txt": "5b180298fd7b9c0829b39d20b5a39604e4897ccc0cab7029802edd671950481b",
+    "config.py": "4d507e2cf1d616b4effe7b7efc29535b307974c52f9f8c7fc22cb6a7eb8d0ecd",
+    "llm_baseline.py": "e6201b00d1c9e37f07d3e91725d363d57900477cd30b90a884098b8ab2a157de",
+    "download_qwen_weights.py": "80dd398d7fe790340826f48e5cdb5996e3959e8e0bb575753f4c7ce7982c4982",
+    "requirements.txt": "46a1b37f9a628ab6cba695e1475efcf3624accd23d84062cddf84cbf6b3ab0ea",
+    "forecasting/moving_average.py": "71bf94917c6f14199baa71f9439860bdb0ba6e318c3e3d3779cac420f5c64b40",
+    "data/input_data_transformation.py": "2a510849af6f2590714f0e751d154fe88bb066162de04e9f39ff4b01ff8baa72",
+    "data/preprocess.py": "2b54e983f9e20372b406d363acdb51c1b097a39eb3cd709e975ef164507927b2",
+    "data/popularity.py": "5fc005af59ef51564e5632238ba73440f578a5f414ae51ab84090e8b8904d7b2",
+    "data/dataset.py": "c2e3c77aeed50cced95c9fa06a3602c2907e42e4f84716a79ba9eac148f1def5",
+    "tests/test_compare_backbones.py": "7fd6d7f7ad5c3c640eb93f6ae94efae07d5a027e67017cfb9823954b310af088",
+    "tests/test_llm_embedding_baseline.py": "40cb81fbded992b1083383a309d4dab8510a42edd80cc7a84794931e9d094de7",
+    "reports/llm_replacement_notes.md": "1a473cf5e816fef2edefda1f949d2d96a8ee7c34ffc4040ecfaf69166324927e",
+    "reports/qwen_cpu_benchmark.md": "ac86bb1720380796e8a7362fc56076c85d542e89f0e2facffb888a9a69c6d4bc",
+    "reports/local_validation_report.md": "452d3003857828738183446a5bb62a9ebfb048b79c48ffce9613d09a75d1af74",
+    "reports/comparison_validation.md": "bef54b3e36084cd370b84d775355501d777edcff3c3a5957bc72aa0703a2bfc7"
+  }
+}
