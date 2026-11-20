@@ -17,6 +17,6 @@ export default defineConfig(({ mode }) => {
         },
       },
     },
-    base: "/",
+    base: process.env.GITHUB_PAGES === "true" ? "/TenderBlock/" : "/",
   };
 });

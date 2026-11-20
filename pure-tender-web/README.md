@@ -27,17 +27,17 @@ Ordinary `dev` and `build` use the backend. They never switch to fake success or
 
 ## Entry points
 
-| Page | URL |
-| --- | --- |
-| Public landing page | `/` |
-| Bidder/Lister registration | `/register` |
-| Bidder/Lister login | `/login` |
-| Staff login: Admin, Evaluator, Auditor | `/staff/login` |
-| Evaluator application | `/staff/register/evaluator` |
-| Role-based staff workspace | `/staff/workspace` |
-| Bidder dashboard, opportunities, bids | `/bidder`, `/bidder/tenders`, `/bidder/my-bids` |
+| Page                                      | URL                                               |
+| ----------------------------------------- | ------------------------------------------------- |
+| Public landing page                       | `/`                                               |
+| Bidder/Lister registration                | `/register`                                       |
+| Bidder/Lister login                       | `/login`                                          |
+| Staff login: Admin, Evaluator, Auditor    | `/staff/login`                                    |
+| Evaluator application                     | `/staff/register/evaluator`                       |
+| Role-based staff workspace                | `/staff/workspace`                                |
+| Bidder dashboard, opportunities, bids     | `/bidder`, `/bidder/tenders`, `/bidder/my-bids`   |
 | Lister dashboard, new tender, own tenders | `/lister`, `/lister/create`, `/lister/my-tenders` |
-| Bidder/Lister company profile | `/profile` |
+| Bidder/Lister company profile             | `/profile`                                        |
 
 `/admin`, `/evaluator`, and `/auditor` are convenience aliases to the authenticated user's staff workspace. Access is determined by the backend login response. Java `CONTRACTOR` and `AUTHORITY` map to the UI labels Bidder and Lister. Admin/Auditor accounts must already exist; this app retains the Evaluator registration flow from the supplied evaluator module. New accounts require Admin verification. Sign out and sign in again after approval to refresh account status.
 
@@ -66,7 +66,11 @@ npm run build
 npm run preview
 ```
 
-The ZIP includes a live-mode `dist/` build. Rebuild after changing `VITE_API_BASE_URL`; Vite injects public settings at build time. The dev server proxy is not a production deployment configuration. Configure the production web server to:
+The ZIP includes a live-mode `dist/` build. Rebuild after changing `VITE_API_BASE_URL`; Vite injects public settings at build time. The dev server proxy is not a production deployment configuration.
+
+GitHub Pages builds set `GITHUB_PAGES=true` in the deployment workflow, use `/TenderBlock/` as the app base path, create `dist/404.html` as a copy of `dist/index.html`, and disable Jekyll processing for the uploaded build. Direct links to React routes therefore fall back to the SPA entry point.
+
+Configure the production web server to:
 
 1. Serve `dist/` and fall back to `index.html` for React routes.
 2. Reverse proxy `/api/v1/` to Spring Boot, preserving the path and Authorization header.

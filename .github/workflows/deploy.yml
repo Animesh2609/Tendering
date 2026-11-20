@@ -1,4 +1,3 @@
-
 name: Deploy TenderBlock Frontend
 
 on:
@@ -6,8 +5,8 @@ on:
     branches:
       - main
     paths:
-      - 'pure-tender-web/**'
-      - '.github/workflows/deploy.yml'
+      - "pure-tender-web/**"
+      - ".github/workflows/deploy.yml"
   workflow_dispatch:
 
 permissions:
@@ -44,7 +43,15 @@ jobs:
 
       - name: Build React application
         working-directory: pure-tender-web
+        env:
+          GITHUB_PAGES: "true"
         run: npm run build
+
+      - name: Prepare GitHub Pages fallback
+        working-directory: pure-tender-web
+        run: |
+          test -f dist/404.html
+          touch dist/.nojekyll
 
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v5

@@ -5,13 +5,13 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && node scripts/create-spa-fallback.mjs",
     "preview": "vite preview",
     "lint": "eslint src",
     "dev:live": "vite --mode live",
-    "build:live": "vite build --mode live",
+    "build:live": "vite build --mode live && node scripts/create-spa-fallback.mjs",
     "dev:demo": "vite --mode demo",
-    "build:demo": "vite build --mode demo",
+    "build:demo": "vite build --mode demo && node scripts/create-spa-fallback.mjs",
     "test": "playwright test",
     "test:contracts": "node scripts/check-backend-contract.mjs",
     "styles:scope": "node scripts/scope-module-styles.mjs"
