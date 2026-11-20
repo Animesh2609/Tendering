@@ -59,7 +59,10 @@ export default function PublicLoginForm() {
           {error}
         </div>
       )}
-      <form onSubmit={handleLogin} className="space-y-4 max-w-3xl">
+      <form
+        onSubmit={handleLogin}
+        className="mx-auto w-full max-w-md space-y-4"
+      >
         <FormField label="Email address" name="public-login-email" required>
           <input
             className="tb-input"

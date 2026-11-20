@@ -17,6 +17,6 @@ export default defineConfig(({ mode }) => {
         },
       },
     },
-    base: "/TenderBlock/",
+    base: "/",
   };
 });
