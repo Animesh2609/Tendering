@@ -411,6 +411,7 @@ public class BidService {
                 bid.getId(),
                 bid.getTender().getId(),
                 bid.getTender().getTitle(),
+                bid.getTender().getStatus(),
                 bid.getContractor().getId(),
                 bid.getContractor().getFullName(),
                 bid.getQuotedAmount(),

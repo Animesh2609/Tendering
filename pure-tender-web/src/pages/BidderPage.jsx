@@ -397,11 +397,12 @@ export function MyBidsPage() {
             </thead>
             <tbody>
               {bids.map((bid) => {
-                const canEdit = teamMode
+                const tenderVoided = bid.tenderStatus === "VOIDED";
+                const canEdit = !tenderVoided && (teamMode
                   ? ["DRAFT", "SUBMITTED"].includes(bid.status)
                   : bid.status === "SUBMITTED" &&
                     (!bid.tenderDeadline ||
-                      Date.parse(bid.tenderDeadline) > Date.now());
+                      Date.parse(bid.tenderDeadline) > Date.now()));
                 return (
                   <tr key={bid.id}>
                     <td className="font-semibold text-ink dark:text-slate-100">
@@ -430,7 +431,9 @@ export function MyBidsPage() {
                       )}
                     </td>
                     <td>
-                      <StatusBadge status={bid.status} />
+                      <StatusBadge
+                        status={tenderVoided ? "VOIDED" : bid.status}
+                      />
                     </td>
                     <td>
                       {canEdit ? (

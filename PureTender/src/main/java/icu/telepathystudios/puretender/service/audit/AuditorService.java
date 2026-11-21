@@ -47,8 +47,21 @@ import java.util.UUID;
 public class AuditorService {
 
     private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
+    private static final List<TenderStatus> HISTORY_TENDER_STATUSES = List.of(
+            TenderStatus.AWARDED, TenderStatus.CANCELLED,
+            TenderStatus.REJECTED, TenderStatus.VOIDED
+    );
+    private static final List<TenderStatus> AUDITABLE_TENDER_STATUSES = List.of(
+            TenderStatus.UNDER_EVALUATION, TenderStatus.ON_HOLD,
+            TenderStatus.AWARDED, TenderStatus.CANCELLED,
+            TenderStatus.REJECTED, TenderStatus.VOIDED
+    );
+    private static final List<TenderStatus> DOWNLOADABLE_TENDER_STATUSES = List.of(
+            TenderStatus.ON_HOLD, TenderStatus.AWARDED,
+            TenderStatus.CANCELLED, TenderStatus.REJECTED, TenderStatus.VOIDED
+    );
     private static final List<BidStatus> AUDITABLE_BID_STATUSES = List.of(
-            BidStatus.OPENED, BidStatus.UNDER_EVALUATION,
+            BidStatus.SUBMITTED, BidStatus.OPENED, BidStatus.UNDER_EVALUATION,
             BidStatus.EVALUATED, BidStatus.SELECTED, BidStatus.NOT_SELECTED
     );
 
@@ -101,13 +114,14 @@ public class AuditorService {
             Pageable pageable
     ) {
         getVerifiedAuditor(authentication);
-        return tenderAwardRepo.findAllByTender_Status(TenderStatus.AWARDED, pageable).map(award -> {
-            Tender tender = award.getTender();
+        return tenderRepo.findAllByStatusIn(HISTORY_TENDER_STATUSES, pageable).map(tender -> {
+            TenderAward award = tenderAwardRepo.findByTender_Id(tender.getId()).orElse(null);
             return new AuditorTenderSummaryResponse(
                     tender.getId(), tender.getTitle(), tender.getAuthority().getFullName(),
-                    tender.getStatus(), null, award.getAwardedAt(),
+                    tender.getStatus(), null,
+                    award != null ? award.getAwardedAt() : tender.getCancelledAt(),
                     integrityReportRepo.countByTender_Id(tender.getId()),
-                    award.getWinningBid().getId()
+                    award != null ? award.getWinningBid().getId() : null
             );
         });
     }
@@ -122,9 +136,7 @@ public class AuditorService {
                 .orElseThrow(() -> new ResponseStatusException(
                         HttpStatus.NOT_FOUND, "Tender not found."
                 ));
-        if (tender.getStatus() != TenderStatus.UNDER_EVALUATION
-                && tender.getStatus() != TenderStatus.ON_HOLD
-                && tender.getStatus() != TenderStatus.AWARDED) {
+        if (!AUDITABLE_TENDER_STATUSES.contains(tender.getStatus())) {
             throw new ResponseStatusException(
                     HttpStatus.FORBIDDEN,
                     "Auditors can audit tenders under evaluation, on hold, or awarded."
@@ -178,19 +190,33 @@ public class AuditorService {
                     );
                 }
             } else {
-                dbStatus = IntegrityStatus.VERIFIED;
-                payloadHash = blockchainRecordService.hashBid(bid, document);
-                LedgerCheck bidCheck = checkLedgerRecord("BID:" + bid.getId(), payloadHash);
-                chainStatus = bidCheck.status();
-                if (bidCheck.message() != null) verificationMessages.add(bidCheck.message());
-                if (canCreateReports && chainStatus == IntegrityStatus.DISCREPANCY_FOUND) {
-                    integrityReportService.createSystemReport(
-                            tenderId, bid.getId(),
-                            bidCheck.missingRecord()
-                                    ? IntegrityReportType.MISSING_BLOCKCHAIN_RECORD
-                                    : IntegrityReportType.HASH_MISMATCH,
-                            bidCheck.message(), "BID:" + bid.getId()
-                    );
+                if (bid.getSubmittedAt() == null || bid.getQuotedAmount() == null) {
+                    dbStatus = IntegrityStatus.DISCREPANCY_FOUND;
+                    String message = "Submitted bid " + bid.getId()
+                            + " is missing required transaction data.";
+                    verificationMessages.add(message);
+                    if (canCreateReports) {
+                        integrityReportService.createSystemReport(
+                                tenderId, bid.getId(),
+                                IntegrityReportType.INVALID_TRANSACTION_HISTORY,
+                                message, "BID:" + bid.getId()
+                        );
+                    }
+                } else {
+                    dbStatus = IntegrityStatus.VERIFIED;
+                    payloadHash = blockchainRecordService.hashBid(bid, document);
+                    LedgerCheck bidCheck = checkLedgerRecord("BID:" + bid.getId(), payloadHash);
+                    chainStatus = bidCheck.status();
+                    if (bidCheck.message() != null) verificationMessages.add(bidCheck.message());
+                    if (canCreateReports && chainStatus == IntegrityStatus.DISCREPANCY_FOUND) {
+                        integrityReportService.createSystemReport(
+                                tenderId, bid.getId(),
+                                bidCheck.missingRecord()
+                                        ? IntegrityReportType.MISSING_BLOCKCHAIN_RECORD
+                                        : IntegrityReportType.HASH_MISMATCH,
+                                bidCheck.message(), "BID:" + bid.getId()
+                        );
+                    }
                 }
             }
 
@@ -236,8 +262,7 @@ public class AuditorService {
                 .orElseThrow(() -> new ResponseStatusException(
                         HttpStatus.NOT_FOUND, "Bid not found."
                 ));
-        if (bid.getTender().getStatus() != TenderStatus.ON_HOLD
-                && bid.getTender().getStatus() != TenderStatus.AWARDED) {
+        if (!DOWNLOADABLE_TENDER_STATUSES.contains(bid.getTender().getStatus())) {
             throw new ResponseStatusException(
                     HttpStatus.FORBIDDEN,
                     "Auditors can download proposals for held or completed tenders."

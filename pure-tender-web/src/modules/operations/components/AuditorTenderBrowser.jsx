@@ -28,6 +28,8 @@ function Integrity({ value }) {
   const state = String(value || "UNKNOWN").toLowerCase();
   return <span className={`integrity-pill ${state}`}>{titleCase(value)}</span>;
 }
+const outcomeClass = (status) =>
+  String(status || "").toUpperCase() === "AWARDED" ? "approved" : "pending";
 
 export default function AuditorTenderBrowser({
   mode,
@@ -168,7 +170,7 @@ export default function AuditorTenderBrowser({
                   <b>{detail.unavailable ? "—" : detail.bids?.length || 0}</b>
                 </span>
               </div>
-              {mode === "completed" && (
+              {mode === "completed" && String(status).toUpperCase() === "AWARDED" && (
                 <section className="completed-award">
                   <div className="completed-award-icon">
                     <Trophy size={20} />
@@ -184,6 +186,21 @@ export default function AuditorTenderBrowser({
                         ? `Winning bid ${new Intl.NumberFormat("en-IN", { style: "currency", currency: "INR", maximumFractionDigits: 2 }).format(Number(winningBid.quotedAmount))} · Bid reference ${winningBid.bidId}`
                         : "The tender is marked awarded, but no selected bid was returned."}
                     </p>
+                  </div>
+                  <span className={`status ${outcomeClass(status)}`}>
+                    {titleCase(status)}
+                  </span>
+                </section>
+              )}
+              {mode === "completed" && String(status).toUpperCase() !== "AWARDED" && (
+                <section className="completed-award">
+                  <div className="completed-award-icon">
+                    <FileText size={20} />
+                  </div>
+                  <div className="completed-award-copy">
+                    <small>TENDER OUTCOME</small>
+                    <h3>{titleCase(status)}</h3>
+                    <p>This tender is retained in history with its submitted bids and audit details.</p>
                   </div>
                   <span className="status approved">{titleCase(status)}</span>
                 </section>
@@ -335,7 +352,7 @@ export default function AuditorTenderBrowser({
     mode === "queue"
       ? "Review tenders under evaluation and check their database records against Fabric."
       : mode === "completed"
-        ? "Read-only audit access to awarded tenders and their submitted bids."
+        ? "History of awarded, rejected, cancelled and voided tenders."
         : "Tenders on hold and referred for auditor review.";
   return (
     <section className="panel">
@@ -373,7 +390,7 @@ export default function AuditorTenderBrowser({
               </small>
             </span>
             <span
-              className={`status ${mode === "completed" ? "approved" : mode === "queue" ? "review" : "pending"}`}
+              className={`status ${mode === "completed" ? outcomeClass(tender.status) : mode === "queue" ? "review" : "pending"}`}
             >
               {titleCase(tender.status)}
             </span>

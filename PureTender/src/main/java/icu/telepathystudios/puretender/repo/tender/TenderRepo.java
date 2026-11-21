@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.time.Instant;
 import java.util.List;
+import java.util.Collection;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -20,6 +21,11 @@ public interface TenderRepo extends JpaRepository<Tender, UUID>
 
     Page<Tender> findAllByStatus(
             TenderStatus status,
+            Pageable pageable
+    );
+
+    Page<Tender> findAllByStatusIn(
+            Collection<TenderStatus> statuses,
             Pageable pageable
     );
 
