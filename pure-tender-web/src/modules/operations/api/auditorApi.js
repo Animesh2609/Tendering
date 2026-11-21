@@ -4,7 +4,6 @@ import { demoStaff } from '../../../api/demoStaff';
 const id = encodeURIComponent;
 export const auditorApi = {
   reports: async token => DEMO ? Promise.resolve(demoStaff.reports()) : readAllPages('/auditor/reports',token),
-  reviewQueue: async token => DEMO ? Promise.resolve([]) : readAllPages('/auditor/tenders/review-queue',token),
   flaggedTenders: async token => DEMO ? Promise.resolve(demoStaff.flagged()) : readAllPages('/auditor/tenders/flagged',token),
   completedTenders: async token => DEMO ? Promise.resolve(demoStaff.completed()) : readAllPages('/auditor/tenders/completed',token),
   async auditTender(tenderId,token) {

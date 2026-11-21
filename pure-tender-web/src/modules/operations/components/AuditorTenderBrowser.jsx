@@ -153,10 +153,12 @@ export default function AuditorTenderBrowser({
               )}
               <div className="audit-summary">
                 {detail.description && <p>{detail.description}</p>}
-                <span>
-                  Database integrity{" "}
-                  <Integrity value={detail.databaseIntegrity} />
-                </span>
+                {mode !== "completed" && (
+                  <span>
+                    Database integrity{" "}
+                    <Integrity value={detail.databaseIntegrity} />
+                  </span>
+                )}
                 <span>
                   Blockchain integrity{" "}
                   <Integrity value={detail.blockchainIntegrity} />
@@ -237,7 +239,7 @@ export default function AuditorTenderBrowser({
                       <th>Submitted bid</th>
                       <th>Opened at</th>
                       <th>Blockchain integrity</th>
-                      <th>Database integrity</th>
+                      {mode !== "completed" && <th>Database integrity</th>}
                       <th>Proposal</th>
                     </tr>
                   </thead>
@@ -262,9 +264,11 @@ export default function AuditorTenderBrowser({
                         <td>
                           <Integrity value={bid.blockchainIntegrity} />
                         </td>
-                        <td>
-                          <Integrity value={bid.databaseIntegrity} />
-                        </td>
+                        {mode !== "completed" && (
+                          <td>
+                            <Integrity value={bid.databaseIntegrity} />
+                          </td>
+                        )}
                         <td>
                           {bid.proposalUploaded && mode !== "queue" ? (
                             <button

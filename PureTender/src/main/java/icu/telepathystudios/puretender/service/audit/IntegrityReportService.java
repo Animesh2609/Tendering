@@ -7,7 +7,6 @@ import icu.telepathystudios.puretender.model.enums.*;
 import icu.telepathystudios.puretender.repo.*;
 
 import icu.telepathystudios.puretender.repo.bid.BidRepo;
-import icu.telepathystudios.puretender.repo.tender.TenderAwardRepo;
 import icu.telepathystudios.puretender.repo.tender.TenderRepo;
 import lombok.RequiredArgsConstructor;
 
@@ -25,7 +24,6 @@ public class IntegrityReportService {
 
     private final TenderRepo tenderRepo;
     private final BidRepo bidRepo;
-    private final TenderAwardRepo tenderAwardRepo;
     private final IntegrityReportRepo integrityReportRepo;
 
     //region System integrity report creation
@@ -45,12 +43,12 @@ public class IntegrityReportService {
                         "Tender not found."
                 ));
 
-        if ((tender.getStatus() != TenderStatus.UNDER_EVALUATION
-                && tender.getStatus() != TenderStatus.ON_HOLD)
-                || tenderAwardRepo.existsByTender_Id(tenderId)) {
+        if (tender.getStatus() != TenderStatus.UNDER_EVALUATION
+                && tender.getStatus() != TenderStatus.ON_HOLD
+                && tender.getStatus() != TenderStatus.AWARDED) {
             throw new ResponseStatusException(
                     HttpStatus.CONFLICT,
-                    "Integrity reports in this workflow require an unawarded tender under evaluation."
+                    "Integrity reports require a tender under evaluation, on hold, or awarded."
             );
         }
 

@@ -18,7 +18,6 @@ import {
 } from "lucide-react";
 import { adminApi } from "../api/adminApi";
 import { auditorApi } from "../api/auditorApi";
-import { DEMO } from "../api/authApi";
 import { useAuth } from "../context/AuthContext";
 import Brand from "../components/Brand";
 import WorkspaceHeader from "../components/WorkspaceHeader";
@@ -62,8 +61,6 @@ export default function OperationsWorkspacePage() {
   const [reports, setReports] = useState([]);
   const [flaggedTenders, setFlaggedTenders] = useState([]);
   const [completedTenders, setCompletedTenders] = useState([]);
-  const [reviewQueueTenders, setReviewQueueTenders] = useState([]);
-  const [tenderStates, setTenderStates] = useState({});
   const [evaluators, setEvaluators] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -113,15 +110,13 @@ export default function OperationsWorkspacePage() {
           );
         }
       } else {
-        const [reportsResult, flaggedResult, completedResult, reviewQueueResult] =
+        const [reportsResult, flaggedResult, completedResult] =
           await Promise.allSettled([
             auditorApi.reports(session.token),
             auditorApi.flaggedTenders(session.token),
             auditorApi.completedTenders(session.token),
-            auditorApi.reviewQueue(session.token),
           ]);
-        if (reportsResult.status === "rejected") throw reportsResult.reason;
-        const list = reportsResult.value;
+        const list = reportsResult.status === "fulfilled" ? reportsResult.value : [];
         setReports(list);
         const fallback = [
           ...new Map(
@@ -144,9 +139,6 @@ export default function OperationsWorkspacePage() {
         setCompletedTenders(
           completedResult.status === "fulfilled" ? completedResult.value : [],
         );
-        setReviewQueueTenders(
-          reviewQueueResult.status === "fulfilled" ? reviewQueueResult.value : [],
-        );
         const unique = [
           ...new Set(list.map((r) => r.tenderId).filter(Boolean)),
         ];
@@ -160,7 +152,6 @@ export default function OperationsWorkspacePage() {
             }
           }),
         );
-        setTenderStates(Object.fromEntries(states));
         if (flaggedResult.status === "rejected")
           setFlaggedTenders(
             fallback.map((t) => ({
@@ -170,8 +161,7 @@ export default function OperationsWorkspacePage() {
           );
         if (
           flaggedResult.status === "rejected" ||
-          completedResult.status === "rejected" ||
-          reviewQueueResult.status === "rejected"
+          completedResult.status === "rejected"
         )
           setError(
             "Some tender lists are unavailable. Reports remain available for investigation, and related flagged tenders are shown below.",
@@ -266,13 +256,9 @@ export default function OperationsWorkspacePage() {
                       ? "Account reviews"
                       : tab === "tenders"
                         ? "Tender approvals"
-                        : tab === "reports"
-                          ? "Integrity reports"
-                          : tab === "flagged"
-                            ? "Flagged tenders"
-                            : tab === "reviewQueue"
-                              ? "Integrity checks"
-                              : "Completed tenders"}
+                        : tab === "flagged"
+                          ? "Flagged tenders"
+                          : "Completed tenders"}
                   {tab === "overview" && (
                     <span>, {session.user.fullName.split(" ")[0]}.</span>
                   )}
@@ -282,8 +268,6 @@ export default function OperationsWorkspacePage() {
                     ? "Review registrations and route submitted tenders to the right experts."
                     : tab === "completed"
                       ? "Review awarded tenders and their submitted bids."
-                      : tab === "reviewQueue"
-                        ? "Compare live tender and bid records with their Fabric ledger commitments."
                       : "Review flagged procurement records and document your findings."}
                 </p>
               </div>
@@ -443,7 +427,7 @@ export default function OperationsWorkspacePage() {
                             </span>
                             <button
                               className="row-arrow"
-                              onClick={() => setTab("reports")}
+                              onClick={() => setTab("flagged")}
                             >
                               <ArrowRight size={17} />
                             </button>
@@ -647,99 +631,6 @@ export default function OperationsWorkspacePage() {
                 </div>
               </section>
             )}
-            {!isAdmin && tab === "reports" && (
-              <section className="panel">
-                <div className="panel-head">
-                  <div>
-                    <h2>Integrity reports</h2>
-                    <p>Claim reports and record your investigation findings.</p>
-                  </div>
-                  <label className="searchbox">
-                    <Search size={16} />
-                    <input
-                      aria-label="Search reports"
-                      placeholder="Search reports"
-                      value={query}
-                      onChange={(e) => setQuery(e.target.value)}
-                    />
-                  </label>
-                </div>
-                <div className="report-list">
-                  {reports
-                    .filter((r) =>
-                      `${r.tenderTitle} ${r.description} ${r.status}`
-                        .toLowerCase()
-                        .includes(query.toLowerCase()),
-                    )
-                    .map((r) => (
-                      <article className="report-card" key={r.reportId}>
-                        <div className="report-title-row">
-                          <h3>{r.tenderTitle}</h3>
-                          <span className="status review">
-                            {label(r.status)}
-                          </span>
-                        </div>
-                        <p>{r.description}</p>
-                        <p className="report-meta">
-                          {label(r.type)} · {r.evidenceReference || r.reportId}{" "}
-                          · {date(r.createdAt)}
-                        </p>
-                        {r.resolutionNotes && <p>{r.resolutionNotes}</p>}
-                        <div className="report-actions">
-                          {r.status === "OPEN" && (
-                            <button
-                              className="secondary"
-                              disabled={Boolean(busyId)}
-                              onClick={() =>
-                                act(r.reportId, () =>
-                                  auditorApi.claim(r.reportId, session.token),
-                                )
-                              }
-                            >
-                              Claim report
-                            </button>
-                          )}
-                          {r.status === "UNDER_REVIEW" && (
-                            <button
-                              className="primary"
-                              disabled={Boolean(busyId)}
-                              onClick={() =>
-                                setModal({ type: "resolve", report: r })
-                              }
-                            >
-                              Record finding
-                            </button>
-                          )}
-                          {tenderStates[r.tenderId] === "ON_HOLD" &&
-                            reports
-                              .filter((x) => x.tenderId === r.tenderId)
-                              .every((x) =>
-                                ["RESOLVED", "DISMISSED"].includes(x.status),
-                              ) && (
-                              <button
-                                className="primary"
-                                onClick={() =>
-                                  setModal({ type: "award", report: r })
-                                }
-                              >
-                                Award held tender
-                              </button>
-                            )}
-                        </div>
-                      </article>
-                    ))}
-                  {!reports.length && (
-                    <Empty
-                      text={
-                        loading
-                          ? "Loading reports…"
-                          : "No integrity reports are assigned to you."
-                      }
-                    />
-                  )}
-                </div>
-              </section>
-            )}
             {!isAdmin && tab === "flagged" && (
               <AuditorTenderBrowser
                 mode="flagged"
@@ -763,15 +654,6 @@ export default function OperationsWorkspacePage() {
                 }
                 onResolve={(report) => setModal({ type: "resolve", report })}
                 onAward={(report) => setModal({ type: "award", report })}
-              />
-            )}
-            {!isAdmin && tab === "reviewQueue" && (
-              <AuditorTenderBrowser
-                mode="queue"
-                rows={reviewQueueTenders}
-                reports={reports}
-                token={session.token}
-                onBack={refresh}
               />
             )}
             {!isAdmin && tab === "completed" && (
@@ -839,11 +721,6 @@ export default function OperationsWorkspacePage() {
                     : x,
                 ),
               );
-              if (DEMO && confirmed)
-                setTenderStates((xs) => ({
-                  ...xs,
-                  [modal.report.tenderId]: "VOIDED",
-                }));
             },
           )
         }
@@ -869,10 +746,6 @@ export default function OperationsWorkspacePage() {
                     : x,
                 ),
               );
-              setTenderStates((xs) => ({
-                ...xs,
-                [modal.report.tenderId]: "AWARDED",
-              }));
             },
           )
         }

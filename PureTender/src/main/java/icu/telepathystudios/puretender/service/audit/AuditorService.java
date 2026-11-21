@@ -101,7 +101,7 @@ public class AuditorService {
             Pageable pageable
     ) {
         getVerifiedAuditor(authentication);
-        return tenderAwardRepo.findAll(pageable).map(award -> {
+        return tenderAwardRepo.findAllByTender_Status(TenderStatus.AWARDED, pageable).map(award -> {
             Tender tender = award.getTender();
             return new AuditorTenderSummaryResponse(
                     tender.getId(), tender.getTitle(), tender.getAuthority().getFullName(),
@@ -140,8 +140,8 @@ public class AuditorService {
         if (tenderCheck.message() != null) verificationMessages.add(tenderCheck.message());
 
         boolean canCreateReports = tender.getStatus() == TenderStatus.UNDER_EVALUATION
-                || (tender.getStatus() == TenderStatus.ON_HOLD
-                && !tenderAwardRepo.existsByTender_Id(tenderId));
+                || tender.getStatus() == TenderStatus.ON_HOLD
+                || tender.getStatus() == TenderStatus.AWARDED;
         if (canCreateReports && tenderCheck.status() == IntegrityStatus.DISCREPANCY_FOUND) {
             integrityReportService.createSystemReport(
                     tenderId, null,
@@ -355,11 +355,10 @@ public class AuditorService {
             report.setStatus(IntegrityReportStatus.RESOLVED);
 
             Tender tender = report.getTender();
-            if (tender.getStatus() != TenderStatus.ON_HOLD
-                    || tenderAwardRepo.existsByTender_Id(tenderId)) {
+            if (tender.getStatus() != TenderStatus.ON_HOLD) {
                 throw new ResponseStatusException(
                         HttpStatus.CONFLICT,
-                        "Only a flagged, unawarded tender can be voided by this workflow."
+                    "Only a flagged tender can be voided by this workflow."
                 );
             }
 
@@ -374,6 +373,13 @@ public class AuditorService {
                         HttpStatus.CONFLICT,
                         "The tender is no longer on hold."
                 );
+            }
+            integrityReportRepo.saveAndFlush(report);
+            boolean hasActiveReports = integrityReportRepo.existsByTender_IdAndStatusIn(
+                    tenderId, List.of(IntegrityReportStatus.OPEN, IntegrityReportStatus.UNDER_REVIEW));
+            if (!hasActiveReports && tenderAwardRepo.existsByTender_Id(tenderId)) {
+                report.getTender().setStatus(TenderStatus.AWARDED);
+                tenderRepo.save(report.getTender());
             }
         }
 

@@ -23,7 +23,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.UUID;
 
 @RestController
-@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequestMapping("/api/v1/tenders")
 @RequiredArgsConstructor
 public class TenderController {
