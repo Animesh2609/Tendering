@@ -1,3 +1,8 @@
+# Recommendation app and reviewed teammate update
+
+Start with [APP_GUIDE.md](APP_GUIDE.md) for Streamlit, FastAPI and PostgreSQL.
+See [measured review](reports/teammate_update_review.md): updated calibration did not improve accuracy.
+
 # Start here: Karan's requested tasks
 
 [**Three-method runner, POI-paper audit and Douban preprocessing guide**](TEAMMATE_WORKFLOW.md)

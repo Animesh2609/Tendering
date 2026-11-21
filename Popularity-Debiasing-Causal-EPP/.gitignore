@@ -11,3 +11,10 @@ __pycache__/
 # Keep dataset artifacts private; retain Python preprocessing source.
 /data/*
 !/data/*.py
+
+.env
+.env.*
+!.env.example
+secrets/
+*.pem
+*.key

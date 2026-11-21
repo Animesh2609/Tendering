@@ -1,0 +1,939 @@
+{
+  "checkpoint": "outputs/Ciao/causalepp_ciao.pt",
+  "forecast_method": "moving_average",
+  "data_fingerprints": {
+    "train_data.csv": "072013ec92d20b2f7e182d423e393a79aa17cca864bfee516da9cc77df45afa2",
+    "val_data.csv": "eff03597874ca3a2102ed2133811bb9768e88fba9da5b26302bd34641fadab58",
+    "test_data.csv": "4fcbecb6186816bfc44c6faef84265b437abd59d4a039c2d7290bb3c7921c6d3",
+    "item_local_popularity.npy": "08986b23f2688acb42b0223e4e0eef1d73afd5a39c881ff67094c7abb40d3d9f",
+    "user_epp.npy": "470f3d771a73d78f055dbeb94a81522f762098ef7e67740125d0c48c5ff79b50",
+    "time_bin_edges.npy": "39f9075cac86fdcb346eccb56bd5552beba99ccaeeecd2f6458b1c7867499858",
+    "item_mapping.csv": "384c3c427fc96d8d0cc46c75f228e2f70664072d0a24e5aa1917f8afe94f1506"
+  },
+  "checkpoint_sha256": "e2d297d72ea101dedf09d43b1ebc2e5d071e1673eff38760eb99dff11a840956",
+  "checkpoint_saved_epochs": 25,
+  "training_rows": 131435,
+  "validation_users": 413,
+  "test_users": 272,
+  "test_rows": 2426,
+  "catalog_size": 11185,
+  "candidate_pool": 150,
+  "policy_version": "teammate_v2",
+  "scope": "All eligible test users, same model and candidates; validation-only lambda fitting.",
+  "limitations": [
+    "Previously inspected test split: diagnostic evaluation, not a fresh blind holdout.",
+    "Single checkpoint; no training-seed uncertainty.",
+    "Supplied checkpoint has no dataset fingerprint: provenance cannot be certified.",
+    "Bootstrap intervals condition on this checkpoint and selected validation lambdas.",
+    "Retains audited original data/time-window and repeated-positive semantics."
+  ],
+  "results": {
+    "20": {
+      "fit": {
+        "lambdas": {
+          "LowPop": 0.2,
+          "MedPop": 0.2,
+          "HighPop": 0.4
+        },
+        "thresholds": [
+          2.645896142997851,
+          3.6073352014051085
+        ],
+        "diagnostics": {
+          "objective": "harmonic_mean(NDCG@K, 1 - mean_per_user_PopularityJSD)",
+          "aggregation": "macro-average user metrics within each validation group",
+          "k": 20,
+          "requested_candidate_pool": 150,
+          "effective_candidate_pool": 150,
+          "candidate_pool_strategy": "preserve original top-K, then fill by relevance in a balanced popularity-tier-stratified pool",
+          "lambda_grid": [
+            0.0,
+            0.1,
+            0.2,
+            0.3,
+            0.4,
+            0.5,
+            0.6,
+            0.7,
+            0.8,
+            0.9,
+            1.0
+          ],
+          "groups": {
+            "LowPop": {
+              "validation_user_count": 206,
+              "selected_lambda": 0.2,
+              "selection_note": "Selected the maximum measured objective; ties resolve to the smallest lambda.",
+              "candidate_support": {
+                "average_candidate_count": 150.0,
+                "average_candidate_tiers": 3.0,
+                "average_candidate_tier_counts": {
+                  "Tail": 50.0,
+                  "Mid": 50.0,
+                  "Head": 50.0
+                },
+                "average_target_tiers": 2.8009708737864076
+              },
+              "lambda_results": [
+                {
+                  "Lambda": 0.0,
+                  "Recall@K": 0.022316311470108357,
+                  "Precision@K": 0.01116504854368932,
+                  "NDCG@K": 0.018926646500936575,
+                  "PopularityJSD": 0.5836395664738429,
+                  "CalibrationQuality": 0.41636043352615715,
+                  "AverageRecommendedPopularity": 417.78980582524287,
+                  "PopLift": 35.67315492280374,
+                  "CatalogCoverage@K": 0.0030397854269110414,
+                  "HarmonicObjective": 0.03620740014537432
+                },
+                {
+                  "Lambda": 0.1,
+                  "Recall@K": 0.022316311470108357,
+                  "Precision@K": 0.01116504854368932,
+                  "NDCG@K": 0.018926646500936575,
+                  "PopularityJSD": 0.5836395664738429,
+                  "CalibrationQuality": 0.41636043352615715,
+                  "AverageRecommendedPopularity": 417.78980582524287,
+                  "PopLift": 35.67315492280374,
+                  "CatalogCoverage@K": 0.0030397854269110414,
+                  "HarmonicObjective": 0.03620740014537432
+                },
+                {
+                  "Lambda": 0.2,
+                  "Recall@K": 0.022316311470108357,
+                  "Precision@K": 0.01116504854368932,
+                  "NDCG@K": 0.018926646500936575,
+                  "PopularityJSD": 0.576114564800725,
+                  "CalibrationQuality": 0.423885435199275,
+                  "AverageRecommendedPopularity": 417.18907766990304,
+                  "PopLift": 35.60523811284103,
+                  "CatalogCoverage@K": 0.0031291908806437194,
+                  "HarmonicObjective": 0.036235369902774275
+                },
+                {
+                  "Lambda": 0.3,
+                  "Recall@K": 0.022316311470108357,
+                  "Precision@K": 0.01116504854368932,
+                  "NDCG@K": 0.018702167119174547,
+                  "PopularityJSD": 0.44706478161705326,
+                  "CalibrationQuality": 0.5529352183829468,
+                  "AverageRecommendedPopularity": 402.9359223300972,
+                  "PopLift": 34.24209188810564,
+                  "CatalogCoverage@K": 0.0033080017881090746,
+                  "HarmonicObjective": 0.0361805827349505
+                },
+                {
+                  "Lambda": 0.4,
+                  "Recall@K": 0.02061936684151062,
+                  "Precision@K": 0.009708737864077669,
+                  "NDCG@K": 0.01716649123033841,
+                  "PopularityJSD": 0.3060819016517992,
+                  "CalibrationQuality": 0.6939180983482007,
+                  "AverageRecommendedPopularity": 377.1417475728156,
+                  "PopLift": 31.83921127169997,
+                  "CatalogCoverage@K": 0.003576218149307108,
+                  "HarmonicObjective": 0.03350414036374445
+                },
+                {
+                  "Lambda": 0.5,
+                  "Recall@K": 0.017787651631154637,
+                  "Precision@K": 0.008980582524271844,
+                  "NDCG@K": 0.01480016694675215,
+                  "PopularityJSD": 0.1920646437264993,
+                  "CalibrationQuality": 0.8079353562735007,
+                  "AverageRecommendedPopularity": 340.177427184466,
+                  "PopLift": 27.89132963867385,
+                  "CatalogCoverage@K": 0.004202056325435852,
+                  "HarmonicObjective": 0.029067854292296916
+                },
+                {
+                  "Lambda": 0.6,
+                  "Recall@K": 0.011771746659994283,
+                  "Precision@K": 0.007524271844660193,
+                  "NDCG@K": 0.01216676756902659,
+                  "PopularityJSD": 0.09077500044033975,
+                  "CalibrationQuality": 0.9092249995596603,
+                  "AverageRecommendedPopularity": 282.2555825242718,
+                  "PopLift": 21.174694554156144,
+                  "CatalogCoverage@K": 0.005274921770227984,
+                  "HarmonicObjective": 0.024012216371465934
+                },
+                {
+                  "Lambda": 0.7,
+                  "Recall@K": 0.00967898929387845,
+                  "Precision@K": 0.0048543689320388345,
+                  "NDCG@K": 0.009331184819903205,
+                  "PopularityJSD": 0.03668078060141316,
+                  "CalibrationQuality": 0.9633192193985869,
+                  "AverageRecommendedPopularity": 233.62888349514566,
+                  "PopLift": 15.56476483242155,
+                  "CatalogCoverage@K": 0.005453732677693339,
+                  "HarmonicObjective": 0.018483330984672856
+                },
+                {
+                  "Lambda": 0.8,
+                  "Recall@K": 0.008062792653409966,
+                  "Precision@K": 0.0038834951456310682,
+                  "NDCG@K": 0.00799271768454905,
+                  "PopularityJSD": 0.011997911644616978,
+                  "CalibrationQuality": 0.9880020883553831,
+                  "AverageRecommendedPopularity": 198.12014563106797,
+                  "PopLift": 12.906940512385646,
+                  "CatalogCoverage@K": 0.005185516316495306,
+                  "HarmonicObjective": 0.01585715450739581
+                },
+                {
+                  "Lambda": 0.9,
+                  "Recall@K": 0.008062792653409966,
+                  "Precision@K": 0.0038834951456310682,
+                  "NDCG@K": 0.005912705346120522,
+                  "PopularityJSD": 0.0026096771304493544,
+                  "CalibrationQuality": 0.9973903228695506,
+                  "AverageRecommendedPopularity": 171.9674757281553,
+                  "PopLift": 11.03167196185195,
+                  "CatalogCoverage@K": 0.005006705409029951,
+                  "HarmonicObjective": 0.011755720711194705
+                },
+                {
+                  "Lambda": 1.0,
+                  "Recall@K": 0.008062792653409966,
+                  "Precision@K": 0.0038834951456310682,
+                  "NDCG@K": 0.005690796906989278,
+                  "PopularityJSD": 0.0003841645578758676,
+                  "CalibrationQuality": 0.9996158354421242,
+                  "AverageRecommendedPopularity": 151.85946601941748,
+                  "PopLift": 9.607123075214819,
+                  "CatalogCoverage@K": 0.0048278945015645955,
+                  "HarmonicObjective": 0.01131716537315364
+                }
+              ]
+            },
+            "MedPop": {
+              "validation_user_count": 187,
+              "selected_lambda": 0.2,
+              "selection_note": "Selected the maximum measured objective; ties resolve to the smallest lambda.",
+              "candidate_support": {
+                "average_candidate_count": 150.0,
+                "average_candidate_tiers": 3.0,
+                "average_candidate_tier_counts": {
+                  "Tail": 50.0,
+                  "Mid": 50.0,
+                  "Head": 50.0
+                },
+                "average_target_tiers": 2.877005347593583
+              },
+              "lambda_results": [
+                {
+                  "Lambda": 0.0,
+                  "Recall@K": 0.032162598146685796,
+                  "Precision@K": 0.013903743315508024,
+                  "NDCG@K": 0.025229830680667586,
+                  "PopularityJSD": 0.3284959089877154,
+                  "CalibrationQuality": 0.6715040910122846,
+                  "AverageRecommendedPopularity": 385.2986631016043,
+                  "PopLift": 9.93341102692105,
+                  "CatalogCoverage@K": 0.005364327223960662,
+                  "HarmonicObjective": 0.048632437692855086
+                },
+                {
+                  "Lambda": 0.1,
+                  "Recall@K": 0.032162598146685796,
+                  "Precision@K": 0.013903743315508024,
+                  "NDCG@K": 0.025229830680667586,
+                  "PopularityJSD": 0.3284959089877154,
+                  "CalibrationQuality": 0.6715040910122846,
+                  "AverageRecommendedPopularity": 385.2986631016043,
+                  "PopLift": 9.93341102692105,
+                  "CatalogCoverage@K": 0.005364327223960662,
+                  "HarmonicObjective": 0.048632437692855086
+                },
+                {
+                  "Lambda": 0.2,
+                  "Recall@K": 0.032162598146685796,
+                  "Precision@K": 0.013903743315508024,
+                  "NDCG@K": 0.025229830680667586,
+                  "PopularityJSD": 0.3277851711711114,
+                  "CalibrationQuality": 0.6722148288288886,
+                  "AverageRecommendedPopularity": 385.2385026737968,
+                  "PopLift": 9.93155039513319,
+                  "CatalogCoverage@K": 0.005453732677693339,
+                  "HarmonicObjective": 0.04863429974304484
+                },
+                {
+                  "Lambda": 0.3,
+                  "Recall@K": 0.03213944839091572,
+                  "Precision@K": 0.013636363636363637,
+                  "NDCG@K": 0.024986153102942596,
+                  "PopularityJSD": 0.23734578567998488,
+                  "CalibrationQuality": 0.7626542143200151,
+                  "AverageRecommendedPopularity": 375.3160427807487,
+                  "PopLift": 9.659443877662701,
+                  "CatalogCoverage@K": 0.005364327223960662,
+                  "HarmonicObjective": 0.048387045031610114
+                },
+                {
+                  "Lambda": 0.4,
+                  "Recall@K": 0.029262957709546986,
+                  "Precision@K": 0.012834224598930483,
+                  "NDCG@K": 0.02358748576573169,
+                  "PopularityJSD": 0.17578732111839013,
+                  "CalibrationQuality": 0.8242126788816099,
+                  "AverageRecommendedPopularity": 364.277807486631,
+                  "PopLift": 9.366235983617381,
+                  "CatalogCoverage@K": 0.005543138131426017,
+                  "HarmonicObjective": 0.045862470053051836
+                },
+                {
+                  "Lambda": 0.5,
+                  "Recall@K": 0.028571358755915946,
+                  "Precision@K": 0.012299465240641712,
+                  "NDCG@K": 0.02248291079310652,
+                  "PopularityJSD": 0.1047371576428466,
+                  "CalibrationQuality": 0.8952628423571534,
+                  "AverageRecommendedPopularity": 345.9114973262033,
+                  "PopLift": 8.85039077827941,
+                  "CatalogCoverage@K": 0.005721949038891372,
+                  "HarmonicObjective": 0.04386425009760486
+                },
+                {
+                  "Lambda": 0.6,
+                  "Recall@K": 0.028403679443851606,
+                  "Precision@K": 0.011764705882352943,
+                  "NDCG@K": 0.021166319276036006,
+                  "PopularityJSD": 0.06247216042834016,
+                  "CalibrationQuality": 0.9375278395716599,
+                  "AverageRecommendedPopularity": 327.45294117647063,
+                  "PopLift": 8.335035689341915,
+                  "CatalogCoverage@K": 0.006079570853822083,
+                  "HarmonicObjective": 0.04139800665187647
+                },
+                {
+                  "Lambda": 0.7,
+                  "Recall@K": 0.026642561773643027,
+                  "Precision@K": 0.010962566844919787,
+                  "NDCG@K": 0.019415572579667716,
+                  "PopularityJSD": 0.030499360727832568,
+                  "CalibrationQuality": 0.9695006392721675,
+                  "AverageRecommendedPopularity": 305.024064171123,
+                  "PopLift": 7.715925112104759,
+                  "CatalogCoverage@K": 0.006347787215020116,
+                  "HarmonicObjective": 0.03806876619521583
+                },
+                {
+                  "Lambda": 0.8,
+                  "Recall@K": 0.023922465470659026,
+                  "Precision@K": 0.010160427807486631,
+                  "NDCG@K": 0.01743744517778184,
+                  "PopularityJSD": 0.012061111323359212,
+                  "CalibrationQuality": 0.9879388886766408,
+                  "AverageRecommendedPopularity": 282.4160427807487,
+                  "PopLift": 7.082888943045317,
+                  "CatalogCoverage@K": 0.006437192668752794,
+                  "HarmonicObjective": 0.03427001338742893
+                },
+                {
+                  "Lambda": 0.9,
+                  "Recall@K": 0.021176403901068046,
+                  "Precision@K": 0.009625668449197862,
+                  "NDCG@K": 0.016197085252229355,
+                  "PopularityJSD": 0.002975347800675314,
+                  "CalibrationQuality": 0.9970246521993247,
+                  "AverageRecommendedPopularity": 261.0409090909091,
+                  "PopLift": 6.484416776694742,
+                  "CatalogCoverage@K": 0.006347787215020116,
+                  "HarmonicObjective": 0.03187632616501958
+                },
+                {
+                  "Lambda": 1.0,
+                  "Recall@K": 0.02115325414529797,
+                  "Precision@K": 0.009358288770053475,
+                  "NDCG@K": 0.015535180222741512,
+                  "PopularityJSD": 0.00046547101277479496,
+                  "CalibrationQuality": 0.9995345289872252,
+                  "AverageRecommendedPopularity": 241.35213903743318,
+                  "PopLift": 5.9250448057137985,
+                  "CatalogCoverage@K": 0.006437192668752794,
+                  "HarmonicObjective": 0.03059484271036925
+                }
+              ]
+            },
+            "HighPop": {
+              "validation_user_count": 20,
+              "selected_lambda": 0.4,
+              "selection_note": "Selected the maximum measured objective; ties resolve to the smallest lambda.",
+              "candidate_support": {
+                "average_candidate_count": 150.0,
+                "average_candidate_tiers": 3.0,
+                "average_candidate_tier_counts": {
+                  "Tail": 50.0,
+                  "Mid": 50.0,
+                  "Head": 50.0
+                },
+                "average_target_tiers": 2.5
+              },
+              "lambda_results": [
+                {
+                  "Lambda": 0.0,
+                  "Recall@K": 0.025,
+                  "Precision@K": 0.005,
+                  "NDCG@K": 0.01677534170888247,
+                  "PopularityJSD": 0.1650697035889402,
+                  "CalibrationQuality": 0.8349302964110599,
+                  "AverageRecommendedPopularity": 337.1425,
+                  "PopLift": 1.689426492966512,
+                  "CatalogCoverage@K": 0.004380867232901207,
+                  "HarmonicObjective": 0.03288986334835466
+                },
+                {
+                  "Lambda": 0.1,
+                  "Recall@K": 0.025,
+                  "Precision@K": 0.005,
+                  "NDCG@K": 0.01677534170888247,
+                  "PopularityJSD": 0.1650697035889402,
+                  "CalibrationQuality": 0.8349302964110599,
+                  "AverageRecommendedPopularity": 337.1425,
+                  "PopLift": 1.689426492966512,
+                  "CatalogCoverage@K": 0.004380867232901207,
+                  "HarmonicObjective": 0.03288986334835466
+                },
+                {
+                  "Lambda": 0.2,
+                  "Recall@K": 0.025,
+                  "Precision@K": 0.005,
+                  "NDCG@K": 0.01677534170888247,
+                  "PopularityJSD": 0.1650697035889402,
+                  "CalibrationQuality": 0.8349302964110599,
+                  "AverageRecommendedPopularity": 337.1425,
+                  "PopLift": 1.689426492966512,
+                  "CatalogCoverage@K": 0.004380867232901207,
+                  "HarmonicObjective": 0.03288986334835466
+                },
+                {
+                  "Lambda": 0.3,
+                  "Recall@K": 0.025,
+                  "Precision@K": 0.005,
+                  "NDCG@K": 0.01677534170888247,
+                  "PopularityJSD": 0.12017074535563217,
+                  "CalibrationQuality": 0.8798292546443678,
+                  "AverageRecommendedPopularity": 332.5075,
+                  "PopLift": 1.6514445917386051,
+                  "CatalogCoverage@K": 0.004380867232901207,
+                  "HarmonicObjective": 0.032922955006390836
+                },
+                {
+                  "Lambda": 0.4,
+                  "Recall@K": 0.025,
+                  "Precision@K": 0.005,
+                  "NDCG@K": 0.01677534170888247,
+                  "PopularityJSD": 0.09079621801417145,
+                  "CalibrationQuality": 0.9092037819858285,
+                  "AverageRecommendedPopularity": 327.995,
+                  "PopLift": 1.6087805099435202,
+                  "CatalogCoverage@K": 0.004559678140366562,
+                  "HarmonicObjective": 0.032942868225718444
+                },
+                {
+                  "Lambda": 0.5,
+                  "Recall@K": 0.025,
+                  "Precision@K": 0.005,
+                  "NDCG@K": 0.016504989805042277,
+                  "PopularityJSD": 0.058557602571897946,
+                  "CalibrationQuality": 0.9414423974281021,
+                  "AverageRecommendedPopularity": 320.7025,
+                  "PopLift": 1.5504341704953741,
+                  "CatalogCoverage@K": 0.004559678140366562,
+                  "HarmonicObjective": 0.032441232950100714
+                },
+                {
+                  "Lambda": 0.6,
+                  "Recall@K": 0.025,
+                  "Precision@K": 0.005,
+                  "NDCG@K": 0.016504989805042277,
+                  "PopularityJSD": 0.03040127711075935,
+                  "CalibrationQuality": 0.9695987228892406,
+                  "AverageRecommendedPopularity": 310.87249999999995,
+                  "PopLift": 1.4648614391007695,
+                  "CatalogCoverage@K": 0.004559678140366562,
+                  "HarmonicObjective": 0.03245747243470795
+                },
+                {
+                  "Lambda": 0.7,
+                  "Recall@K": 0.025,
+                  "Precision@K": 0.005,
+                  "NDCG@K": 0.016504989805042277,
+                  "PopularityJSD": 0.01723672549756702,
+                  "CalibrationQuality": 0.982763274502433,
+                  "AverageRecommendedPopularity": 303.7225,
+                  "PopLift": 1.4065922081939755,
+                  "CatalogCoverage@K": 0.00464908359409924,
+                  "HarmonicObjective": 0.032464751270118525
+                },
+                {
+                  "Lambda": 0.8,
+                  "Recall@K": 0.025,
+                  "Precision@K": 0.005,
+                  "NDCG@K": 0.01610555385563932,
+                  "PopularityJSD": 0.007146060942803169,
+                  "CalibrationQuality": 0.9928539390571969,
+                  "AverageRecommendedPopularity": 294.11,
+                  "PopLift": 1.320313332686474,
+                  "CatalogCoverage@K": 0.0048278945015645955,
+                  "HarmonicObjective": 0.03169693669288017
+                },
+                {
+                  "Lambda": 0.9,
+                  "Recall@K": 0.025,
+                  "Precision@K": 0.005,
+                  "NDCG@K": 0.01610555385563932,
+                  "PopularityJSD": 0.002194819788980347,
+                  "CalibrationQuality": 0.9978051802110196,
+                  "AverageRecommendedPopularity": 285.1625,
+                  "PopLift": 1.2480267524470183,
+                  "CatalogCoverage@K": 0.0049172999552972736,
+                  "HarmonicObjective": 0.03169944754972473
+                },
+                {
+                  "Lambda": 1.0,
+                  "Recall@K": 0.025,
+                  "Precision@K": 0.005,
+                  "NDCG@K": 0.015952408579693923,
+                  "PopularityJSD": 0.0008499932539864814,
+                  "CalibrationQuality": 0.9991500067460135,
+                  "AverageRecommendedPopularity": 276.41499999999996,
+                  "PopLift": 1.1737054570284697,
+                  "CatalogCoverage@K": 0.0048278945015645955,
+                  "HarmonicObjective": 0.03140343062803606
+                }
+              ]
+            }
+          }
+        }
+      },
+      "evaluated_users": 272,
+      "excluded_users": 0,
+      "CP_H_unchanged_lists": 255,
+      "single_tier_candidate_users": 0,
+      "summaries": {
+        "CausalEPP": {
+          "All": {
+            "users": 272,
+            "metrics": {
+              "Recall@K": 0.04679754937892492,
+              "Precision@K": 0.0066176470588235285,
+              "NDCG@K": 0.02488294083105002,
+              "HitRate@K": 0.11397058823529412,
+              "PopularityJSD": 0.44233324051590633,
+              "AverageRecommendedPopularity": 391.2729719947366,
+              "PopLift": 18.8758067605346,
+              "CatalogCoverage@K": 0.005453732677693339
+            }
+          },
+          "by_popularity": {
+            "LowPop": {
+              "users": 132,
+              "metrics": {
+                "Recall@K": 0.009119237244237244,
+                "Precision@K": 0.0030303030303030303,
+                "NDCG@K": 0.008354865670477298,
+                "HitRate@K": 0.06060606060606061,
+                "PopularityJSD": 0.5669423905560436,
+                "AverageRecommendedPopularity": 413.45794654614997,
+                "PopLift": 29.89595410812637,
+                "CatalogCoverage@K": 0.0030397854269110414
+              }
+            },
+            "MedPop": {
+              "users": 122,
+              "metrics": {
+                "Recall@K": 0.06578027962973985,
+                "Precision@K": 0.009836065573770493,
+                "NDCG@K": 0.03751752424885643,
+                "HitRate@K": 0.1557377049180328,
+                "PopularityJSD": 0.34786892677092407,
+                "AverageRecommendedPopularity": 377.7934382704438,
+                "PopLift": 9.53744695193087,
+                "CatalogCoverage@K": 0.005364327223960662
+              }
+            },
+            "HighPop": {
+              "users": 18,
+              "metrics": {
+                "Recall@K": 0.19444444444444445,
+                "Precision@K": 0.011111111111111112,
+                "NDCG@K": 0.06045442662122871,
+                "HitRate@K": 0.2222222222222222,
+                "PopularityJSD": 0.16879093338200152,
+                "AverageRecommendedPopularity": 319.94444274902344,
+                "PopLift": 1.354720469842412,
+                "CatalogCoverage@K": 0.004470272686633884
+              }
+            }
+          },
+          "by_activity": {
+            "Sparse_1_to_10": {
+              "users": 52,
+              "metrics": {
+                "Recall@K": 0.054257067718606174,
+                "Precision@K": 0.009615384615384616,
+                "NDCG@K": 0.028913176288018722,
+                "HitRate@K": 0.15384615384615385,
+                "PopularityJSD": 0.48436521409798766,
+                "AverageRecommendedPopularity": 418.17306753305286,
+                "PopLift": 27.564067833677242,
+                "CatalogCoverage@K": 0.002592758158247653
+              }
+            },
+            "Medium_11_to_50": {
+              "users": 136,
+              "metrics": {
+                "Recall@K": 0.04916436609182305,
+                "Precision@K": 0.006985294117647059,
+                "NDCG@K": 0.024461635265879366,
+                "HitRate@K": 0.11764705882352941,
+                "PopularityJSD": 0.44663894180055685,
+                "AverageRecommendedPopularity": 403.3676408879897,
+                "PopLift": 19.168229480514515,
+                "CatalogCoverage@K": 0.0038444345105051406
+              }
+            },
+            "Active_over_50": {
+              "users": 84,
+              "metrics": {
+                "Recall@K": 0.03834776334776334,
+                "Precision@K": 0.004166666666666667,
+                "NDCG@K": 0.023070146939393306,
+                "HitRate@K": 0.08333333333333333,
+                "PopularityJSD": 0.40934231193280285,
+                "AverageRecommendedPopularity": 355.0386870247977,
+                "PopLift": 13.023913121002614,
+                "CatalogCoverage@K": 0.005453732677693339
+              }
+            }
+          }
+        },
+        "CP_H": {
+          "All": {
+            "users": 272,
+            "metrics": {
+              "Recall@K": 0.04679754937892492,
+              "Precision@K": 0.0066176470588235285,
+              "NDCG@K": 0.024838951237865853,
+              "HitRate@K": 0.11397058823529412,
+              "PopularityJSD": 0.43686691404528116,
+              "AverageRecommendedPopularity": 390.64797221913057,
+              "PopLift": 18.867311537443644,
+              "CatalogCoverage@K": 0.005632543585158694
+            }
+          },
+          "by_popularity": {
+            "LowPop": {
+              "users": 132,
+              "metrics": {
+                "Recall@K": 0.009119237244237244,
+                "Precision@K": 0.0030303030303030303,
+                "NDCG@K": 0.008354865670477298,
+                "HitRate@K": 0.06060606060606061,
+                "PopularityJSD": 0.565843886014262,
+                "AverageRecommendedPopularity": 413.3727192734227,
+                "PopLift": 29.8875710979563,
+                "CatalogCoverage@K": 0.0031291908806437194
+              }
+            },
+            "MedPop": {
+              "users": 122,
+              "metrics": {
+                "Recall@K": 0.06578027962973985,
+                "Precision@K": 0.009836065573770493,
+                "NDCG@K": 0.03751752424885643,
+                "HitRate@K": 0.1557377049180328,
+                "PopularityJSD": 0.34786892677092407,
+                "AverageRecommendedPopularity": 377.7934382704438,
+                "PopLift": 9.53744695193087,
+                "CatalogCoverage@K": 0.005364327223960662
+              }
+            },
+            "HighPop": {
+              "users": 18,
+              "metrics": {
+                "Recall@K": 0.19444444444444445,
+                "Precision@K": 0.011111111111111112,
+                "NDCG@K": 0.0597896949908902,
+                "HitRate@K": 0.2222222222222222,
+                "PopularityJSD": 0.09424436668784113,
+                "AverageRecommendedPopularity": 311.125001695421,
+                "PopLift": 1.2878236177151492,
+                "CatalogCoverage@K": 0.004559678140366562
+              }
+            }
+          },
+          "by_activity": {
+            "Sparse_1_to_10": {
+              "users": 52,
+              "metrics": {
+                "Recall@K": 0.054257067718606174,
+                "Precision@K": 0.009615384615384616,
+                "NDCG@K": 0.028913176288018722,
+                "HitRate@K": 0.15384615384615385,
+                "PopularityJSD": 0.4767839822059845,
+                "AverageRecommendedPopularity": 417.25479830228363,
+                "PopLift": 27.53742930989806,
+                "CatalogCoverage@K": 0.0027715690657130086
+              }
+            },
+            "Medium_11_to_50": {
+              "users": 136,
+              "metrics": {
+                "Recall@K": 0.04916436609182305,
+                "Precision@K": 0.006985294117647059,
+                "NDCG@K": 0.024373656079511034,
+                "HitRate@K": 0.11764705882352941,
+                "PopularityJSD": 0.44154074649308467,
+                "AverageRecommendedPopularity": 402.7555089838365,
+                "PopLift": 19.163815289373158,
+                "CatalogCoverage@K": 0.004023245417970496
+              }
+            },
+            "Active_over_50": {
+              "users": 84,
+              "metrics": {
+                "Recall@K": 0.03834776334776334,
+                "Precision@K": 0.004166666666666667,
+                "NDCG@K": 0.023070146939393306,
+                "HitRate@K": 0.08333333333333333,
+                "PopularityJSD": 0.4045891907445923,
+                "AverageRecommendedPopularity": 354.574401310512,
+                "PopLift": 13.020042079943122,
+                "CatalogCoverage@K": 0.005543138131426017
+              }
+            }
+          }
+        },
+        "CP_Im": {
+          "All": {
+            "users": 272,
+            "metrics": {
+              "Recall@K": 0.03591543210894,
+              "Precision@K": 0.004963235294117648,
+              "NDCG@K": 0.016473920886139175,
+              "HitRate@K": 0.08455882352941177,
+              "PopularityJSD": 0.00047507187894590074,
+              "AverageRecommendedPopularity": 194.91360239071005,
+              "PopLift": 6.81230253249315,
+              "CatalogCoverage@K": 0.0069736253911488605
+            }
+          },
+          "by_popularity": {
+            "LowPop": {
+              "users": 132,
+              "metrics": {
+                "Recall@K": 0.005513468013468013,
+                "Precision@K": 0.0015151515151515152,
+                "NDCG@K": 0.003823677349188032,
+                "HitRate@K": 0.030303030303030304,
+                "PopularityJSD": 0.0004546185782817855,
+                "AverageRecommendedPopularity": 154.97765161774376,
+                "PopLift": 9.119563588817398,
+                "CatalogCoverage@K": 0.004112650871703174
+              }
+            },
+            "MedPop": {
+              "users": 122,
+              "metrics": {
+                "Recall@K": 0.04541983406437625,
+                "Precision@K": 0.007786885245901639,
+                "NDCG@K": 0.024465357042584304,
+                "HitRate@K": 0.12295081967213115,
+                "PopularityJSD": 0.0004533045905590459,
+                "AverageRecommendedPopularity": 228.73934329924037,
+                "PopLift": 5.19254594129789,
+                "CatalogCoverage@K": 0.005721949038891372
+              }
+            },
+            "HighPop": {
+              "users": 18,
+              "metrics": {
+                "Recall@K": 0.19444444444444445,
+                "Precision@K": 0.011111111111111112,
+                "NDCG@K": 0.05507819509676393,
+                "HitRate@K": 0.2222222222222222,
+                "PopularityJSD": 0.0007725965939936511,
+                "AverageRecommendedPopularity": 258.5138863457574,
+                "PopLift": 0.8707383486609614,
+                "CatalogCoverage@K": 0.00464908359409924
+              }
+            }
+          },
+          "by_activity": {
+            "Sparse_1_to_10": {
+              "users": 52,
+              "metrics": {
+                "Recall@K": 0.04583333333333333,
+                "Precision@K": 0.006730769230769231,
+                "NDCG@K": 0.0189430999767044,
+                "HitRate@K": 0.09615384615384616,
+                "PopularityJSD": 0.00031008004442755697,
+                "AverageRecommendedPopularity": 193.7644223983471,
+                "PopLift": 8.130477262820403,
+                "CatalogCoverage@K": 0.0049172999552972736
+              }
+            },
+            "Medium_11_to_50": {
+              "users": 136,
+              "metrics": {
+                "Recall@K": 0.037973912346222244,
+                "Precision@K": 0.0051470588235294126,
+                "NDCG@K": 0.015309668342920017,
+                "HitRate@K": 0.08823529411764706,
+                "PopularityJSD": 0.0005317946558465868,
+                "AverageRecommendedPopularity": 199.4007344526403,
+                "PopLift": 7.103599667239216,
+                "CatalogCoverage@K": 0.005453732677693339
+              }
+            },
+            "Active_over_50": {
+              "users": 84,
+              "metrics": {
+                "Recall@K": 0.026443001443001442,
+                "Precision@K": 0.0035714285714285713,
+                "NDCG@K": 0.016830361757191728,
+                "HitRate@K": 0.07142857142857142,
+                "PopularityJSD": 0.0004853728043799552,
+                "AverageRecommendedPopularity": 188.36011904761904,
+                "PopLift": 5.524665671749311,
+                "CatalogCoverage@K": 0.00581135449262405
+              }
+            }
+          }
+        }
+      },
+      "paired_comparison": {
+        "CP_H": {
+          "Recall@K": {
+            "absolute_delta": 0.0,
+            "relative_change_percent": 0.0,
+            "paired_bootstrap_95_percent_interval": [
+              0.0,
+              0.0
+            ],
+            "users_with_increase": 0,
+            "users_with_decrease": 0
+          },
+          "Precision@K": {
+            "absolute_delta": 0.0,
+            "relative_change_percent": 0.0,
+            "paired_bootstrap_95_percent_interval": [
+              0.0,
+              0.0
+            ],
+            "users_with_increase": 0,
+            "users_with_decrease": 0
+          },
+          "NDCG@K": {
+            "absolute_delta": -4.398959318416661e-05,
+            "relative_change_percent": -0.17678615033024744,
+            "paired_bootstrap_95_percent_interval": [
+              -0.00013196877955249983,
+              0.0
+            ],
+            "users_with_increase": 0,
+            "users_with_decrease": 1
+          },
+          "HitRate@K": {
+            "absolute_delta": 0.0,
+            "relative_change_percent": 0.0,
+            "paired_bootstrap_95_percent_interval": [
+              0.0,
+              0.0
+            ],
+            "users_with_increase": 0,
+            "users_with_decrease": 0
+          },
+          "PopularityJSD": {
+            "absolute_delta": -0.0054663264706252025,
+            "relative_change_percent": -1.2357937342103578,
+            "paired_bootstrap_95_percent_interval": [
+              -0.008056414394800331,
+              -0.0032110091330217654
+            ],
+            "users_with_increase": 0,
+            "users_with_decrease": 17
+          },
+          "PopLift": {
+            "absolute_delta": -0.008495223090956131,
+            "relative_change_percent": -0.04500588080143881,
+            "paired_bootstrap_95_percent_interval": [
+              -0.01927179144411442,
+              -0.0027176812818187762
+            ],
+            "users_with_increase": 0,
+            "users_with_decrease": 17
+          }
+        },
+        "CP_Im": {
+          "Recall@K": {
+            "absolute_delta": -0.010882117269984917,
+            "relative_change_percent": -23.25360497378017,
+            "paired_bootstrap_95_percent_interval": [
+              -0.023169424019607844,
+              -0.002079601872800402
+            ],
+            "users_with_increase": 2,
+            "users_with_decrease": 11
+          },
+          "Precision@K": {
+            "absolute_delta": -0.0016544117647058823,
+            "relative_change_percent": -25.000000000000004,
+            "paired_bootstrap_95_percent_interval": [
+              -0.0029411764705882353,
+              -0.0005514705882352942
+            ],
+            "users_with_increase": 2,
+            "users_with_decrease": 11
+          },
+          "NDCG@K": {
+            "absolute_delta": -0.008409019944910844,
+            "relative_change_percent": -33.79431716695521,
+            "paired_bootstrap_95_percent_interval": [
+              -0.012999991678659997,
+              -0.0048047659605610395
+            ],
+            "users_with_increase": 2,
+            "users_with_decrease": 27
+          },
+          "HitRate@K": {
+            "absolute_delta": -0.029411764705882353,
+            "relative_change_percent": -25.806451612903224,
+            "paired_bootstrap_95_percent_interval": [
+              -0.05514705882352941,
+              -0.007352941176470588
+            ],
+            "users_with_increase": 2,
+            "users_with_decrease": 10
+          },
+          "PopularityJSD": {
+            "absolute_delta": -0.4418581686369604,
+            "relative_change_percent": -99.89259864838739,
+            "paired_bootstrap_95_percent_interval": [
+              -0.4606009690595704,
+              -0.42046853257560146
+            ],
+            "users_with_increase": 0,
+            "users_with_decrease": 271
+          },
+          "PopLift": {
+            "absolute_delta": -12.06350422804145,
+            "relative_change_percent": -63.909873527968806,
+            "paired_bootstrap_95_percent_interval": [
+              -13.860924588442131,
+              -10.355714185108676
+            ],
+            "users_with_increase": 0,
+            "users_with_decrease": 271
+          }
+        }
+      }
+    }
+  },
+  "runtime_seconds": 14.047680791991297
+}

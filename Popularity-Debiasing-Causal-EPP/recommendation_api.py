@@ -32,6 +32,8 @@ class RecommendationService:
             raise ValueError('Calibration training-data fingerprint is missing or different.')
         self.report=report
         ck=torch.load(checkpoint,map_location='cpu',weights_only=True);c=ck['config']
+        if c.get('use_llm_matching') or c.get('matching_backend') == 'llm':
+            raise ValueError('This API supports LightGCN checkpoints only; LLM matching requires its own serving backend.')
         nu,ni=ck['num_users'],ck['num_items']
         # Serving needs training features, not validation/test labels.
         tr=pd.read_csv(Path(data_dir)/'train_data.csv',sep='\t')
