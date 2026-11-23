@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { ArrowRight, RefreshCw } from "lucide-react";
+import { RefreshCw } from "lucide-react";
 import { bidApi, tenderApi, downloadBidPdf } from "../api/services";
 import { BACKEND_CONTRACT, DEMO_MODE } from "../data/constants";
 import { useAuth } from "../context/AuthContext";
@@ -265,7 +265,11 @@ export default function BidderPage({
             onPageChange={setPage}
             loading={loading}
           />
-          <div ref={tenderDetailsRef} id="tender-details" className="scroll-mt-6">
+          <div
+            ref={tenderDetailsRef}
+            id="tender-details"
+            className="scroll-mt-6"
+          >
             {lastSubmitted &&
               selected &&
               String(lastSubmitted.tenderId) === String(selected.id) && (
@@ -398,11 +402,13 @@ export function MyBidsPage() {
             <tbody>
               {bids.map((bid) => {
                 const tenderVoided = bid.tenderStatus === "VOIDED";
-                const canEdit = !tenderVoided && (teamMode
-                  ? ["DRAFT", "SUBMITTED"].includes(bid.status)
-                  : bid.status === "SUBMITTED" &&
-                    (!bid.tenderDeadline ||
-                      Date.parse(bid.tenderDeadline) > Date.now()));
+                const canEdit =
+                  !tenderVoided &&
+                  (teamMode
+                    ? ["DRAFT", "SUBMITTED"].includes(bid.status)
+                    : bid.status === "SUBMITTED" &&
+                      (!bid.tenderDeadline ||
+                        Date.parse(bid.tenderDeadline) > Date.now()));
                 return (
                   <tr key={bid.id}>
                     <td className="font-semibold text-ink dark:text-slate-100">
@@ -464,7 +470,6 @@ export function MyBidsPage() {
               You have no saved bids.{" "}
               <Link className="tb-link" to="/bidder/tenders">
                 Browse published tenders{" "}
-                <ArrowRight size={14} className="inline" />
               </Link>
             </p>
           )}

@@ -1,6 +1,6 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { DEMO_MODE } from "../../../data/constants";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
-  ArrowRight,
   BadgeCheck,
   Banknote,
   Building2,
@@ -55,7 +55,14 @@ const accountType = (role) =>
 
 export default function OperationsWorkspacePage() {
   const { session, user, logout } = useAuth();
-  const [tab, setTab] = useState("overview");
+  const [tab, setTab] = useState(() => {
+    const value = DEMO_MODE
+      ? new URLSearchParams(window.location.search).get("tab")
+      : "";
+    return ["users", "tenders", "flagged", "completed"].includes(value)
+      ? value
+      : "overview";
+  });
   const [users, setUsers] = useState([]);
   const [tenders, setTenders] = useState([]);
   const [reports, setReports] = useState([]);
@@ -68,6 +75,25 @@ export default function OperationsWorkspacePage() {
   const [modal, setModal] = useState(null);
   const [busyId, setBusyId] = useState("");
   const [documentPreview, setDocumentPreview] = useState(null);
+  const previewOpened = useRef(false);
+  useEffect(() => {
+    if (!DEMO_MODE || previewOpened.current) return;
+    const kind = new URLSearchParams(window.location.search).get("review");
+    if (["approve", "rejectTender"].includes(kind) && tenders.length) {
+      previewOpened.current = true;
+      setModal({ type: kind, tender: tenders[0] });
+    } else if (["resolve", "award"].includes(kind) && reports.length) {
+      const report = reports.find((r) =>
+        kind === "resolve"
+          ? r.status === "UNDER_REVIEW"
+          : r.reportId === "RPT-UI-AWARD",
+      );
+      if (report) {
+        previewOpened.current = true;
+        setModal({ type: kind, report });
+      }
+    }
+  }, [tenders, reports]);
   const role = session?.user?.role;
   const isAdmin = role === "ADMIN";
   const filteredUsers = useMemo(
@@ -116,7 +142,8 @@ export default function OperationsWorkspacePage() {
             auditorApi.flaggedTenders(session.token),
             auditorApi.completedTenders(session.token),
           ]);
-        const list = reportsResult.status === "fulfilled" ? reportsResult.value : [];
+        const list =
+          reportsResult.status === "fulfilled" ? reportsResult.value : [];
         setReports(list);
         const fallback = [
           ...new Map(
@@ -250,7 +277,7 @@ export default function OperationsWorkspacePage() {
                 <h1>
                   {tab === "overview"
                     ? isAdmin
-                      ? "Good morning"
+                      ? "Welcome back"
                       : "Audit overview"
                     : tab === "users"
                       ? "Account reviews"
@@ -267,7 +294,7 @@ export default function OperationsWorkspacePage() {
                   {isAdmin
                     ? "Review registrations and route submitted tenders to the right experts."
                     : tab === "completed"
-                      ? "Review awarded tenders and their submitted bids."
+                      ? "Review completed tender outcomes and their submitted bids."
                       : "Review flagged procurement records and document your findings."}
                 </p>
               </div>
@@ -364,7 +391,7 @@ export default function OperationsWorkspacePage() {
                       className="text-button"
                       onClick={() => setTab(isAdmin ? "tenders" : "flagged")}
                     >
-                      View all <ArrowRight size={15} />
+                      View all
                     </button>
                   </div>
                   {isAdmin ? (
@@ -385,9 +412,7 @@ export default function OperationsWorkspacePage() {
                           <button
                             className="row-arrow"
                             onClick={() => setTab("tenders")}
-                          >
-                            <ArrowRight size={17} />
-                          </button>
+                          ></button>
                         </div>
                       ))}
                       {!tenders.length && (
@@ -428,9 +453,7 @@ export default function OperationsWorkspacePage() {
                             <button
                               className="row-arrow"
                               onClick={() => setTab("flagged")}
-                            >
-                              <ArrowRight size={17} />
-                            </button>
+                            ></button>
                           </div>
                         ))}
                       {!reports.length && (

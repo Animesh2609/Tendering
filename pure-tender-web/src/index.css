@@ -6,7 +6,7 @@
   --color-brand: #5b4bda;
   --color-brand-dark: #4334b8;
   --color-cloud: #f5f6fc;
-  --font-sans: "Inter", "Segoe UI", Arial, sans-serif;
+  --font-sans: "Geist Sans", "Segoe UI", Arial, sans-serif;
 }
 
 :root { font-family: var(--font-sans); color: #20243f; background: #f5f6fc; }

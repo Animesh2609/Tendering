@@ -1,9 +1,7 @@
 import { Link } from "react-router-dom";
-import { CheckCircle2, ShieldCheck } from "lucide-react";
+import { ShieldCheck, Layers3, FileCheck2 } from "lucide-react";
 import PublicHeader from "./PublicHeader";
 import DemoNotice from "./DemoNotice";
-import { DEMO_MODE } from "../data/constants";
-
 export default function AuthLayout({
   title,
   subtitle,
@@ -13,32 +11,27 @@ export default function AuthLayout({
   return (
     <>
       <PublicHeader />
-      <main className="flex min-h-[calc(100vh-74px)] items-center bg-[#f3f7fc] py-8 dark:bg-slate-950 sm:py-10">
-        <div
-          className={`tb-container ${narrow ? "max-w-[460px]" : "max-w-[990px]"}`}
-        >
-          <div className="mb-7 text-center">
-            <h1 className="text-2xl font-extrabold text-ink dark:text-slate-100 sm:text-3xl">
-              {title}
-            </h1>
-            <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
-              {subtitle}
-            </p>
+      <main className={`studio-auth ${narrow ? "studio-auth-narrow" : ""}`}>
+        <div className="studio-auth-intro">
+          <span className="studio-eyebrow-pill">
+            <Layers3 size={15} /> YOUR PLACE IN THE PROCESS
+          </span>
+          <h1>{title}</h1>
+          <p>{subtitle}</p>
+          <div className="studio-auth-assurance">
+            <span>
+              <ShieldCheck size={17} /> A workspace for your role
+            </span>
+            <span>
+              <FileCheck2 size={17} /> Every submission in one place
+            </span>
           </div>
-          <div className="tb-card p-5 sm:p-8">{children}</div>
-          {DEMO_MODE && (
-            <div className="mt-5">
-              <DemoNotice compact />
-            </div>
-          )}
-          <div className="mt-5 flex flex-wrap justify-center gap-x-6 gap-y-2 text-xs text-slate-500 dark:text-slate-400">
-            <span className="flex items-center gap-1">
-              <ShieldCheck size={15} /> Role-based access
-            </span>
-            <span className="flex items-center gap-1">
-              <CheckCircle2 size={15} /> Clear tender workflows
-            </span>
-            <Link to="/" className="tb-link">
+        </div>
+        <div className="studio-auth-form">
+          <div className="tb-card p-6 sm:p-8">{children}</div>
+          <div className="studio-auth-footer">
+            <DemoNotice compact />
+            <Link className="tb-link" to="/">
               Back to home
             </Link>
           </div>

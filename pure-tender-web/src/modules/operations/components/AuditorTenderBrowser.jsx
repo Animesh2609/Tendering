@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { DEMO_MODE } from "../../../data/constants";
+import { useEffect, useRef, useState } from "react";
 import {
   ArrowLeft,
   Download,
@@ -79,6 +80,18 @@ export default function AuditorTenderBrowser({
     // Refresh the selected audit after report actions update the parent list.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [reports]);
+  const previewOpened = useRef(false);
+  useEffect(() => {
+    if (!DEMO_MODE || previewOpened.current) return;
+    const id = new URLSearchParams(window.location.search).get("tender");
+    const tender = rows.find((t) => (t.tenderId || t.id) === id);
+    if (tender) {
+      previewOpened.current = true;
+      void openTender(tender);
+    }
+    // Preview entry only; existing audit refresh behavior remains unchanged.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [rows]);
   async function openProposal(bid) {
     setError("");
     try {
@@ -170,41 +183,46 @@ export default function AuditorTenderBrowser({
                   <b>{detail.unavailable ? "—" : detail.bids?.length || 0}</b>
                 </span>
               </div>
-              {mode === "completed" && String(status).toUpperCase() === "AWARDED" && (
-                <section className="completed-award">
-                  <div className="completed-award-icon">
-                    <Trophy size={20} />
-                  </div>
-                  <div className="completed-award-copy">
-                    <small>AWARD RESULT</small>
-                    <h3>
-                      {winningBid?.bidderName ||
-                        "Winning bid details unavailable"}
-                    </h3>
-                    <p>
-                      {winningBid
-                        ? `Winning bid ${new Intl.NumberFormat("en-IN", { style: "currency", currency: "INR", maximumFractionDigits: 2 }).format(Number(winningBid.quotedAmount))} · Bid reference ${winningBid.bidId}`
-                        : "The tender is marked awarded, but no selected bid was returned."}
-                    </p>
-                  </div>
-                  <span className={`status ${outcomeClass(status)}`}>
-                    {titleCase(status)}
-                  </span>
-                </section>
-              )}
-              {mode === "completed" && String(status).toUpperCase() !== "AWARDED" && (
-                <section className="completed-award">
-                  <div className="completed-award-icon">
-                    <FileText size={20} />
-                  </div>
-                  <div className="completed-award-copy">
-                    <small>TENDER OUTCOME</small>
-                    <h3>{titleCase(status)}</h3>
-                    <p>This tender is retained in history with its submitted bids and audit details.</p>
-                  </div>
-                  <span className="status approved">{titleCase(status)}</span>
-                </section>
-              )}
+              {mode === "completed" &&
+                String(status).toUpperCase() === "AWARDED" && (
+                  <section className="completed-award">
+                    <div className="completed-award-icon">
+                      <Trophy size={20} />
+                    </div>
+                    <div className="completed-award-copy">
+                      <small>AWARD RESULT</small>
+                      <h3>
+                        {winningBid?.bidderName ||
+                          "Winning bid details unavailable"}
+                      </h3>
+                      <p>
+                        {winningBid
+                          ? `Winning bid ${new Intl.NumberFormat("en-IN", { style: "currency", currency: "INR", maximumFractionDigits: 2 }).format(Number(winningBid.quotedAmount))} · Bid reference ${winningBid.bidId}`
+                          : "The tender is marked awarded, but no selected bid was returned."}
+                      </p>
+                    </div>
+                    <span className={`status ${outcomeClass(status)}`}>
+                      {titleCase(status)}
+                    </span>
+                  </section>
+                )}
+              {mode === "completed" &&
+                String(status).toUpperCase() !== "AWARDED" && (
+                  <section className="completed-award">
+                    <div className="completed-award-icon">
+                      <FileText size={20} />
+                    </div>
+                    <div className="completed-award-copy">
+                      <small>TENDER OUTCOME</small>
+                      <h3>{titleCase(status)}</h3>
+                      <p>
+                        This tender is retained in history with its submitted
+                        bids and audit details.
+                      </p>
+                    </div>
+                    <span className="status approved">{titleCase(status)}</span>
+                  </section>
+                )}
               {tenderReports.length > 0 && (
                 <div className="audit-reports">
                   <h3>Integrity reports</h3>

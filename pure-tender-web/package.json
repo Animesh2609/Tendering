@@ -11,7 +11,7 @@
     "dev:live": "vite --mode live",
     "build:live": "vite build --mode live && node scripts/create-spa-fallback.mjs",
     "dev:demo": "vite --mode demo",
-    "build:demo": "vite build --mode demo && node scripts/create-spa-fallback.mjs",
+    "build:demo": "vite build --mode demo && node scripts/create-spa-fallback.mjs && node scripts/create-demo-preview-pages.mjs",
     "test": "playwright test",
     "test:contracts": "node scripts/check-backend-contract.mjs",
     "styles:scope": "node scripts/scope-module-styles.mjs"
@@ -20,7 +20,9 @@
     "lucide-react": "^0.468.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
-    "react-router-dom": "^7.9.0"
+    "react-router-dom": "^7.9.0",
+    "@fontsource/geist-sans": "5.1.0",
+    "@fontsource/geist-mono": "5.1.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.0",
